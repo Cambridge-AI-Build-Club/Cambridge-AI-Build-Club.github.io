@@ -14,7 +14,7 @@ The owner approved removal of the decorative monospaced captions and section/pag
 
 ## Screenshots
 
-The original removal screenshots and structured checks are in [the evidence folder](remove-labels-2026-10-10/). The updated Home/playground screenshots are in the collaboration revision below.
+The original removal screenshots and structured checks are in [the evidence folder](remove-labels-2026-10-10/). The latest Home/playground screenshots are in the collaboration copy revision below; the earlier attribution screenshots remain as historical evidence.
 
 | Surface | Desktop, Warm Paper | Mobile, Warm Paper | Desktop, Charcoal | Mobile, Charcoal |
 | --- | --- | --- | --- | --- |
@@ -35,6 +35,26 @@ The owner requested retaining In collaboration with Claude. A shared Home/playgr
 | --- | --- | --- | --- | --- |
 | Home | [Image](remove-labels-2026-10-10/collaboration/home-1440-paper.jpg) | [Image](remove-labels-2026-10-10/collaboration/home-375-paper.jpg) | [Image](remove-labels-2026-10-10/collaboration/home-1440-charcoal.jpg) | [Image](remove-labels-2026-10-10/collaboration/home-375-charcoal.jpg) |
 | Playground | [Image](remove-labels-2026-10-10/collaboration/playground-1440-paper.jpg) | [Image](remove-labels-2026-10-10/collaboration/playground-375-paper.jpg) | [Image](remove-labels-2026-10-10/collaboration/playground-1440-charcoal.jpg) | [Image](remove-labels-2026-10-10/collaboration/playground-375-charcoal.jpg) |
+
+## Collaboration copy revision
+
+The owner requested a more appealing explanation of the collaboration. The sentence now stored once in `index.md` front matter is:
+
+> Through the Claude Builder Club programme, we help Cambridge students turn ideas into working projects, learn from one another and connect with builders around the world.
+
+It draws on the root About introduction, the [club launch article](../../_blogs/claude-builder-program.md) and the [official campus programme](https://claude.com/programs/campus), checked on 10 October 2026. The programme describes student-led learning activities and worldwide student connections. The copy adds no promises about credits, guest speakers or ambassador benefits.
+
+The existing attribution/logo row remains, with one centered regular-font paragraph underneath. Production and playground receive the same loaded root content. No additional heading, CTA, visual asset or motion is introduced.
+
+- Design guard and static build passed (25 routes, 21 legacy redirects); `git diff --check` passed.
+- Sixteen focused Home/playground checks at 1440px, 903px, 375px and 320px in both themes passed. Exact source copy, 14px body typography, a maximum 700px reading width, natural wrapping, retained single-row attribution, image loading, link destination and visible keyboard focus were verified. No document overflow; decorative captions remain absent.
+- Eight fresh desktop/mobile screenshots were inspected. Browser errors and console messages are empty. A full accessibility audit and external signup submission were not repeated for this copy/layout revision.
+- [Structured checks](remove-labels-2026-10-10/collaboration-copy/checks.json), [browser errors](remove-labels-2026-10-10/collaboration-copy/errors.json) and [console log](remove-labels-2026-10-10/collaboration-copy/console.json).
+
+| Surface | Desktop, Warm Paper | Mobile, Warm Paper | Desktop, Charcoal | Mobile, Charcoal |
+| --- | --- | --- | --- | --- |
+| Home | [Image](remove-labels-2026-10-10/collaboration-copy/home-1440-paper.jpg) | [Image](remove-labels-2026-10-10/collaboration-copy/home-375-paper.jpg) | [Image](remove-labels-2026-10-10/collaboration-copy/home-1440-charcoal.jpg) | [Image](remove-labels-2026-10-10/collaboration-copy/home-375-charcoal.jpg) |
+| Playground | [Image](remove-labels-2026-10-10/collaboration-copy/playground-1440-paper.jpg) | [Image](remove-labels-2026-10-10/collaboration-copy/playground-375-paper.jpg) | [Image](remove-labels-2026-10-10/collaboration-copy/playground-1440-charcoal.jpg) | [Image](remove-labels-2026-10-10/collaboration-copy/playground-375-charcoal.jpg) |
 
 ## Review boundary
 

@@ -8,6 +8,7 @@ export function loadHomeCopy() {
   return {
     headline: page.headline as string[],
     intro: markdownifyStrip(page.body).trim(),
+    collaboration_copy: String(page.collaboration_copy),
     welcome_title: String(page.welcome_title),
     welcome_copy: String(page.welcome_copy),
     join_title: String(page.join_title),

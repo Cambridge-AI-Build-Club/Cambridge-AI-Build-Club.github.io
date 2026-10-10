@@ -22,7 +22,7 @@ export default function HomePage() {
         </div>
         <div className="lab-hero-visual"><img src={url(String(page.intro_image))} alt="" width={1080} height={1080} fetchPriority="high" /></div>
       </section>
-      <ClaudeCollaboration logo={url('/images/brand/claude-official.svg')} />
+      <ClaudeCollaboration logo={url('/images/brand/claude-official.svg')} copy={copy.collaboration_copy} />
       <section className="lab-section" aria-labelledby="activities-heading"><div className="lab-section-head"><div><h2 id="activities-heading">Find your starting point<span className="accent">.</span></h2></div><a className="lab-text-link" href={url('/events/')}>Explore the club <Arrow /></a></div><ActivityGrid activities={loadActivities()} /></section>
       <Welcome />
       <Recruitment />
