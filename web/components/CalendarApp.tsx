@@ -81,7 +81,7 @@ export function CalendarApp({ events }: { events: CalendarEvent[] }) {
             })}
           </div>
         </div>
-        <p className="site-calendar-hint"><span className="site-calendar-scroll-hint">Scroll across to see every day. </span>Select an event for details.</p>
+        <p className="site-calendar-scroll-hint">Scroll across to see every day.</p>
       </div>
       <div className="site-calendar-sidebar">
         {selected && <section className="site-event-detail" aria-label="Selected event" aria-live="polite" aria-atomic="true">

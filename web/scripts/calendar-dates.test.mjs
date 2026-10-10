@@ -52,8 +52,36 @@ test('each event on the same day remains individually selectable', () => {
 
 test('navigation discards selections outside the visible month', () => {
   const october = eventsForMonth(events, '2026-10')
-  assert.equal(selectedEvent(october, 'next-month', '2026-10-10').id, 'early')
+  assert.equal(selectedEvent(october, 'next-month', '2026-10-10').id, 'later')
   assert.equal(selectedEvent(october, undefined, '2026-10-07').id, 'later')
+})
+
+
+test('default chooses the nearest future event rather than the first or last event', () => {
+  const month = eventsForMonth([
+    { id: 'past', date: '2026-10-01', time: '10:00', status: 'completed' },
+    { id: 'further', date: '2026-10-20', time: '10:00', status: 'scheduled' },
+    { id: 'nearest', date: '2026-10-12', time: '10:00', status: 'scheduled' },
+  ], '2026-10')
+  assert.equal(selectedEvent(month, undefined, '2026-10-11').id, 'nearest')
+  assert.equal(selectedEvent(month, undefined, '2026-10-12').id, 'nearest')
+  assert.equal(selectedEvent(month, 'past', '2026-10-11').id, 'past')
+})
+
+test('without upcoming events choose the closest past event, preferring non-cancelled records', () => {
+  const month = eventsForMonth(events, '2026-10')
+  assert.equal(selectedEvent(month, undefined, '2026-10-11').id, 'later')
+  assert.equal(selectedEvent(month, undefined, '2026-10-06').id, 'early')
+  assert.equal(selectedEvent(month, undefined, '2026-10-08').id, 'later')
+})
+
+test('months with only cancelled records retain a sensible dated selection', () => {
+  const month = eventsForMonth([
+    { id: 'earlier', date: '2026-10-02', time: '10:00', status: 'cancelled' },
+    { id: 'later', date: '2026-10-05', time: '10:00', status: 'cancelled' },
+  ], '2026-10')
+  assert.equal(selectedEvent(month, undefined, '2026-10-03').id, 'later')
+  assert.equal(selectedEvent(month, undefined, '2026-10-11').id, 'later')
 })
 
 test('empty event data has no selected detail', () => {

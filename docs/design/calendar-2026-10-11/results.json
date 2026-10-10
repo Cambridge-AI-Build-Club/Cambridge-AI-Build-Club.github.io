@@ -1,0 +1,134 @@
+{
+  "errors": {
+    "errors": [],
+    "lifecycle": {
+      "effectiveLaunch": {
+        "browserLaunched": true,
+        "engine": "chrome",
+        "launchHash": 11677035664275010974
+      },
+      "launched": false,
+      "relaunchedBrowser": false,
+      "restartedBackground": false,
+      "restoreStatus": "not_configured",
+      "reused": true,
+      "saveStatus": "not_attempted"
+    }
+  },
+  "pastDefault": "2026-10-07",
+  "futureDefault": "2026-10-06",
+  "layouts": [
+    {
+      "hintAbsent": true,
+      "images": true,
+      "overflow": false,
+      "scrollHint": "none",
+      "selected": "2026-10-07",
+      "selectedList": "2026-10-07",
+      "theme": "paper",
+      "width": 1440,
+      "emptyMonth": {
+        "days": 30,
+        "details": 0,
+        "empty": "No events scheduled for November 2026. Check another month or come back for updates.",
+        "selected": 0
+      }
+    },
+    {
+      "hintAbsent": true,
+      "images": true,
+      "overflow": false,
+      "scrollHint": "none",
+      "selected": "2026-10-07",
+      "selectedList": "2026-10-07",
+      "theme": "charcoal",
+      "width": 1440,
+      "emptyMonth": {
+        "days": 30,
+        "details": 0,
+        "empty": "No events scheduled for November 2026. Check another month or come back for updates.",
+        "selected": 0
+      }
+    },
+    {
+      "hintAbsent": true,
+      "images": true,
+      "overflow": false,
+      "scrollHint": "none",
+      "selected": "2026-10-07",
+      "selectedList": "2026-10-07",
+      "theme": "paper",
+      "width": 903,
+      "emptyMonth": {
+        "days": 30,
+        "details": 0,
+        "empty": "No events scheduled for November 2026. Check another month or come back for updates.",
+        "selected": 0
+      }
+    },
+    {
+      "hintAbsent": true,
+      "images": true,
+      "overflow": false,
+      "scrollHint": "none",
+      "selected": "2026-10-07",
+      "selectedList": "2026-10-07",
+      "theme": "charcoal",
+      "width": 903,
+      "emptyMonth": {
+        "days": 30,
+        "details": 0,
+        "empty": "No events scheduled for November 2026. Check another month or come back for updates.",
+        "selected": 0
+      }
+    },
+    {
+      "hintAbsent": true,
+      "images": true,
+      "overflow": false,
+      "scrollHint": "block",
+      "selected": "2026-10-07",
+      "selectedList": "2026-10-07",
+      "theme": "paper",
+      "width": 375,
+      "emptyMonth": {
+        "days": 30,
+        "details": 0,
+        "empty": "No events scheduled for November 2026. Check another month or come back for updates.",
+        "selected": 0
+      }
+    },
+    {
+      "hintAbsent": true,
+      "images": true,
+      "overflow": false,
+      "scrollHint": "block",
+      "selected": "2026-10-07",
+      "selectedList": "2026-10-07",
+      "theme": "charcoal",
+      "width": 375,
+      "emptyMonth": {
+        "days": 30,
+        "details": 0,
+        "empty": "No events scheduled for November 2026. Check another month or come back for updates.",
+        "selected": 0
+      }
+    }
+  ],
+  "console": {
+    "lifecycle": {
+      "effectiveLaunch": {
+        "browserLaunched": true,
+        "engine": "chrome",
+        "launchHash": 11677035664275010974
+      },
+      "launched": false,
+      "relaunchedBrowser": false,
+      "restartedBackground": false,
+      "restoreStatus": "not_configured",
+      "reused": true,
+      "saveStatus": "not_attempted"
+    },
+    "messages": []
+  }
+}

@@ -34,3 +34,17 @@ Local preview: http://localhost:4102/calendar/. Publication requires the owner's
 Calendar logic and same-day selection are covered by focused tests. No real event fixture currently has multiple separate sessions on the same date; the component renders one selectable button per record. Browser clock simulation is scoped to the disposable QA browser and does not change the machine clock.
 
 The calendar implementation commit and its verification receipt are separate from the prior homepage/caption work, but its branch starts at PR #24 so the local preview retains those pending changes. Its PR targets main; merge #24 first so the calendar diff stands alone. Neither PR is published until owner approval.
+
+## 11 October default selection and hint revision
+
+The owner requested deletion of Select an event for details and a date-based default in the displayed month: the nearest upcoming event, otherwise the closest past event. Explicit user selection takes priority. Non-cancelled records are preferred automatically, with a dated fallback if every record is cancelled; empty months have no detail or selection. The mobile horizontal scrolling hint remains functional.
+
+Design policy, eleven focused tests, TypeScript and the static export passed (25 routes, 21 redirects). Six browser checks at 1440px, 903px and 375px in both themes verified default 7 October, explicit 6 October, Current month/navigation reset, unselected November with all 30 dates intact, removal of the redundant sentence, narrow-screen hint visibility, loaded images and no overflow. Runtime simulations verified 6 October is selected on 5 October and 7 October on 8 October. Browser errors and console logs are empty. All six fresh screenshots were visually inspected. No new accessibility audit was necessary for the removed prose or unchanged controls; earlier audit limitations remain documented above.
+
+[Revision results](calendar-2026-10-11/results.json).
+
+| Width | Paper | Charcoal |
+| --- | --- | --- |
+| 1440px | [Desktop](calendar-2026-10-11/calendar-1440-paper.png) | [Desktop](calendar-2026-10-11/calendar-1440-charcoal.png) |
+| 903px | [Reported viewport](calendar-2026-10-11/calendar-903-paper.png) | [Reported viewport](calendar-2026-10-11/calendar-903-charcoal.png) |
+| 375px | [Mobile](calendar-2026-10-11/calendar-375-paper.png) | [Mobile](calendar-2026-10-11/calendar-375-charcoal.png) |

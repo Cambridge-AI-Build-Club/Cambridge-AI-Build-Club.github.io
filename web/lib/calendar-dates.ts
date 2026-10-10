@@ -31,7 +31,9 @@ export function eventsForMonth(events: CalendarEvent[], monthKey: string): Calen
 }
 
 export function selectedEvent(events: CalendarEvent[], selectedId: string | undefined, today: string) {
-  return events.find((event) => event.id === selectedId)
-    ?? events.find((event) => event.date >= today && event.status !== 'cancelled')
-    ?? events[0]
+  const explicit = events.find((event) => event.id === selectedId)
+  if (explicit) return explicit
+  const nonCancelled = events.filter((event) => event.status !== 'cancelled')
+  const candidates = nonCancelled.length ? nonCancelled : events
+  return candidates.find((event) => event.date >= today) ?? candidates[candidates.length - 1]
 }
