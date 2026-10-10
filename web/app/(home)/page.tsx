@@ -16,7 +16,7 @@ export default function HomePage() {
     <Shell path="/">
       <section className="lab-hero">
         <div className="lab-hero-copy">
-          <h1>{copy.headline[0]}<br /><span className="accent">{copy.headline[1]}</span></h1>
+          <h1>{copy.headline.join(' ')}</h1>
           <p className="lab-intro">{copy.intro}</p>
           <div className="lab-hero-actions"><a className="lab-button" href={site.signup} target="_blank" rel="noopener noreferrer">Join the club <Arrow /></a><a className="lab-text-link" href={url('/events/')}>See what we do <Arrow /></a></div>
         </div>

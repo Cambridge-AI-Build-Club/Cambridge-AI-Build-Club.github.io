@@ -154,7 +154,7 @@ export function DesignPlayground({ data }: { data: PlaygroundData }) {
           <>
             <section className="lab-hero">
               <div className="lab-hero-copy">
-                <h1 ref={mainHeading} tabIndex={-1}>{data.copy.headline[0]}<br /><span className="accent">{data.copy.headline[1]}</span></h1>
+                <h1 ref={mainHeading} tabIndex={-1}>{data.copy.headline.join(' ')}</h1>
                 <p className="lab-intro">{data.copy.intro}</p>
                 <div className="lab-hero-actions">
                   <a className="lab-button" href={data.signup} target="_blank" rel="noopener noreferrer">Join the club <Arrow /></a>
@@ -172,7 +172,7 @@ export function DesignPlayground({ data }: { data: PlaygroundData }) {
         ) : view === 'explore' ? (
           <>
             <section className="lab-page-intro">
-              <h1 ref={mainHeading} tabIndex={-1}>From “what if”<br />to <span className="accent">“look at this.”</span></h1>
+              <h1 ref={mainHeading} tabIndex={-1}>From “what if” to “look at this.”</h1>
               <p className="lab-intro">Discover the ways our community learns, experiments and shares. Pick a starting point that interests you.</p>
             </section>
             <Activities full />
@@ -181,7 +181,7 @@ export function DesignPlayground({ data }: { data: PlaygroundData }) {
         ) : (
           <>
             <section className="lab-page-intro">
-              <h1 ref={mainHeading} tabIndex={-1}>Good ideas need<br /><span className="accent">good community.</span></h1>
+              <h1 ref={mainHeading} tabIndex={-1}>Good ideas need good community.</h1>
               <p className="lab-intro">A student-led community for exploring AI’s creative and practical possibilities. Bring a question. Meet a collaborator.</p>
               <a className="lab-button" href={data.discord} target="_blank" rel="noopener noreferrer">Join our Discord <Arrow /></a>
             </section>

@@ -23,7 +23,6 @@
 .site-chips > a { min-height: 44px; text-decoration: underline; text-underline-offset: 4px; }
 .site .lab-page-intro h1 { max-width: 1040px; overflow-wrap: break-word; }
 .site .lab-page-intro .lab-intro { max-width: 590px; }
-.site-article-title { display: block; font-size: clamp(40px, 4.5vw, 64px); line-height: 1.12; }
 .site-article-wrap { max-width: 1256px; margin: 0 auto; padding: 40px 36px 90px; }
 .site-back { display: inline-flex; align-items: center; gap: 8px; min-height: 44px; font-size: 13px; margin-bottom: 24px; color: var(--muted) !important; }
 .site-back:hover { text-decoration: underline; }
