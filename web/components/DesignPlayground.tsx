@@ -2,6 +2,7 @@
 
 import { useEffect, useRef, useState } from 'react'
 import { Arrow, Icon } from '@/components/Icon'
+import { ClaudeCollaboration } from '@/components/ClaudeCollaboration'
 
 export interface PlaygroundData {
   copy: {
@@ -164,7 +165,7 @@ export function DesignPlayground({ data }: { data: PlaygroundData }) {
                 <img src={data.hero} alt="" width={1080} height={1080} fetchPriority="high" />
               </div>
             </section>
-            <div className="lab-manifesto" role="group" aria-label="Claude collaboration"><a href="https://claude.com/" target="_blank" rel="noopener noreferrer"><img src={data.claudeLogo} alt="Claude" width={143} height={31} /></a></div>
+            <ClaudeCollaboration logo={data.claudeLogo} />
             <Activities />
             <Welcome />
           </>

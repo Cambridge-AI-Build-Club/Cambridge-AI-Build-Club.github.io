@@ -1,6 +1,7 @@
 import { PageMeta } from '@/components/PageMeta'
 import { Shell } from '@/components/Shell'
 import { ActivityGrid } from '@/components/ActivityGrid'
+import { ClaudeCollaboration } from '@/components/ClaudeCollaboration'
 import { Arrow, JoinSection, Recruitment, Welcome } from '@/components/SiteSections'
 import { firstParagraph, loadCollection, loadPage, markdownifyStrip, url } from '@/lib/content'
 import { formatPublicationDate, loadActivities, loadHomeCopy, loadSiteData } from '@/lib/site'
@@ -21,7 +22,7 @@ export default function HomePage() {
         </div>
         <div className="lab-hero-visual"><img src={url(String(page.intro_image))} alt="" width={1080} height={1080} fetchPriority="high" /></div>
       </section>
-      <div className="lab-manifesto" role="group" aria-label="Claude collaboration"><a href="https://claude.com/" target="_blank" rel="noopener noreferrer"><img src={url('/images/brand/claude-official.svg')} alt="Claude" width={143} height={31} /></a></div>
+      <ClaudeCollaboration logo={url('/images/brand/claude-official.svg')} />
       <section className="lab-section" aria-labelledby="activities-heading"><div className="lab-section-head"><div><h2 id="activities-heading">Find your starting point<span className="accent">.</span></h2></div><a className="lab-text-link" href={url('/events/')}>Explore the club <Arrow /></a></div><ActivityGrid activities={loadActivities()} /></section>
       <Welcome />
       <Recruitment />

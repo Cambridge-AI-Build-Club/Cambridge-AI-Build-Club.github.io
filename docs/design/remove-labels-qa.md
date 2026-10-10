@@ -1,6 +1,6 @@
 # Decorative label removal — 10 October 2026
 
-The owner approved removal of the decorative monospaced captions and section/page labels after reviewing the complete scope. The hero prerequisite sentence, artwork captions, collaboration-strip text, section/page eyebrows, activity/project labels and recruitment/calendar labels are deleted from production and the matching playground. The official Claude logo stays visible. Journal publication dates use regular Arial/Helvetica typography.
+The owner approved removal of the decorative monospaced captions and section/page labels after reviewing the complete scope. The hero prerequisite sentence, artwork captions, collaboration-strip slogan, section/page eyebrows, activity/project labels and recruitment/calendar labels are deleted from production and the matching playground. Following the owner's clarification, the useful In collaboration with attribution stays beside the official Claude logo in a compact row after the hero. Journal publication dates use regular Arial/Helvetica typography.
 
 ## Verification
 
@@ -14,13 +14,27 @@ The owner approved removal of the decorative monospaced captions and section/pag
 
 ## Screenshots
 
-All final screenshots and structured checks are in [the evidence folder](remove-labels-2026-10-10/).
+The original removal screenshots and structured checks are in [the evidence folder](remove-labels-2026-10-10/). The updated Home/playground screenshots are in the collaboration revision below.
 
 | Surface | Desktop, Warm Paper | Mobile, Warm Paper | Desktop, Charcoal | Mobile, Charcoal |
 | --- | --- | --- | --- | --- |
 | Home | [Image](remove-labels-2026-10-10/home-1440-paper.jpg) | [Image](remove-labels-2026-10-10/home-375-paper.jpg) | [Image](remove-labels-2026-10-10/home-1440-charcoal.jpg) | [Image](remove-labels-2026-10-10/home-375-charcoal.jpg) |
 | Explore | [Image](remove-labels-2026-10-10/events-1440-paper.jpg) | [Image](remove-labels-2026-10-10/events-375-paper.jpg) | [Image](remove-labels-2026-10-10/events-1440-charcoal.jpg) | [Image](remove-labels-2026-10-10/events-375-charcoal.jpg) |
 | Journal | [Image](remove-labels-2026-10-10/blogs-1440-paper.jpg) | [Image](remove-labels-2026-10-10/blogs-375-paper.jpg) | [Image](remove-labels-2026-10-10/blogs-1440-charcoal.jpg) | [Image](remove-labels-2026-10-10/blogs-375-charcoal.jpg) |
+
+## Compact collaboration attribution revision
+
+The owner requested retaining In collaboration with Claude. A shared Home/playground component now places the regular-font label beside the existing official logo/link, directly after the hero. The existing warm strip keeps the black wordmark readable in both themes. Reduced padding and gap bring the strip to 70px high; no new decoration or animation was added.
+
+- Design guard and static build passed again (25 routes, 21 legacy redirects).
+- Twelve focused checks covered Home and playground at 1440px, 375px and 320px in both themes. The label and logo remain aligned in a single row; the official image loads, destination and link attributes are correct, the link has a visible keyboard focus outline and a 44px minimum height, and no document overflows.
+- Eight fresh desktop/mobile screenshots were inspected in both themes. Other decorative labels and the prerequisite sentence remain absent. Browser error and console logs are empty. No additional external signup or full accessibility audit was performed for this narrow revision.
+- [Structured checks](remove-labels-2026-10-10/collaboration/checks.json), [browser errors](remove-labels-2026-10-10/collaboration/errors.json) and [console log](remove-labels-2026-10-10/collaboration/console.json).
+
+| Surface | Desktop, Warm Paper | Mobile, Warm Paper | Desktop, Charcoal | Mobile, Charcoal |
+| --- | --- | --- | --- | --- |
+| Home | [Image](remove-labels-2026-10-10/collaboration/home-1440-paper.jpg) | [Image](remove-labels-2026-10-10/collaboration/home-375-paper.jpg) | [Image](remove-labels-2026-10-10/collaboration/home-1440-charcoal.jpg) | [Image](remove-labels-2026-10-10/collaboration/home-375-charcoal.jpg) |
+| Playground | [Image](remove-labels-2026-10-10/collaboration/playground-1440-paper.jpg) | [Image](remove-labels-2026-10-10/collaboration/playground-375-paper.jpg) | [Image](remove-labels-2026-10-10/collaboration/playground-1440-charcoal.jpg) | [Image](remove-labels-2026-10-10/collaboration/playground-375-charcoal.jpg) |
 
 ## Review boundary
 

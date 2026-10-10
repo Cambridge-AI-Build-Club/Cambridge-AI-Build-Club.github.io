@@ -44,7 +44,7 @@
 .lab-hero-actions { display: flex; align-items: center; gap: 27px; margin-top: 31px; }
 .lab-hero-visual { position: relative; height: 450px; background-color: #e8e6dc; background-image: linear-gradient(#14141308 1px, transparent 1px), linear-gradient(90deg, #14141308 1px, transparent 1px); background-size: 24px 24px; border: 1px solid #b0aea5; box-shadow: 10px 10px 0 var(--accent); }
 .lab-hero-visual img { width: 100%; height: 100%; object-fit: contain; padding: 28px 25px; animation: lab-float 9s ease-in-out infinite; }
-.lab-manifesto { border-top: 1px solid #b0aea5; border-bottom: 1px solid #b0aea5; padding: 25px 36px; display: flex; gap: 40px; align-items: center; justify-content: center; font-size: 10px; color: #141413; background: #e8e6dc; }
+.lab-manifesto { border-top: 1px solid #b0aea5; border-bottom: 1px solid #b0aea5; padding: 12px 36px; display: flex; gap: 16px; align-items: center; justify-content: center; font-size: 12px; line-height: 1.5; color: #141413; background: #e8e6dc; }
 .lab-manifesto a { display: inline-flex; align-items: center; min-height: 44px; }
 .lab-manifesto img { display: block; width: 143px; height: 31px; }
 .lab-manifesto :focus-visible { outline-color: #141413; }
@@ -127,7 +127,6 @@
   .lab h1 { font-size: 63px; }
   .lab-hero-visual { height: 380px; }
   .lab-hero-actions { flex-wrap: wrap; gap: 14px; }
-  .lab-manifesto { gap: 25px; font-size: 9px; }
   .lab-welcome { gap: 25px; }
   .lab-welcome { display: grid; grid-template-columns: 80px minmax(0, 1fr); gap: 16px 25px; }
   .lab-welcome > .lab-text-link { grid-column: 2; justify-self: start; margin-left: 0; }
@@ -153,7 +152,7 @@
   .lab-hero-actions .lab-text-link { font-size: 11px !important; gap: 12px; }
   .lab-hero-visual { height: 335px; margin-right: 7px; box-shadow: 7px 7px 0 var(--accent); }
   .lab-hero-visual img { padding: 25px 20px; }
-  .lab-manifesto { padding: 20px; gap: 12px; flex-wrap: wrap; font-size: 9px; text-align: center; }
+  .lab-manifesto { padding: 12px 20px; flex-wrap: wrap; text-align: center; }
   .lab-section { padding: 44px 20px; }
   .lab h2 { font-size: 31px; }
   .lab-section-head { flex-direction: column; align-items: flex-start; gap: 10px; margin-bottom: 22px; }
