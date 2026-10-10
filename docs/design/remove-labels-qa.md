@@ -1,6 +1,6 @@
 # Decorative label removal — 10 October 2026
 
-The owner approved removal of the decorative monospaced captions and section/page labels after reviewing the complete scope. The hero prerequisite sentence, artwork captions, collaboration-strip slogan, section/page eyebrows, activity/project labels and recruitment/calendar labels are deleted from production and the matching playground. Following the owner's final clarification, only In collaboration with and the official Claude logo remain in a compact linked lockup inside the hero, beneath its actions. The full-width band and supporting programme paragraph are removed. Journal publication dates use regular Arial/Helvetica typography.
+The owner approved removal of the decorative monospaced captions and section/page labels after reviewing the complete scope. The hero prerequisite sentence, artwork captions, collaboration-strip slogan, section/page eyebrows, activity/project labels and recruitment/calendar labels are deleted from production and the matching playground. Following the owner's final clarification, only In collaboration with and the official Claude logo remain as a plain linked footer within the hero illustration frame. The headline and illustration are top-aligned on desktop. The full-width band and supporting programme paragraph are removed. Journal publication dates use regular Arial/Helvetica typography.
 
 ## Verification
 
@@ -14,7 +14,7 @@ The owner approved removal of the decorative monospaced captions and section/pag
 
 ## Screenshots
 
-The original removal screenshots and structured checks are in [the evidence folder](remove-labels-2026-10-10/). The latest Home/playground screenshots are in the hero collaboration lockup revision below. Earlier strip and supporting-copy screenshots remain as historical evidence; those layouts have been superseded.
+The original removal screenshots and structured checks are in [the evidence folder](remove-labels-2026-10-10/). The latest Home/playground screenshots are in the coordinated hero revision below. Earlier strip, supporting-copy and boxed-badge screenshots remain as historical evidence; those layouts have been superseded.
 
 | Surface | Desktop, Warm Paper | Mobile, Warm Paper | Desktop, Charcoal | Mobile, Charcoal |
 | --- | --- | --- | --- | --- |
@@ -71,6 +71,23 @@ The full-width band, supporting sentence, root supporting-copy field, loader pro
 | --- | --- | --- | --- | --- |
 | Home | [Image](remove-labels-2026-10-10/hero-collaboration/home-1440-paper.jpg) | [Image](remove-labels-2026-10-10/hero-collaboration/home-375-paper.jpg) | [Image](remove-labels-2026-10-10/hero-collaboration/home-1440-charcoal.jpg) | [Image](remove-labels-2026-10-10/hero-collaboration/home-375-charcoal.jpg) |
 | Playground | [Image](remove-labels-2026-10-10/hero-collaboration/playground-1440-paper.jpg) | [Image](remove-labels-2026-10-10/hero-collaboration/playground-375-paper.jpg) | [Image](remove-labels-2026-10-10/hero-collaboration/playground-1440-charcoal.jpg) | [Image](remove-labels-2026-10-10/hero-collaboration/playground-375-charcoal.jpg) |
+
+## Coordinated hero revision
+
+The final layout places the plain In collaboration with Claude link in a footer of the existing illustration frame. A matching thin rule separates it from the artwork; the existing warm surface keeps the unchanged official logo readable in both themes. The standalone badge is removed from the copy column, and the headline and illustration frame are top-aligned on desktop. The original illustration image area, contain sizing and orange offset remain. Home and playground share this structure and component.
+
+- Design guard and static build passed (25 routes, 21 legacy redirects); `git diff --check` passed.
+- Twenty focused Home/playground checks at 1680px, 1440px, 903px, 375px and 320px in both themes passed. Desktop top alignment, a single footer within the frame after the image, label/logo fit, image loading and preserved image heights (448px/378px/333px inside the former bordered frames) were checked. The official logo remains at natural 573:125 proportions with no inherited illustration padding or animation.
+- Both hero actions remain. The footer has a 52px target, an inset visible focus outline and an underline on label hover without movement. The supporting copy, separate badge and old band remain absent. No document overflow or browser errors/messages.
+- Ten fresh screenshots were inspected: Home and playground at 1440px/375px in both themes, plus wide Home at 1680px in both themes. No full accessibility audit or external signup submission was repeated for this layout revision.
+- [Structured checks](remove-labels-2026-10-10/coordinated-hero/checks.json), [browser errors](remove-labels-2026-10-10/coordinated-hero/errors.json) and [console log](remove-labels-2026-10-10/coordinated-hero/console.json).
+
+| Surface | Desktop, Warm Paper | Mobile, Warm Paper | Desktop, Charcoal | Mobile, Charcoal |
+| --- | --- | --- | --- | --- |
+| Home | [Image](remove-labels-2026-10-10/coordinated-hero/home-1440-paper.jpg) | [Image](remove-labels-2026-10-10/coordinated-hero/home-375-paper.jpg) | [Image](remove-labels-2026-10-10/coordinated-hero/home-1440-charcoal.jpg) | [Image](remove-labels-2026-10-10/coordinated-hero/home-375-charcoal.jpg) |
+| Playground | [Image](remove-labels-2026-10-10/coordinated-hero/playground-1440-paper.jpg) | [Image](remove-labels-2026-10-10/coordinated-hero/playground-375-paper.jpg) | [Image](remove-labels-2026-10-10/coordinated-hero/playground-1440-charcoal.jpg) | [Image](remove-labels-2026-10-10/coordinated-hero/playground-375-charcoal.jpg) |
+
+Wide Home: [Warm Paper](remove-labels-2026-10-10/coordinated-hero/home-1680-paper.jpg), [Charcoal](remove-labels-2026-10-10/coordinated-hero/home-1680-charcoal.jpg).
 
 ## Review boundary
 

@@ -160,10 +160,10 @@ export function DesignPlayground({ data }: { data: PlaygroundData }) {
                   <a className="lab-button" href={data.signup} target="_blank" rel="noopener noreferrer">Join the club <Arrow /></a>
                   <button className="lab-text-link" onClick={() => showView('explore')}>See what we do <Arrow /></button>
                 </div>
-                <ClaudeCollaboration logo={data.claudeLogo} />
               </div>
               <div className="lab-hero-visual">
                 <img src={data.hero} alt="" width={1080} height={1080} fetchPriority="high" />
+                <ClaudeCollaboration logo={data.claudeLogo} />
               </div>
             </section>
             <Activities />
