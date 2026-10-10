@@ -1,0 +1,47 @@
+{
+  "londonBoundary": "2026-10-01",
+  "leap": {
+    "days": 29,
+    "details": 0,
+    "month": "February 2028",
+    "today": "2028-02-29"
+  },
+  "chosenMonthAfterDateChange": "November 2026",
+  "errors": {
+    "errors": [],
+    "lifecycle": {
+      "effectiveLaunch": {
+        "browserLaunched": true,
+        "engine": "chrome",
+        "launchHash": 17927284491964530877
+      },
+      "launched": false,
+      "relaunchedBrowser": false,
+      "restartedBackground": false,
+      "restoreStatus": "not_configured",
+      "reused": true,
+      "saveStatus": "not_attempted"
+    }
+  },
+  "initial": {
+    "details": 0,
+    "month": "January 2027",
+    "today": "2027-01-01"
+  },
+  "console": {
+    "lifecycle": {
+      "effectiveLaunch": {
+        "browserLaunched": true,
+        "engine": "chrome",
+        "launchHash": 17927284491964530877
+      },
+      "launched": false,
+      "relaunchedBrowser": false,
+      "restartedBackground": false,
+      "restoreStatus": "not_configured",
+      "reused": true,
+      "saveStatus": "not_attempted"
+    },
+    "messages": []
+  }
+}

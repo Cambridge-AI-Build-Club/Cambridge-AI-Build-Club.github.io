@@ -124,5 +124,23 @@
     "location": "Christ's College",
     "type": "demo",
     "status": "archived"
+  },
+  {
+    "id": "freshers-fair-2026-10-06",
+    "date": "2026-10-06",
+    "time": "10 am–4 pm",
+    "title": "Freshers' Fair",
+    "location": "Parker’s Piece",
+    "type": "publicity",
+    "status": "completed"
+  },
+  {
+    "id": "freshers-fair-2026-10-07",
+    "date": "2026-10-07",
+    "time": "10 am–4 pm",
+    "title": "Freshers' Fair",
+    "location": "Parker’s Piece",
+    "type": "publicity",
+    "status": "completed"
   }
 ]

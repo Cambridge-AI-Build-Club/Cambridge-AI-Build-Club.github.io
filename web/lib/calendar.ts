@@ -8,7 +8,7 @@ export interface CalendarEvent {
   title: string
   location: string
   type: string
-  status: 'archived' | 'cancelled'
+  status: 'archived' | 'completed' | 'scheduled' | 'cancelled'
 }
 
 export function loadCalendar(): CalendarEvent[] {
