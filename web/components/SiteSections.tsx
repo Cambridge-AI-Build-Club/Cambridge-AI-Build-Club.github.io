@@ -6,7 +6,7 @@ import { Arrow } from '@/components/Icon'
 
 export { Arrow } from '@/components/Icon'
 
-export function PageIntro({ title, description, children }: { title: ReactNode; description?: string; children?: ReactNode }) {
+export function PageIntro({ title, description, children }: { title: string; description?: string; children?: ReactNode }) {
   return <section className="lab-page-intro"><h1>{title}</h1>{description && <p className="lab-intro">{description}</p>}{children}</section>
 }
 

@@ -7,7 +7,7 @@ import { loadSiteData } from '@/lib/site'
 export default function TeamPage() {
   const page = loadPage('team.md')
   return <><PageMeta title="Community | Cambridge AI Builder Club" description={page.description} path="/team/" /><Shell path="/team/">
-    <PageIntro title={<>Good ideas need<br /><span className="accent">good community.</span></>} description={markdownifyStrip(page.body).trim()}><a className="lab-button" href={loadSiteData().discord} target="_blank" rel="noopener noreferrer">Join our Discord <Arrow /></a></PageIntro>
+    <PageIntro title="Good ideas need good community." description={markdownifyStrip(page.body).trim()}><a className="lab-button" href={loadSiteData().discord} target="_blank" rel="noopener noreferrer">Join our Discord <Arrow /></a></PageIntro>
     <Welcome /><section className="lab-section" aria-labelledby="members-heading"><div className="lab-section-head"><div><h2 id="members-heading">Meet the team leads<span className="accent">.</span></h2></div></div><MemberCards /></section>
     <Recruitment /><JoinSection />
   </Shell></>
