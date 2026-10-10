@@ -1,0 +1,862 @@
+{
+  "errors": {
+    "errors": [],
+    "lifecycle": {
+      "effectiveLaunch": {
+        "browserLaunched": true,
+        "engine": "chrome",
+        "launchHash": 11677035664275010974
+      },
+      "launched": false,
+      "relaunchedBrowser": false,
+      "restartedBackground": false,
+      "restoreStatus": "not_configured",
+      "reused": true,
+      "saveStatus": "not_attempted"
+    }
+  },
+  "busyMonth": {
+    "detailFirst": true,
+    "detailTop": 69.21875,
+    "listHeight": 310,
+    "scrollable": true,
+    "keyboardListScroll": 22
+  },
+  "console": {
+    "lifecycle": {
+      "effectiveLaunch": {
+        "browserLaunched": true,
+        "engine": "chrome",
+        "launchHash": 11677035664275010974
+      },
+      "launched": false,
+      "relaunchedBrowser": false,
+      "restartedBackground": false,
+      "restoreStatus": "not_configured",
+      "reused": true,
+      "saveStatus": "not_attempted"
+    },
+    "messages": []
+  },
+  "keyboardScroll": 22,
+  "cancelled": "demoCancelledMini Demo SessionDateThursday, 19 February 2026Time13:00-14:00LocationN/A",
+  "layouts": [
+    {
+      "buttons": true,
+      "detail": "publicityCompletedFreshers' FairDateTuesday, 6 October 2026Time10 am–4 pmLocationParker’s Piece",
+      "expectedToday": "2026-10-10",
+      "images": true,
+      "list": [
+        "2026-10-06",
+        "2026-10-07"
+      ],
+      "month": "October 2026",
+      "overflow": false,
+      "scrollable": false,
+      "selection": 1,
+      "theme": "paper",
+      "today": "2026-10-10",
+      "weekdays": [
+        "Mon",
+        "Tue",
+        "Wed",
+        "Thu",
+        "Fri",
+        "Sat",
+        "Sun"
+      ],
+      "width": 1440,
+      "keyboardFocus": {
+        "outline": "solid",
+        "visible": true
+      },
+      "audit": {
+        "axeVersion": "4.12.1",
+        "counts": {
+          "inapplicable": 44,
+          "incomplete": 0,
+          "passes": 17,
+          "violations": 0
+        },
+        "incomplete": [],
+        "lifecycle": {
+          "effectiveLaunch": {
+            "browserLaunched": true,
+            "engine": "chrome",
+            "launchHash": 11677035664275010974
+          },
+          "launched": false,
+          "relaunchedBrowser": false,
+          "restartedBackground": false,
+          "restoreStatus": "not_configured",
+          "reused": true,
+          "saveStatus": "not_attempted"
+        },
+        "url": "http://localhost:4102/calendar/",
+        "violations": []
+      }
+    },
+    {
+      "buttons": true,
+      "detail": "publicityCompletedFreshers' FairDateTuesday, 6 October 2026Time10 am–4 pmLocationParker’s Piece",
+      "expectedToday": "2026-10-10",
+      "images": true,
+      "list": [
+        "2026-10-06",
+        "2026-10-07"
+      ],
+      "month": "October 2026",
+      "overflow": false,
+      "scrollable": false,
+      "selection": 1,
+      "theme": "charcoal",
+      "today": "2026-10-10",
+      "weekdays": [
+        "Mon",
+        "Tue",
+        "Wed",
+        "Thu",
+        "Fri",
+        "Sat",
+        "Sun"
+      ],
+      "width": 1440,
+      "keyboardFocus": {
+        "outline": "solid",
+        "visible": true
+      },
+      "audit": {
+        "axeVersion": "4.12.1",
+        "counts": {
+          "inapplicable": 44,
+          "incomplete": 0,
+          "passes": 17,
+          "violations": 0
+        },
+        "incomplete": [],
+        "lifecycle": {
+          "effectiveLaunch": {
+            "browserLaunched": true,
+            "engine": "chrome",
+            "launchHash": 11677035664275010974
+          },
+          "launched": false,
+          "relaunchedBrowser": false,
+          "restartedBackground": false,
+          "restoreStatus": "not_configured",
+          "reused": true,
+          "saveStatus": "not_attempted"
+        },
+        "url": "http://localhost:4102/calendar/",
+        "violations": []
+      }
+    },
+    {
+      "buttons": true,
+      "detail": "publicityCompletedFreshers' FairDateTuesday, 6 October 2026Time10 am–4 pmLocationParker’s Piece",
+      "expectedToday": "2026-10-10",
+      "images": true,
+      "list": [
+        "2026-10-06",
+        "2026-10-07"
+      ],
+      "month": "October 2026",
+      "overflow": false,
+      "scrollable": false,
+      "selection": 1,
+      "theme": "paper",
+      "today": "2026-10-10",
+      "weekdays": [
+        "Mon",
+        "Tue",
+        "Wed",
+        "Thu",
+        "Fri",
+        "Sat",
+        "Sun"
+      ],
+      "width": 903,
+      "keyboardFocus": {
+        "outline": "solid",
+        "visible": true
+      },
+      "audit": {
+        "axeVersion": "4.12.1",
+        "counts": {
+          "inapplicable": 44,
+          "incomplete": 0,
+          "passes": 17,
+          "violations": 0
+        },
+        "incomplete": [],
+        "lifecycle": {
+          "effectiveLaunch": {
+            "browserLaunched": true,
+            "engine": "chrome",
+            "launchHash": 11677035664275010974
+          },
+          "launched": false,
+          "relaunchedBrowser": false,
+          "restartedBackground": false,
+          "restoreStatus": "not_configured",
+          "reused": true,
+          "saveStatus": "not_attempted"
+        },
+        "url": "http://localhost:4102/calendar/",
+        "violations": []
+      }
+    },
+    {
+      "buttons": true,
+      "detail": "publicityCompletedFreshers' FairDateTuesday, 6 October 2026Time10 am–4 pmLocationParker’s Piece",
+      "expectedToday": "2026-10-10",
+      "images": true,
+      "list": [
+        "2026-10-06",
+        "2026-10-07"
+      ],
+      "month": "October 2026",
+      "overflow": false,
+      "scrollable": false,
+      "selection": 1,
+      "theme": "charcoal",
+      "today": "2026-10-10",
+      "weekdays": [
+        "Mon",
+        "Tue",
+        "Wed",
+        "Thu",
+        "Fri",
+        "Sat",
+        "Sun"
+      ],
+      "width": 903,
+      "keyboardFocus": {
+        "outline": "solid",
+        "visible": true
+      },
+      "audit": {
+        "axeVersion": "4.12.1",
+        "counts": {
+          "inapplicable": 44,
+          "incomplete": 0,
+          "passes": 17,
+          "violations": 0
+        },
+        "incomplete": [],
+        "lifecycle": {
+          "effectiveLaunch": {
+            "browserLaunched": true,
+            "engine": "chrome",
+            "launchHash": 11677035664275010974
+          },
+          "launched": false,
+          "relaunchedBrowser": false,
+          "restartedBackground": false,
+          "restoreStatus": "not_configured",
+          "reused": true,
+          "saveStatus": "not_attempted"
+        },
+        "url": "http://localhost:4102/calendar/",
+        "violations": []
+      }
+    },
+    {
+      "buttons": true,
+      "detail": "publicityCompletedFreshers' FairDateTuesday, 6 October 2026Time10 am–4 pmLocationParker’s Piece",
+      "expectedToday": "2026-10-10",
+      "images": true,
+      "list": [
+        "2026-10-06",
+        "2026-10-07"
+      ],
+      "month": "October 2026",
+      "overflow": false,
+      "scrollable": true,
+      "selection": 1,
+      "theme": "paper",
+      "today": "2026-10-10",
+      "weekdays": [
+        "Mon",
+        "Tue",
+        "Wed",
+        "Thu",
+        "Fri",
+        "Sat",
+        "Sun"
+      ],
+      "width": 375,
+      "keyboardFocus": {
+        "outline": "solid",
+        "visible": true
+      },
+      "audit": {
+        "axeVersion": "4.12.1",
+        "counts": {
+          "inapplicable": 43,
+          "incomplete": 1,
+          "passes": 18,
+          "violations": 0
+        },
+        "incomplete": [
+          {
+            "help": "Elements must meet minimum color contrast ratio thresholds",
+            "helpUrl": "https://dequeuniversity.com/rules/axe/4.12/color-contrast?application=axeAPI",
+            "id": "color-contrast",
+            "impact": "serious",
+            "nodeCount": 16,
+            "nodes": [
+              {
+                "failureSummary": "Fix any of the following:\n  Element's background color could not be determined because it's partially obscured by another element",
+                "html": "<span>Fri</span>",
+                "target": [
+                  ".site-weekdays > span:nth-child(5)"
+                ]
+              },
+              {
+                "failureSummary": "Fix any of the following:\n  Element's background color could not be determined because it's partially obscured by another element",
+                "html": "<span>Sat</span>",
+                "target": [
+                  "span:nth-child(6)"
+                ]
+              },
+              {
+                "failureSummary": "Fix any of the following:\n  Element's background color could not be determined because it's partially obscured by another element",
+                "html": "<span>Sun</span>",
+                "target": [
+                  "span:nth-child(7)"
+                ]
+              },
+              {
+                "failureSummary": "Fix any of the following:\n  Element content is too short to determine if it is actual text content",
+                "html": "<span aria-hidden=\"true\">2</span>",
+                "target": [
+                  "time[datetime=\"2026-10-02\"] > span[aria-hidden=\"true\"]"
+                ]
+              },
+              {
+                "failureSummary": "Fix any of the following:\n  Element content is too short to determine if it is actual text content",
+                "html": "<span aria-hidden=\"true\">3</span>",
+                "target": [
+                  "time[datetime=\"2026-10-03\"] > span[aria-hidden=\"true\"]"
+                ]
+              },
+              {
+                "failureSummary": "Fix any of the following:\n  Element content is too short to determine if it is actual text content",
+                "html": "<span aria-hidden=\"true\">4</span>",
+                "target": [
+                  "time[datetime=\"2026-10-04\"] > span[aria-hidden=\"true\"]"
+                ]
+              },
+              {
+                "failureSummary": "Fix any of the following:\n  Element content is too short to determine if it is actual text content",
+                "html": "<span aria-hidden=\"true\">9</span>",
+                "target": [
+                  "time[datetime=\"2026-10-09\"] > span[aria-hidden=\"true\"]"
+                ]
+              },
+              {
+                "failureSummary": "Fix any of the following:\n  Element's background color could not be determined because it's partially obscured by another element",
+                "html": "<span aria-hidden=\"true\">11</span>",
+                "target": [
+                  "time[datetime=\"2026-10-11\"] > span[aria-hidden=\"true\"]"
+                ]
+              },
+              {
+                "failureSummary": "Fix any of the following:\n  Element's background color could not be determined because it's partially obscured by another element",
+                "html": "<span aria-hidden=\"true\">16</span>",
+                "target": [
+                  "time[datetime=\"2026-10-16\"] > span[aria-hidden=\"true\"]"
+                ]
+              },
+              {
+                "failureSummary": "Fix any of the following:\n  Element's background color could not be determined because it's partially obscured by another element",
+                "html": "<span aria-hidden=\"true\">17</span>",
+                "target": [
+                  "time[datetime=\"2026-10-17\"] > span[aria-hidden=\"true\"]"
+                ]
+              }
+            ],
+            "tags": [
+              "cat.color",
+              "wcag2aa",
+              "wcag143",
+              "TTv5",
+              "TT13.c",
+              "EN-301-549",
+              "EN-9.1.4.3",
+              "ACT",
+              "RGAAv4",
+              "RGAA-3.2.1"
+            ]
+          }
+        ],
+        "lifecycle": {
+          "effectiveLaunch": {
+            "browserLaunched": true,
+            "engine": "chrome",
+            "launchHash": 11677035664275010974
+          },
+          "launched": false,
+          "relaunchedBrowser": false,
+          "restartedBackground": false,
+          "restoreStatus": "not_configured",
+          "reused": true,
+          "saveStatus": "not_attempted"
+        },
+        "url": "http://localhost:4102/calendar/",
+        "violations": []
+      }
+    },
+    {
+      "buttons": true,
+      "detail": "publicityCompletedFreshers' FairDateTuesday, 6 October 2026Time10 am–4 pmLocationParker’s Piece",
+      "expectedToday": "2026-10-10",
+      "images": true,
+      "list": [
+        "2026-10-06",
+        "2026-10-07"
+      ],
+      "month": "October 2026",
+      "overflow": false,
+      "scrollable": true,
+      "selection": 1,
+      "theme": "charcoal",
+      "today": "2026-10-10",
+      "weekdays": [
+        "Mon",
+        "Tue",
+        "Wed",
+        "Thu",
+        "Fri",
+        "Sat",
+        "Sun"
+      ],
+      "width": 375,
+      "keyboardFocus": {
+        "outline": "solid",
+        "visible": true
+      },
+      "audit": {
+        "axeVersion": "4.12.1",
+        "counts": {
+          "inapplicable": 43,
+          "incomplete": 1,
+          "passes": 18,
+          "violations": 0
+        },
+        "incomplete": [
+          {
+            "help": "Elements must meet minimum color contrast ratio thresholds",
+            "helpUrl": "https://dequeuniversity.com/rules/axe/4.12/color-contrast?application=axeAPI",
+            "id": "color-contrast",
+            "impact": "serious",
+            "nodeCount": 16,
+            "nodes": [
+              {
+                "failureSummary": "Fix any of the following:\n  Element's background color could not be determined because it's partially obscured by another element",
+                "html": "<span>Fri</span>",
+                "target": [
+                  ".site-weekdays > span:nth-child(5)"
+                ]
+              },
+              {
+                "failureSummary": "Fix any of the following:\n  Element's background color could not be determined because it's partially obscured by another element",
+                "html": "<span>Sat</span>",
+                "target": [
+                  "span:nth-child(6)"
+                ]
+              },
+              {
+                "failureSummary": "Fix any of the following:\n  Element's background color could not be determined because it's partially obscured by another element",
+                "html": "<span>Sun</span>",
+                "target": [
+                  "span:nth-child(7)"
+                ]
+              },
+              {
+                "failureSummary": "Fix any of the following:\n  Element content is too short to determine if it is actual text content",
+                "html": "<span aria-hidden=\"true\">2</span>",
+                "target": [
+                  "time[datetime=\"2026-10-02\"] > span[aria-hidden=\"true\"]"
+                ]
+              },
+              {
+                "failureSummary": "Fix any of the following:\n  Element content is too short to determine if it is actual text content",
+                "html": "<span aria-hidden=\"true\">3</span>",
+                "target": [
+                  "time[datetime=\"2026-10-03\"] > span[aria-hidden=\"true\"]"
+                ]
+              },
+              {
+                "failureSummary": "Fix any of the following:\n  Element content is too short to determine if it is actual text content",
+                "html": "<span aria-hidden=\"true\">4</span>",
+                "target": [
+                  "time[datetime=\"2026-10-04\"] > span[aria-hidden=\"true\"]"
+                ]
+              },
+              {
+                "failureSummary": "Fix any of the following:\n  Element content is too short to determine if it is actual text content",
+                "html": "<span aria-hidden=\"true\">9</span>",
+                "target": [
+                  "time[datetime=\"2026-10-09\"] > span[aria-hidden=\"true\"]"
+                ]
+              },
+              {
+                "failureSummary": "Fix any of the following:\n  Element's background color could not be determined because it's partially obscured by another element",
+                "html": "<span aria-hidden=\"true\">11</span>",
+                "target": [
+                  "time[datetime=\"2026-10-11\"] > span[aria-hidden=\"true\"]"
+                ]
+              },
+              {
+                "failureSummary": "Fix any of the following:\n  Element's background color could not be determined because it's partially obscured by another element",
+                "html": "<span aria-hidden=\"true\">16</span>",
+                "target": [
+                  "time[datetime=\"2026-10-16\"] > span[aria-hidden=\"true\"]"
+                ]
+              },
+              {
+                "failureSummary": "Fix any of the following:\n  Element's background color could not be determined because it's partially obscured by another element",
+                "html": "<span aria-hidden=\"true\">17</span>",
+                "target": [
+                  "time[datetime=\"2026-10-17\"] > span[aria-hidden=\"true\"]"
+                ]
+              }
+            ],
+            "tags": [
+              "cat.color",
+              "wcag2aa",
+              "wcag143",
+              "TTv5",
+              "TT13.c",
+              "EN-301-549",
+              "EN-9.1.4.3",
+              "ACT",
+              "RGAAv4",
+              "RGAA-3.2.1"
+            ]
+          }
+        ],
+        "lifecycle": {
+          "effectiveLaunch": {
+            "browserLaunched": true,
+            "engine": "chrome",
+            "launchHash": 11677035664275010974
+          },
+          "launched": false,
+          "relaunchedBrowser": false,
+          "restartedBackground": false,
+          "restoreStatus": "not_configured",
+          "reused": true,
+          "saveStatus": "not_attempted"
+        },
+        "url": "http://localhost:4102/calendar/",
+        "violations": []
+      }
+    },
+    {
+      "buttons": true,
+      "detail": "publicityCompletedFreshers' FairDateTuesday, 6 October 2026Time10 am–4 pmLocationParker’s Piece",
+      "expectedToday": "2026-10-10",
+      "images": true,
+      "list": [
+        "2026-10-06",
+        "2026-10-07"
+      ],
+      "month": "October 2026",
+      "overflow": false,
+      "scrollable": true,
+      "selection": 1,
+      "theme": "paper",
+      "today": "2026-10-10",
+      "weekdays": [
+        "Mon",
+        "Tue",
+        "Wed",
+        "Thu",
+        "Fri",
+        "Sat",
+        "Sun"
+      ],
+      "width": 320,
+      "keyboardFocus": {
+        "outline": "solid",
+        "visible": true
+      },
+      "audit": {
+        "axeVersion": "4.12.1",
+        "counts": {
+          "inapplicable": 43,
+          "incomplete": 1,
+          "passes": 18,
+          "violations": 0
+        },
+        "incomplete": [
+          {
+            "help": "Elements must meet minimum color contrast ratio thresholds",
+            "helpUrl": "https://dequeuniversity.com/rules/axe/4.12/color-contrast?application=axeAPI",
+            "id": "color-contrast",
+            "impact": "serious",
+            "nodeCount": 22,
+            "nodes": [
+              {
+                "failureSummary": "Fix any of the following:\n  Element's background color could not be determined because it's partially obscured by another element",
+                "html": "<span>Thu</span>",
+                "target": [
+                  "span:nth-child(4)"
+                ]
+              },
+              {
+                "failureSummary": "Fix any of the following:\n  Element's background color could not be determined because it's partially obscured by another element",
+                "html": "<span>Fri</span>",
+                "target": [
+                  ".site-weekdays > span:nth-child(5)"
+                ]
+              },
+              {
+                "failureSummary": "Fix any of the following:\n  Element's background color could not be determined because it's partially obscured by another element",
+                "html": "<span>Sat</span>",
+                "target": [
+                  "span:nth-child(6)"
+                ]
+              },
+              {
+                "failureSummary": "Fix any of the following:\n  Element's background color could not be determined because it's partially obscured by another element",
+                "html": "<span>Sun</span>",
+                "target": [
+                  "span:nth-child(7)"
+                ]
+              },
+              {
+                "failureSummary": "Fix any of the following:\n  Element content is too short to determine if it is actual text content",
+                "html": "<span aria-hidden=\"true\">1</span>",
+                "target": [
+                  "time[datetime=\"2026-10-01\"] > span[aria-hidden=\"true\"]"
+                ]
+              },
+              {
+                "failureSummary": "Fix any of the following:\n  Element content is too short to determine if it is actual text content",
+                "html": "<span aria-hidden=\"true\">2</span>",
+                "target": [
+                  "time[datetime=\"2026-10-02\"] > span[aria-hidden=\"true\"]"
+                ]
+              },
+              {
+                "failureSummary": "Fix any of the following:\n  Element content is too short to determine if it is actual text content",
+                "html": "<span aria-hidden=\"true\">3</span>",
+                "target": [
+                  "time[datetime=\"2026-10-03\"] > span[aria-hidden=\"true\"]"
+                ]
+              },
+              {
+                "failureSummary": "Fix any of the following:\n  Element content is too short to determine if it is actual text content",
+                "html": "<span aria-hidden=\"true\">4</span>",
+                "target": [
+                  "time[datetime=\"2026-10-04\"] > span[aria-hidden=\"true\"]"
+                ]
+              },
+              {
+                "failureSummary": "Fix any of the following:\n  Element content is too short to determine if it is actual text content",
+                "html": "<span aria-hidden=\"true\">8</span>",
+                "target": [
+                  "time[datetime=\"2026-10-08\"] > span[aria-hidden=\"true\"]"
+                ]
+              },
+              {
+                "failureSummary": "Fix any of the following:\n  Element content is too short to determine if it is actual text content",
+                "html": "<span aria-hidden=\"true\">9</span>",
+                "target": [
+                  "time[datetime=\"2026-10-09\"] > span[aria-hidden=\"true\"]"
+                ]
+              }
+            ],
+            "tags": [
+              "cat.color",
+              "wcag2aa",
+              "wcag143",
+              "TTv5",
+              "TT13.c",
+              "EN-301-549",
+              "EN-9.1.4.3",
+              "ACT",
+              "RGAAv4",
+              "RGAA-3.2.1"
+            ]
+          }
+        ],
+        "lifecycle": {
+          "effectiveLaunch": {
+            "browserLaunched": true,
+            "engine": "chrome",
+            "launchHash": 11677035664275010974
+          },
+          "launched": false,
+          "relaunchedBrowser": false,
+          "restartedBackground": false,
+          "restoreStatus": "not_configured",
+          "reused": true,
+          "saveStatus": "not_attempted"
+        },
+        "url": "http://localhost:4102/calendar/",
+        "violations": []
+      }
+    },
+    {
+      "buttons": true,
+      "detail": "publicityCompletedFreshers' FairDateTuesday, 6 October 2026Time10 am–4 pmLocationParker’s Piece",
+      "expectedToday": "2026-10-10",
+      "images": true,
+      "list": [
+        "2026-10-06",
+        "2026-10-07"
+      ],
+      "month": "October 2026",
+      "overflow": false,
+      "scrollable": true,
+      "selection": 1,
+      "theme": "charcoal",
+      "today": "2026-10-10",
+      "weekdays": [
+        "Mon",
+        "Tue",
+        "Wed",
+        "Thu",
+        "Fri",
+        "Sat",
+        "Sun"
+      ],
+      "width": 320,
+      "keyboardFocus": {
+        "outline": "solid",
+        "visible": true
+      },
+      "audit": {
+        "axeVersion": "4.12.1",
+        "counts": {
+          "inapplicable": 43,
+          "incomplete": 1,
+          "passes": 18,
+          "violations": 0
+        },
+        "incomplete": [
+          {
+            "help": "Elements must meet minimum color contrast ratio thresholds",
+            "helpUrl": "https://dequeuniversity.com/rules/axe/4.12/color-contrast?application=axeAPI",
+            "id": "color-contrast",
+            "impact": "serious",
+            "nodeCount": 22,
+            "nodes": [
+              {
+                "failureSummary": "Fix any of the following:\n  Element's background color could not be determined because it's partially obscured by another element",
+                "html": "<span>Thu</span>",
+                "target": [
+                  "span:nth-child(4)"
+                ]
+              },
+              {
+                "failureSummary": "Fix any of the following:\n  Element's background color could not be determined because it's partially obscured by another element",
+                "html": "<span>Fri</span>",
+                "target": [
+                  ".site-weekdays > span:nth-child(5)"
+                ]
+              },
+              {
+                "failureSummary": "Fix any of the following:\n  Element's background color could not be determined because it's partially obscured by another element",
+                "html": "<span>Sat</span>",
+                "target": [
+                  "span:nth-child(6)"
+                ]
+              },
+              {
+                "failureSummary": "Fix any of the following:\n  Element's background color could not be determined because it's partially obscured by another element",
+                "html": "<span>Sun</span>",
+                "target": [
+                  "span:nth-child(7)"
+                ]
+              },
+              {
+                "failureSummary": "Fix any of the following:\n  Element content is too short to determine if it is actual text content",
+                "html": "<span aria-hidden=\"true\">1</span>",
+                "target": [
+                  "time[datetime=\"2026-10-01\"] > span[aria-hidden=\"true\"]"
+                ]
+              },
+              {
+                "failureSummary": "Fix any of the following:\n  Element content is too short to determine if it is actual text content",
+                "html": "<span aria-hidden=\"true\">2</span>",
+                "target": [
+                  "time[datetime=\"2026-10-02\"] > span[aria-hidden=\"true\"]"
+                ]
+              },
+              {
+                "failureSummary": "Fix any of the following:\n  Element content is too short to determine if it is actual text content",
+                "html": "<span aria-hidden=\"true\">3</span>",
+                "target": [
+                  "time[datetime=\"2026-10-03\"] > span[aria-hidden=\"true\"]"
+                ]
+              },
+              {
+                "failureSummary": "Fix any of the following:\n  Element content is too short to determine if it is actual text content",
+                "html": "<span aria-hidden=\"true\">4</span>",
+                "target": [
+                  "time[datetime=\"2026-10-04\"] > span[aria-hidden=\"true\"]"
+                ]
+              },
+              {
+                "failureSummary": "Fix any of the following:\n  Element content is too short to determine if it is actual text content",
+                "html": "<span aria-hidden=\"true\">8</span>",
+                "target": [
+                  "time[datetime=\"2026-10-08\"] > span[aria-hidden=\"true\"]"
+                ]
+              },
+              {
+                "failureSummary": "Fix any of the following:\n  Element content is too short to determine if it is actual text content",
+                "html": "<span aria-hidden=\"true\">9</span>",
+                "target": [
+                  "time[datetime=\"2026-10-09\"] > span[aria-hidden=\"true\"]"
+                ]
+              }
+            ],
+            "tags": [
+              "cat.color",
+              "wcag2aa",
+              "wcag143",
+              "TTv5",
+              "TT13.c",
+              "EN-301-549",
+              "EN-9.1.4.3",
+              "ACT",
+              "RGAAv4",
+              "RGAA-3.2.1"
+            ]
+          }
+        ],
+        "lifecycle": {
+          "effectiveLaunch": {
+            "browserLaunched": true,
+            "engine": "chrome",
+            "launchHash": 11677035664275010974
+          },
+          "launched": false,
+          "relaunchedBrowser": false,
+          "restartedBackground": false,
+          "restoreStatus": "not_configured",
+          "reused": true,
+          "saveStatus": "not_attempted"
+        },
+        "url": "http://localhost:4102/calendar/",
+        "violations": []
+      }
+    }
+  ],
+  "empty": {
+    "details": 0,
+    "empty": "No events scheduled for November 2026. Check another month or come back for updates.",
+    "month": "November 2026"
+  },
+  "reset": {
+    "detail": "2026-10-06",
+    "month": "October 2026"
+  }
+}

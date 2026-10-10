@@ -7,9 +7,10 @@
     "sync": "node scripts/sync-assets.mjs",
     "predev": "node scripts/sync-assets.mjs",
     "dev": "next dev",
-    "prebuild": "npm run check:design && node scripts/sync-assets.mjs",
+    "prebuild": "npm run check:design && npm run test:calendar && node scripts/sync-assets.mjs",
     "build": "next build && node scripts/gen-redirects.mjs",
-    "check:design": "node scripts/check-design.mjs"
+    "check:design": "node scripts/check-design.mjs",
+    "test:calendar": "node --test scripts/calendar-dates.test.mjs"
   },
   "dependencies": {
     "gray-matter": "^4.0.3",
