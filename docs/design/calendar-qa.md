@@ -11,7 +11,7 @@ Local preview: http://localhost:4102/calendar/. Publication requires the owner's
 
 ## Checks
 
-- `npm run build`: design policy, eight date/data tests, TypeScript validation and static export passed. Output: 25 routes and 21 legacy redirect stubs. Local runtime is Node 24; supported Node 20 Linux PR CI is checked separately.
+- `npm run build`: design policy, eight date/data tests, TypeScript validation and static export passed. Output: 25 routes and 21 legacy redirect stubs. Local runtime is Node 24; implementation commit `5a19bea` also passed the [Node 20 Linux PR build](https://github.com/Cambridge-AI-Build-Club/Cambridge-AI-Build-Club.github.io/actions/runs/38093470755) in 48 seconds, including the eight calendar tests.
 - `npm run test:calendar` tests London midnight/summer time, consecutive month/year navigation, Monday alignment, leap years, ordered/non-mutating filtering, individual selection on one date, stale-selection removal, empty schedules and both complete fair records. It runs before every production build, including CI.
 - Eight layout checks at 1440px, 903px, 375px and 320px, in paper and charcoal: current-month entry, Monday-first headings, both fair records, correct time/venue/status, one selected event, loaded images, 44px actions, visible keyboard focus and no document overflow passed.
 - Browser interactions: grid and list selection, keyboard activation, empty November, December/January in both directions, consecutive navigation back to February and December 2025, retained cancellation, Current month reset and keyboard scrolling of dates passed. Busy February retains selected details at the top, supports keyboard list scrolling and can select its last event.
@@ -33,4 +33,4 @@ Local preview: http://localhost:4102/calendar/. Publication requires the owner's
 
 Calendar logic and same-day selection are covered by focused tests. No real event fixture currently has multiple separate sessions on the same date; the component renders one selectable button per record. Browser clock simulation is scoped to the disposable QA browser and does not change the machine clock.
 
-The calendar commit is separate from the prior homepage/caption work, but its branch starts at PR #24 so the local preview retains those pending changes. Its PR targets main; merge #24 first so the calendar diff stands alone. Neither PR is published until owner approval.
+The calendar implementation commit and its verification receipt are separate from the prior homepage/caption work, but its branch starts at PR #24 so the local preview retains those pending changes. Its PR targets main; merge #24 first so the calendar diff stands alone. Neither PR is published until owner approval.
