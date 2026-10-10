@@ -1,0 +1,168 @@
+[
+  {
+    "brokenImages": [],
+    "dates": [
+      {
+        "font": "Arial, Helvetica, sans-serif",
+        "text": "7 September 2025"
+      }
+    ],
+    "h1": 1,
+    "headings": [
+      "Stay curious.Build with Claude.",
+      "Find your starting point.",
+      "Bring your curiosity.",
+      "Build the community, too.",
+      "Ideas worth sharing.",
+      "Your next idea starts here."
+    ],
+    "joinContent": true,
+    "missingLabelledBy": [],
+    "obsoleteLabels": 0,
+    "overflow": false,
+    "removedText": [],
+    "route": "/",
+    "theme": "paper",
+    "width": 375
+  },
+  {
+    "brokenImages": [],
+    "dates": [],
+    "h1": 1,
+    "headings": [
+      "Curious minds. Real possibilities.",
+      "Part of a wider builder community",
+      "CBC World: connecting builders",
+      "Your next idea starts here."
+    ],
+    "joinContent": true,
+    "missingLabelledBy": [],
+    "obsoleteLabels": 0,
+    "overflow": false,
+    "removedText": [],
+    "route": "/about/",
+    "theme": "paper",
+    "width": 375
+  },
+  {
+    "brokenImages": [],
+    "dates": [],
+    "h1": 1,
+    "headings": [
+      "Ideas we've turned into projects.",
+      "CBC World — Claude Ambassadors Map",
+      "Your next idea starts here."
+    ],
+    "joinContent": true,
+    "missingLabelledBy": [],
+    "obsoleteLabels": 0,
+    "overflow": false,
+    "removedText": [],
+    "route": "/projects/",
+    "theme": "paper",
+    "width": 375
+  },
+  {
+    "brokenImages": [],
+    "dates": [],
+    "h1": 1,
+    "headings": [
+      "From “what if”to “look at this.”",
+      "Find your starting point.",
+      "Make time to build together.",
+      "Your next idea starts here."
+    ],
+    "joinContent": true,
+    "missingLabelledBy": [],
+    "obsoleteLabels": 0,
+    "overflow": false,
+    "removedText": [],
+    "route": "/events/",
+    "theme": "paper",
+    "width": 375
+  },
+  {
+    "brokenImages": [],
+    "dates": [],
+    "h1": 1,
+    "headings": [
+      "Good ideas needgood community.",
+      "Bring your curiosity.",
+      "Meet the team leads.",
+      "Build the community, too.",
+      "Your next idea starts here."
+    ],
+    "joinContent": true,
+    "missingLabelledBy": [],
+    "obsoleteLabels": 0,
+    "overflow": false,
+    "removedText": [],
+    "route": "/team/",
+    "theme": "paper",
+    "width": 375
+  },
+  {
+    "brokenImages": [],
+    "dates": [
+      {
+        "font": "Arial, Helvetica, sans-serif",
+        "text": "7 September 2025"
+      }
+    ],
+    "h1": 1,
+    "headings": [
+      "Ideas worthsharing.",
+      "Claude Builder Club ",
+      "Your next idea starts here."
+    ],
+    "joinContent": true,
+    "missingLabelledBy": [],
+    "obsoleteLabels": 0,
+    "overflow": false,
+    "removedText": [],
+    "route": "/blogs/",
+    "theme": "paper",
+    "width": 375
+  },
+  {
+    "brokenImages": [],
+    "dates": [],
+    "h1": 1,
+    "headings": [
+      "The clubcalendar.",
+      "February 2026",
+      "Sessions in February 2026",
+      "Your next idea starts here."
+    ],
+    "joinContent": true,
+    "missingLabelledBy": [],
+    "obsoleteLabels": 0,
+    "overflow": false,
+    "removedText": [],
+    "route": "/calendar/",
+    "theme": "paper",
+    "width": 375
+  },
+  {
+    "brokenImages": [],
+    "dates": [],
+    "h1": 1,
+    "headings": [
+      "Build thecommunity, too.",
+      "Outreach track",
+      "Technical track",
+      "How to apply",
+      "Good to know",
+      "Bring your ideas.",
+      "Your next idea starts here."
+    ],
+    "joinContent": true,
+    "missingLabelledBy": [],
+    "obsoleteLabels": 0,
+    "overflow": false,
+    "removedText": [],
+    "route": "/committees/",
+    "theme": "paper",
+    "width": 375
+  }
+]

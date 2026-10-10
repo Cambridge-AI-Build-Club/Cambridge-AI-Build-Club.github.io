@@ -11,5 +11,5 @@ export default async function BlogPage({ params }: { params: Promise<{ slug: str
   const heading = entry.body.match(/^\s*# ([^\n]+)\n/)
   const title = heading ? heading[1].trim() : String(entry.title)
   const body = heading ? entry.body.slice(heading[0].length) : entry.body
-  return <ArticlePage title={title} path={`/blogs/${slug}/`} eyebrow={`JOURNAL / ${formatPublicationDate(entry.date)}`} body={body} back={{ label: 'All stories', href: '/blogs/' }} />
+  return <ArticlePage title={title} path={`/blogs/${slug}/`} publicationDate={formatPublicationDate(entry.date)} body={body} back={{ label: 'All stories', href: '/blogs/' }} />
 }

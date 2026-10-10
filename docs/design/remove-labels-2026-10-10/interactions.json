@@ -1,0 +1,43 @@
+{
+  "menuOpens": true,
+  "escapeReturnsFocus": true,
+  "themePersists": true,
+  "filterWorkshop": true,
+  "filterReset": true,
+  "calendarNextMonth": true,
+  "calendarPreviousMonth": true,
+  "calendarDetails": true,
+  "contact": {
+    "dates": [],
+    "h1": 1,
+    "labels": 0,
+    "overflow": false
+  },
+  "blogs/claude-builder-program": {
+    "dates": [
+      {
+        "font": "Arial, Helvetica, sans-serif",
+        "text": "7 September 2025"
+      }
+    ],
+    "h1": 1,
+    "labels": 0,
+    "overflow": false
+  },
+  "events/workshop": {
+    "dates": [],
+    "h1": 1,
+    "labels": 0,
+    "overflow": false
+  },
+  "team/andrew_choi": {
+    "dates": [],
+    "h1": 1,
+    "labels": 0,
+    "overflow": false
+  },
+  "playground-1440": true,
+  "playground-explore-1440": true,
+  "playground-375": true,
+  "playground-explore-375": true
+}

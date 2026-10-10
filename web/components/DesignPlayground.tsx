@@ -6,7 +6,6 @@ import { Arrow, Icon } from '@/components/Icon'
 export interface PlaygroundData {
   copy: {
     headline: string[]
-    eyebrow: string
     intro: string
     welcome_title: string
     welcome_copy: string
@@ -84,7 +83,6 @@ export function DesignPlayground({ data }: { data: PlaygroundData }) {
       <section className="lab-section" aria-labelledby="activities-heading">
         <div className="lab-section-head">
           <div>
-            <p className="lab-kicker">01 / LEARN. MAKE. SHARE.</p>
             <h2 id="activities-heading">Find your starting point<span className="accent">.</span></h2>
           </div>
           {!full && <button className="lab-text-link" onClick={() => showView('explore')}>Explore the club <Arrow /></button>}
@@ -97,14 +95,12 @@ export function DesignPlayground({ data }: { data: PlaygroundData }) {
           </div>
         )}
         <div className="lab-activities" aria-live="polite">
-          {(full ? filteredEvents : data.events).map((event, index) => (
+          {(full ? filteredEvents : data.events).map((event) => (
             <a className="lab-activity" href={event.href} key={event.title}>
               <div className="lab-activity-art" aria-hidden="true">
                 {event.image && <img src={event.image} alt="" width={80} height={80} loading="lazy" />}
-                <span>BUILD / {event.title.toUpperCase()}</span>
               </div>
               <div className="lab-activity-copy">
-                <span className="lab-kicker">{String(index + 1).padStart(2, '0')} / {event.title === 'Workshop' ? 'GET HANDS-ON' : event.title === 'Demo' ? 'SHOW WHAT’S POSSIBLE' : 'BUILD TOGETHER'}</span>
                 <h3>{event.title}<Arrow /></h3>
                 <p>{event.description}</p>
                 <span className="lab-card-link">Discover {event.title.toLowerCase()}s <Arrow /></span>
@@ -121,7 +117,7 @@ export function DesignPlayground({ data }: { data: PlaygroundData }) {
     return (
       <section className="lab-welcome" aria-labelledby="welcome-heading">
         <img className="lab-welcome-symbol" src={data.logo.mobile} alt="" width={80} height={80} loading="lazy" />
-        <div><p className="lab-kicker">ALL SUBJECTS. ALL STARTING POINTS.</p><h2 id="welcome-heading">{data.copy.welcome_title}</h2><p>{data.copy.welcome_copy}</p></div>
+        <div><h2 id="welcome-heading">{data.copy.welcome_title}</h2><p>{data.copy.welcome_copy}</p></div>
         <a className="lab-text-link" href={data.links.about}>Meet the club <Arrow /></a>
       </section>
     )
@@ -157,46 +153,40 @@ export function DesignPlayground({ data }: { data: PlaygroundData }) {
           <>
             <section className="lab-hero">
               <div className="lab-hero-copy">
-                <p className="lab-kicker"><span className="lab-status-dot" />{data.copy.eyebrow}</p>
                 <h1 ref={mainHeading} tabIndex={-1}>{data.copy.headline[0]}<br /><span className="accent">{data.copy.headline[1]}</span></h1>
                 <p className="lab-intro">{data.copy.intro}</p>
                 <div className="lab-hero-actions">
                   <a className="lab-button" href={data.signup} target="_blank" rel="noopener noreferrer">Join the club <Arrow /></a>
                   <button className="lab-text-link" onClick={() => showView('explore')}>See what we do <Arrow /></button>
                 </div>
-                <p className="lab-hero-note">Curiosity is the only prerequisite.</p>
               </div>
               <div className="lab-hero-visual">
                 <img src={data.hero} alt="" width={1080} height={1080} fetchPriority="high" />
-                <div className="lab-art-tag"><span>CAMBRIDGE / BUILDERS AT WORK</span></div>
-                <span className="lab-art-index" aria-hidden="true">CAMBRIDGE, UK</span>
               </div>
             </section>
-            <div className="lab-manifesto" role="group" aria-label="Claude collaboration"><span>IN COLLABORATION WITH</span><a href="https://claude.com/" target="_blank" rel="noopener noreferrer"><img src={data.claudeLogo} alt="Claude" width={143} height={31} /></a><span>HUMAN CURIOSITY. REAL POSSIBILITIES.</span></div>
+            <div className="lab-manifesto" role="group" aria-label="Claude collaboration"><a href="https://claude.com/" target="_blank" rel="noopener noreferrer"><img src={data.claudeLogo} alt="Claude" width={143} height={31} /></a></div>
             <Activities />
             <Welcome />
           </>
         ) : view === 'explore' ? (
           <>
             <section className="lab-page-intro">
-              <p className="lab-kicker">EXPLORE / THE CLUB</p>
               <h1 ref={mainHeading} tabIndex={-1}>From “what if”<br />to <span className="accent">“look at this.”</span></h1>
               <p className="lab-intro">Discover the ways our community learns, experiments and shares. Pick a starting point that interests you.</p>
             </section>
             <Activities full />
-            <section className="lab-archive"><div><p className="lab-kicker">THE CLUB CALENDAR</p><h2>Make time to build together.</h2><p>Explore demos, workshops and community events in the club calendar.</p></div><a className="lab-button lab-button-outline" href={data.links.calendar}>Open calendar <Arrow /></a></section>
+            <section className="lab-archive"><div><h2>Make time to build together.</h2><p>Explore demos, workshops and community events in the club calendar.</p></div><a className="lab-button lab-button-outline" href={data.links.calendar}>Open calendar <Arrow /></a></section>
           </>
         ) : (
           <>
             <section className="lab-page-intro">
-              <p className="lab-kicker">COMMUNITY / BETTER TOGETHER</p>
               <h1 ref={mainHeading} tabIndex={-1}>Good ideas need<br /><span className="accent">good community.</span></h1>
               <p className="lab-intro">A student-led community for exploring AI’s creative and practical possibilities. Bring a question. Meet a collaborator.</p>
               <a className="lab-button" href={data.discord} target="_blank" rel="noopener noreferrer">Join our Discord <Arrow /></a>
             </section>
             <Welcome />
             <section className="lab-section" aria-labelledby="members-heading">
-              <div className="lab-section-head"><div><p className="lab-kicker">THE PEOPLE / BEHIND THE CLUB</p><h2 id="members-heading">Meet the team leads<span className="accent">.</span></h2></div></div>
+              <div className="lab-section-head"><div><h2 id="members-heading">Meet the team leads<span className="accent">.</span></h2></div></div>
               <div className="lab-members">{data.members.map((member) => (
                 <a className="lab-member" key={member.name} href={member.href}>
                   {member.image && <img src={member.image} alt={member.name} width={440} height={440} loading="lazy" />}
@@ -204,12 +194,11 @@ export function DesignPlayground({ data }: { data: PlaygroundData }) {
                 </a>
               ))}</div>
             </section>
-            <section className="lab-archive"><div><p className="lab-kicker">COMMITTEE APPLICATIONS / OPEN</p><h2>Build the community, too.</h2><p>We’re recruiting for our outreach and technical committees. Explore the roles and help shape the year ahead.</p></div><a className="lab-button lab-button-outline" href={data.links.committees}>Explore committee roles <Arrow /></a></section>
+            <section className="lab-archive"><div><h2>Build the community, too.</h2><p>We’re recruiting for our outreach and technical committees. Explore the roles and help shape the year ahead.</p></div><a className="lab-button lab-button-outline" href={data.links.committees}>Explore committee roles <Arrow /></a></section>
           </>
         )}
 
         <section className="lab-join" aria-labelledby="join-heading">
-          <p className="lab-kicker">A LITTLE CURIOSITY GOES A LONG WAY.</p>
           <h2 id="join-heading">{data.copy.join_title}</h2>
           <p>{data.copy.join_copy}</p>
           <a className="lab-button" href={data.signup} target="_blank" rel="noopener noreferrer">Join the club <Arrow /></a>
@@ -225,7 +214,7 @@ export function DesignPlayground({ data }: { data: PlaygroundData }) {
 
       {controlsOpen && (
         <aside id="lab-controls" className="lab-controls" aria-label="Design review controls">
-          <div className="lab-controls-heading"><span className="lab-kicker">LOCAL REVIEW / CLAUDE EDITION</span><button aria-label="Close design controls" onClick={() => { setControlsOpen(false); controlsButton.current?.focus() }}><Icon name="close" size={20} /></button></div>
+          <div className="lab-controls-heading"><button aria-label="Close design controls" onClick={() => { setControlsOpen(false); controlsButton.current?.focus() }}><Icon name="close" size={20} /></button></div>
           <h2>One brand. Two moods.</h2>
           <p>Official Claude colors, with a choice of warm or dark surfaces.</p>
           <fieldset><legend>Page surface</legend><div className="lab-view-options">{(['paper', 'charcoal'] as const).map((mode) => <button key={mode} aria-pressed={surface === mode} onClick={() => setSurface(mode)}>{mode === 'paper' ? 'Warm paper' : 'Charcoal'}</button>)}</div></fieldset>

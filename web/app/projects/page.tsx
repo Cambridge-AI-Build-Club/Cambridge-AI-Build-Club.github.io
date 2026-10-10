@@ -9,7 +9,7 @@ export default function ProjectsPage() {
   return <>
     <PageMeta title={`${page.title} | Cambridge AI Builder Club`} description={String(page.description)} path="/projects/" />
     <Shell path="/projects/">
-      <PageIntro eyebrow={String(page.eyebrow)} title={String(page.headline)} description={markdownifyStrip(page.body).trim()} />
+      <PageIntro title={String(page.headline)} description={markdownifyStrip(page.body).trim()} />
       <div className="site-projects">{loadProjects().map((project) => <ProjectPreview project={project} key={project.slug} />)}</div>
       <JoinSection />
     </Shell>

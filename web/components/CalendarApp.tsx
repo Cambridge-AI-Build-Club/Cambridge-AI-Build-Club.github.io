@@ -55,7 +55,7 @@ export function CalendarApp({ events }: { events: CalendarEvent[] }) {
         <p className="site-calendar-hint"><span className="site-calendar-scroll-hint">Scroll across the calendar to see every day. </span>Select a session to see its details.</p>
       </div>
       <aside className="site-event-detail" aria-label="Selected session" aria-live="polite">
-        {selected && <><p className="lab-kicker">{selected.type.toUpperCase()} / SESSION</p><h3>{selected.title}</h3><span className="site-status">{selected.status === 'cancelled' ? 'Cancelled' : 'Session'}</span><dl><dt>Date</dt><dd><time dateTime={selected.date}>{dateLabel(selected.date)}</time></dd><dt>Time</dt><dd>{selected.time}</dd><dt>Location</dt><dd>{selected.location}</dd></dl></>}
+        {selected && <><h3>{selected.title}</h3><span className="site-status">{selected.status === 'cancelled' ? 'Cancelled' : 'Session'}</span><dl><dt>Date</dt><dd><time dateTime={selected.date}>{dateLabel(selected.date)}</time></dd><dt>Time</dt><dd>{selected.time}</dd><dt>Location</dt><dd>{selected.location}</dd></dl></>}
       </aside>
     </div>
     <div className="site-month-list"><h2>Sessions in {monthName}</h2><ul>{monthEvents.map((event) => <li key={event.id}><button aria-pressed={selectedId === event.id} onClick={() => setSelectedId(event.id)}><time dateTime={event.date}>{dateLabel(event.date, true)}</time><span><strong>{event.title}</strong><small>{event.time} · {event.location}</small></span><span className="site-status">{event.status === 'cancelled' ? 'Cancelled' : event.type}</span></button></li>)}</ul></div>

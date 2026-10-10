@@ -75,7 +75,6 @@ export function loadMenus(): { main: MenuItem[]; footer: MenuItem[] } {
 export interface ProjectEntry {
   slug: string
   title: string
-  label: string
   description: string
   image: string
   image_alt: string

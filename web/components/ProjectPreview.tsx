@@ -6,7 +6,6 @@ export function ProjectPreview({ project, compact = false, heading = project.tit
 }) {
   return <section className={`site-project${compact ? ' site-project-compact' : ''}`} aria-labelledby={`project-${project.slug}`}>
     <div className="site-project-heading">
-      <p className="lab-kicker">{project.label}</p>
       <h2 id={`project-${project.slug}`}>{heading}</h2>
     </div>
     <img className="site-project-image" src={url(project.image)} alt={project.image_alt} width={project.image_width} height={project.image_height} loading="lazy" />
