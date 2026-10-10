@@ -19,10 +19,10 @@ export default function HomePage() {
           <h1>{copy.headline[0]}<br /><span className="accent">{copy.headline[1]}</span></h1>
           <p className="lab-intro">{copy.intro}</p>
           <div className="lab-hero-actions"><a className="lab-button" href={site.signup} target="_blank" rel="noopener noreferrer">Join the club <Arrow /></a><a className="lab-text-link" href={url('/events/')}>See what we do <Arrow /></a></div>
+          <ClaudeCollaboration logo={url('/images/brand/claude-official.svg')} />
         </div>
         <div className="lab-hero-visual"><img src={url(String(page.intro_image))} alt="" width={1080} height={1080} fetchPriority="high" /></div>
       </section>
-      <ClaudeCollaboration logo={url('/images/brand/claude-official.svg')} copy={copy.collaboration_copy} />
       <section className="lab-section" aria-labelledby="activities-heading"><div className="lab-section-head"><div><h2 id="activities-heading">Find your starting point<span className="accent">.</span></h2></div><a className="lab-text-link" href={url('/events/')}>Explore the club <Arrow /></a></div><ActivityGrid activities={loadActivities()} /></section>
       <Welcome />
       <Recruitment />

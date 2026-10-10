@@ -44,12 +44,10 @@
 .lab-hero-actions { display: flex; align-items: center; gap: 27px; margin-top: 31px; }
 .lab-hero-visual { position: relative; height: 450px; background-color: #e8e6dc; background-image: linear-gradient(#14141308 1px, transparent 1px), linear-gradient(90deg, #14141308 1px, transparent 1px); background-size: 24px 24px; border: 1px solid #b0aea5; box-shadow: 10px 10px 0 var(--accent); }
 .lab-hero-visual img { width: 100%; height: 100%; object-fit: contain; padding: 28px 25px; animation: lab-float 9s ease-in-out infinite; }
-.lab-manifesto { border-top: 1px solid #b0aea5; border-bottom: 1px solid #b0aea5; padding: 16px 36px; display: flex; flex-direction: column; gap: 8px; align-items: center; justify-content: center; font-size: 12px; line-height: 1.5; color: #141413; background: #e8e6dc; }
-.lab-manifesto-attribution { display: flex; flex-wrap: wrap; gap: 8px 16px; align-items: center; justify-content: center; }
-.lab-manifesto p { max-width: 700px; margin: 0; font-size: 14px; line-height: 1.6; text-align: center; }
-.lab-manifesto a { display: inline-flex; align-items: center; min-height: 44px; }
-.lab-manifesto img { display: block; width: 143px; height: 31px; }
-.lab-manifesto :focus-visible { outline-color: #141413; }
+.lab .lab-collaboration { display: inline-flex; align-items: center; gap: 10px; max-width: 100%; min-height: 52px; margin-top: 28px; padding: 8px 12px; border: 1px solid #b0aea5; background: #e8e6dc; color: #141413; font-size: 13px; line-height: 1.5; }
+.lab-collaboration span { white-space: nowrap; }
+.lab-collaboration img { display: block; flex-shrink: 0; width: 124px; height: auto; }
+.lab-collaboration:hover { border-color: var(--accent); }
 .lab-section { padding: 70px 36px 74px; }
 .lab-section-head { display: flex; justify-content: space-between; align-items: flex-end; gap: 28px; margin-bottom: 30px; }
 .lab h2 { font-family: Georgia, 'Times New Roman', serif; font-size: 38px; line-height: 1.15; font-weight: 400; letter-spacing: -.045em; }
@@ -154,7 +152,6 @@
   .lab-hero-actions .lab-text-link { font-size: 11px !important; gap: 12px; }
   .lab-hero-visual { height: 335px; margin-right: 7px; box-shadow: 7px 7px 0 var(--accent); }
   .lab-hero-visual img { padding: 25px 20px; }
-  .lab-manifesto { padding: 16px 20px; text-align: center; }
   .lab-section { padding: 44px 20px; }
   .lab h2 { font-size: 31px; }
   .lab-section-head { flex-direction: column; align-items: flex-start; gap: 10px; margin-bottom: 22px; }

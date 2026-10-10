@@ -9,7 +9,6 @@ sign_up: true
 headline:
   - "Stay curious."
   - "Build with Claude."
-collaboration_copy: "Through the Claude Builder Club programme, we help Cambridge students turn ideas into working projects, learn from one another and connect with builders around the world."
 welcome_title: "Bring your curiosity."
 welcome_copy: "New to AI or already building? Bring a question or an idea. Learn by making, with students from across Cambridge."
 join_title: "Your next idea starts here."

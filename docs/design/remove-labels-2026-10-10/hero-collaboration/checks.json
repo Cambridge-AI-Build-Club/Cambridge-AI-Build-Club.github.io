@@ -1,0 +1,818 @@
+[
+  {
+    "actions": [
+      {
+        "href": "https://www.jotform.com/253555944387168",
+        "text": "Join the club"
+      },
+      {
+        "href": "/events/",
+        "text": "See what we do"
+      }
+    ],
+    "alignsWithCopy": true,
+    "background": "rgb(232, 230, 220)",
+    "belowActions": true,
+    "count": 1,
+    "fitsCopy": true,
+    "font": "Arial, Helvetica, sans-serif",
+    "fontSize": "13px",
+    "href": "https://claude.com/",
+    "insideHeroCopy": true,
+    "label": "In collaboration with",
+    "labelColor": "rgb(20, 20, 19)",
+    "linkHasNoNestedControls": true,
+    "linkHeight": 52,
+    "linkWidth": 274.90625,
+    "logoHeight": 27.046875,
+    "logoLoaded": true,
+    "logoWidth": 124,
+    "noBand": true,
+    "noSupportingCopy": true,
+    "overflow": false,
+    "prerequisites": false,
+    "rel": "noopener noreferrer",
+    "removedLabels": 0,
+    "route": "/",
+    "sameRow": true,
+    "stripHeight": 52,
+    "target": "_blank",
+    "theme": "paper",
+    "width": 1440,
+    "focus": {
+      "focused": true,
+      "minHeight": "52px",
+      "outline": "solid",
+      "outlineWidth": "2px"
+    },
+    "hover": {
+      "border": "rgb(217, 119, 87)",
+      "transform": "none"
+    }
+  },
+  {
+    "actions": [
+      {
+        "href": "https://www.jotform.com/253555944387168",
+        "text": "Join the club"
+      },
+      {
+        "href": null,
+        "text": "See what we do"
+      }
+    ],
+    "alignsWithCopy": true,
+    "background": "rgb(232, 230, 220)",
+    "belowActions": true,
+    "count": 1,
+    "fitsCopy": true,
+    "font": "Arial, Helvetica, sans-serif",
+    "fontSize": "13px",
+    "href": "https://claude.com/",
+    "insideHeroCopy": true,
+    "label": "In collaboration with",
+    "labelColor": "rgb(20, 20, 19)",
+    "linkHasNoNestedControls": true,
+    "linkHeight": 52,
+    "linkWidth": 274.90625,
+    "logoHeight": 27.046875,
+    "logoLoaded": true,
+    "logoWidth": 124,
+    "noBand": true,
+    "noSupportingCopy": true,
+    "overflow": false,
+    "prerequisites": false,
+    "rel": "noopener noreferrer",
+    "removedLabels": 0,
+    "route": "/playground/",
+    "sameRow": true,
+    "stripHeight": 52,
+    "target": "_blank",
+    "theme": "paper",
+    "width": 1440,
+    "focus": {
+      "focused": true,
+      "minHeight": "52px",
+      "outline": "solid",
+      "outlineWidth": "2px"
+    },
+    "hover": {
+      "border": "rgb(217, 119, 87)",
+      "transform": "none"
+    }
+  },
+  {
+    "actions": [
+      {
+        "href": "https://www.jotform.com/253555944387168",
+        "text": "Join the club"
+      },
+      {
+        "href": "/events/",
+        "text": "See what we do"
+      }
+    ],
+    "alignsWithCopy": true,
+    "background": "rgb(232, 230, 220)",
+    "belowActions": true,
+    "count": 1,
+    "fitsCopy": true,
+    "font": "Arial, Helvetica, sans-serif",
+    "fontSize": "13px",
+    "href": "https://claude.com/",
+    "insideHeroCopy": true,
+    "label": "In collaboration with",
+    "labelColor": "rgb(20, 20, 19)",
+    "linkHasNoNestedControls": true,
+    "linkHeight": 52,
+    "linkWidth": 274.90625,
+    "logoHeight": 27.046875,
+    "logoLoaded": true,
+    "logoWidth": 124,
+    "noBand": true,
+    "noSupportingCopy": true,
+    "overflow": false,
+    "prerequisites": false,
+    "rel": "noopener noreferrer",
+    "removedLabels": 0,
+    "route": "/",
+    "sameRow": true,
+    "stripHeight": 52,
+    "target": "_blank",
+    "theme": "charcoal",
+    "width": 1440,
+    "focus": {
+      "focused": true,
+      "minHeight": "52px",
+      "outline": "solid",
+      "outlineWidth": "2px"
+    },
+    "hover": {
+      "border": "rgb(217, 119, 87)",
+      "transform": "none"
+    }
+  },
+  {
+    "actions": [
+      {
+        "href": "https://www.jotform.com/253555944387168",
+        "text": "Join the club"
+      },
+      {
+        "href": null,
+        "text": "See what we do"
+      }
+    ],
+    "alignsWithCopy": true,
+    "background": "rgb(232, 230, 220)",
+    "belowActions": true,
+    "count": 1,
+    "fitsCopy": true,
+    "font": "Arial, Helvetica, sans-serif",
+    "fontSize": "13px",
+    "href": "https://claude.com/",
+    "insideHeroCopy": true,
+    "label": "In collaboration with",
+    "labelColor": "rgb(20, 20, 19)",
+    "linkHasNoNestedControls": true,
+    "linkHeight": 52,
+    "linkWidth": 274.90625,
+    "logoHeight": 27.046875,
+    "logoLoaded": true,
+    "logoWidth": 124,
+    "noBand": true,
+    "noSupportingCopy": true,
+    "overflow": false,
+    "prerequisites": false,
+    "rel": "noopener noreferrer",
+    "removedLabels": 0,
+    "route": "/playground/",
+    "sameRow": true,
+    "stripHeight": 52,
+    "target": "_blank",
+    "theme": "charcoal",
+    "width": 1440,
+    "focus": {
+      "focused": true,
+      "minHeight": "52px",
+      "outline": "solid",
+      "outlineWidth": "2px"
+    },
+    "hover": {
+      "border": "rgb(217, 119, 87)",
+      "transform": "none"
+    }
+  },
+  {
+    "actions": [
+      {
+        "href": "https://www.jotform.com/253555944387168",
+        "text": "Join the club"
+      },
+      {
+        "href": "/events/",
+        "text": "See what we do"
+      }
+    ],
+    "alignsWithCopy": true,
+    "background": "rgb(232, 230, 220)",
+    "belowActions": true,
+    "count": 1,
+    "fitsCopy": true,
+    "font": "Arial, Helvetica, sans-serif",
+    "fontSize": "13px",
+    "href": "https://claude.com/",
+    "insideHeroCopy": true,
+    "label": "In collaboration with",
+    "labelColor": "rgb(20, 20, 19)",
+    "linkHasNoNestedControls": true,
+    "linkHeight": 52,
+    "linkWidth": 274.90625,
+    "logoHeight": 27.046875,
+    "logoLoaded": true,
+    "logoWidth": 124,
+    "noBand": true,
+    "noSupportingCopy": true,
+    "overflow": false,
+    "prerequisites": false,
+    "rel": "noopener noreferrer",
+    "removedLabels": 0,
+    "route": "/",
+    "sameRow": true,
+    "stripHeight": 52,
+    "target": "_blank",
+    "theme": "paper",
+    "width": 903,
+    "focus": {
+      "focused": true,
+      "minHeight": "52px",
+      "outline": "solid",
+      "outlineWidth": "2px"
+    },
+    "hover": {
+      "border": "rgb(217, 119, 87)",
+      "transform": "none"
+    }
+  },
+  {
+    "actions": [
+      {
+        "href": "https://www.jotform.com/253555944387168",
+        "text": "Join the club"
+      },
+      {
+        "href": null,
+        "text": "See what we do"
+      }
+    ],
+    "alignsWithCopy": true,
+    "background": "rgb(232, 230, 220)",
+    "belowActions": true,
+    "count": 1,
+    "fitsCopy": true,
+    "font": "Arial, Helvetica, sans-serif",
+    "fontSize": "13px",
+    "href": "https://claude.com/",
+    "insideHeroCopy": true,
+    "label": "In collaboration with",
+    "labelColor": "rgb(20, 20, 19)",
+    "linkHasNoNestedControls": true,
+    "linkHeight": 52,
+    "linkWidth": 274.90625,
+    "logoHeight": 27.046875,
+    "logoLoaded": true,
+    "logoWidth": 124,
+    "noBand": true,
+    "noSupportingCopy": true,
+    "overflow": false,
+    "prerequisites": false,
+    "rel": "noopener noreferrer",
+    "removedLabels": 0,
+    "route": "/playground/",
+    "sameRow": true,
+    "stripHeight": 52,
+    "target": "_blank",
+    "theme": "paper",
+    "width": 903,
+    "focus": {
+      "focused": true,
+      "minHeight": "52px",
+      "outline": "solid",
+      "outlineWidth": "2px"
+    },
+    "hover": {
+      "border": "rgb(217, 119, 87)",
+      "transform": "none"
+    }
+  },
+  {
+    "actions": [
+      {
+        "href": "https://www.jotform.com/253555944387168",
+        "text": "Join the club"
+      },
+      {
+        "href": "/events/",
+        "text": "See what we do"
+      }
+    ],
+    "alignsWithCopy": true,
+    "background": "rgb(232, 230, 220)",
+    "belowActions": true,
+    "count": 1,
+    "fitsCopy": true,
+    "font": "Arial, Helvetica, sans-serif",
+    "fontSize": "13px",
+    "href": "https://claude.com/",
+    "insideHeroCopy": true,
+    "label": "In collaboration with",
+    "labelColor": "rgb(20, 20, 19)",
+    "linkHasNoNestedControls": true,
+    "linkHeight": 52,
+    "linkWidth": 274.90625,
+    "logoHeight": 27.046875,
+    "logoLoaded": true,
+    "logoWidth": 124,
+    "noBand": true,
+    "noSupportingCopy": true,
+    "overflow": false,
+    "prerequisites": false,
+    "rel": "noopener noreferrer",
+    "removedLabels": 0,
+    "route": "/",
+    "sameRow": true,
+    "stripHeight": 52,
+    "target": "_blank",
+    "theme": "charcoal",
+    "width": 903,
+    "focus": {
+      "focused": true,
+      "minHeight": "52px",
+      "outline": "solid",
+      "outlineWidth": "2px"
+    },
+    "hover": {
+      "border": "rgb(217, 119, 87)",
+      "transform": "none"
+    }
+  },
+  {
+    "actions": [
+      {
+        "href": "https://www.jotform.com/253555944387168",
+        "text": "Join the club"
+      },
+      {
+        "href": null,
+        "text": "See what we do"
+      }
+    ],
+    "alignsWithCopy": true,
+    "background": "rgb(232, 230, 220)",
+    "belowActions": true,
+    "count": 1,
+    "fitsCopy": true,
+    "font": "Arial, Helvetica, sans-serif",
+    "fontSize": "13px",
+    "href": "https://claude.com/",
+    "insideHeroCopy": true,
+    "label": "In collaboration with",
+    "labelColor": "rgb(20, 20, 19)",
+    "linkHasNoNestedControls": true,
+    "linkHeight": 52,
+    "linkWidth": 274.90625,
+    "logoHeight": 27.046875,
+    "logoLoaded": true,
+    "logoWidth": 124,
+    "noBand": true,
+    "noSupportingCopy": true,
+    "overflow": false,
+    "prerequisites": false,
+    "rel": "noopener noreferrer",
+    "removedLabels": 0,
+    "route": "/playground/",
+    "sameRow": true,
+    "stripHeight": 52,
+    "target": "_blank",
+    "theme": "charcoal",
+    "width": 903,
+    "focus": {
+      "focused": true,
+      "minHeight": "52px",
+      "outline": "solid",
+      "outlineWidth": "2px"
+    },
+    "hover": {
+      "border": "rgb(217, 119, 87)",
+      "transform": "none"
+    }
+  },
+  {
+    "actions": [
+      {
+        "href": "https://www.jotform.com/253555944387168",
+        "text": "Join the club"
+      },
+      {
+        "href": "/events/",
+        "text": "See what we do"
+      }
+    ],
+    "alignsWithCopy": true,
+    "background": "rgb(232, 230, 220)",
+    "belowActions": true,
+    "count": 1,
+    "fitsCopy": true,
+    "font": "Arial, Helvetica, sans-serif",
+    "fontSize": "13px",
+    "href": "https://claude.com/",
+    "insideHeroCopy": true,
+    "label": "In collaboration with",
+    "labelColor": "rgb(20, 20, 19)",
+    "linkHasNoNestedControls": true,
+    "linkHeight": 52,
+    "linkWidth": 274.90625,
+    "logoHeight": 27.046875,
+    "logoLoaded": true,
+    "logoWidth": 124,
+    "noBand": true,
+    "noSupportingCopy": true,
+    "overflow": false,
+    "prerequisites": false,
+    "rel": "noopener noreferrer",
+    "removedLabels": 0,
+    "route": "/",
+    "sameRow": true,
+    "stripHeight": 52,
+    "target": "_blank",
+    "theme": "paper",
+    "width": 375,
+    "focus": {
+      "focused": true,
+      "minHeight": "52px",
+      "outline": "solid",
+      "outlineWidth": "2px"
+    },
+    "hover": {
+      "border": "rgb(217, 119, 87)",
+      "transform": "none"
+    }
+  },
+  {
+    "actions": [
+      {
+        "href": "https://www.jotform.com/253555944387168",
+        "text": "Join the club"
+      },
+      {
+        "href": null,
+        "text": "See what we do"
+      }
+    ],
+    "alignsWithCopy": true,
+    "background": "rgb(232, 230, 220)",
+    "belowActions": true,
+    "count": 1,
+    "fitsCopy": true,
+    "font": "Arial, Helvetica, sans-serif",
+    "fontSize": "13px",
+    "href": "https://claude.com/",
+    "insideHeroCopy": true,
+    "label": "In collaboration with",
+    "labelColor": "rgb(20, 20, 19)",
+    "linkHasNoNestedControls": true,
+    "linkHeight": 52,
+    "linkWidth": 274.90625,
+    "logoHeight": 27.046875,
+    "logoLoaded": true,
+    "logoWidth": 124,
+    "noBand": true,
+    "noSupportingCopy": true,
+    "overflow": false,
+    "prerequisites": false,
+    "rel": "noopener noreferrer",
+    "removedLabels": 0,
+    "route": "/playground/",
+    "sameRow": true,
+    "stripHeight": 52,
+    "target": "_blank",
+    "theme": "paper",
+    "width": 375,
+    "focus": {
+      "focused": true,
+      "minHeight": "52px",
+      "outline": "solid",
+      "outlineWidth": "2px"
+    },
+    "hover": {
+      "border": "rgb(217, 119, 87)",
+      "transform": "none"
+    }
+  },
+  {
+    "actions": [
+      {
+        "href": "https://www.jotform.com/253555944387168",
+        "text": "Join the club"
+      },
+      {
+        "href": "/events/",
+        "text": "See what we do"
+      }
+    ],
+    "alignsWithCopy": true,
+    "background": "rgb(232, 230, 220)",
+    "belowActions": true,
+    "count": 1,
+    "fitsCopy": true,
+    "font": "Arial, Helvetica, sans-serif",
+    "fontSize": "13px",
+    "href": "https://claude.com/",
+    "insideHeroCopy": true,
+    "label": "In collaboration with",
+    "labelColor": "rgb(20, 20, 19)",
+    "linkHasNoNestedControls": true,
+    "linkHeight": 52,
+    "linkWidth": 274.90625,
+    "logoHeight": 27.046875,
+    "logoLoaded": true,
+    "logoWidth": 124,
+    "noBand": true,
+    "noSupportingCopy": true,
+    "overflow": false,
+    "prerequisites": false,
+    "rel": "noopener noreferrer",
+    "removedLabels": 0,
+    "route": "/",
+    "sameRow": true,
+    "stripHeight": 52,
+    "target": "_blank",
+    "theme": "charcoal",
+    "width": 375,
+    "focus": {
+      "focused": true,
+      "minHeight": "52px",
+      "outline": "solid",
+      "outlineWidth": "2px"
+    },
+    "hover": {
+      "border": "rgb(217, 119, 87)",
+      "transform": "none"
+    }
+  },
+  {
+    "actions": [
+      {
+        "href": "https://www.jotform.com/253555944387168",
+        "text": "Join the club"
+      },
+      {
+        "href": null,
+        "text": "See what we do"
+      }
+    ],
+    "alignsWithCopy": true,
+    "background": "rgb(232, 230, 220)",
+    "belowActions": true,
+    "count": 1,
+    "fitsCopy": true,
+    "font": "Arial, Helvetica, sans-serif",
+    "fontSize": "13px",
+    "href": "https://claude.com/",
+    "insideHeroCopy": true,
+    "label": "In collaboration with",
+    "labelColor": "rgb(20, 20, 19)",
+    "linkHasNoNestedControls": true,
+    "linkHeight": 52,
+    "linkWidth": 274.90625,
+    "logoHeight": 27.046875,
+    "logoLoaded": true,
+    "logoWidth": 124,
+    "noBand": true,
+    "noSupportingCopy": true,
+    "overflow": false,
+    "prerequisites": false,
+    "rel": "noopener noreferrer",
+    "removedLabels": 0,
+    "route": "/playground/",
+    "sameRow": true,
+    "stripHeight": 52,
+    "target": "_blank",
+    "theme": "charcoal",
+    "width": 375,
+    "focus": {
+      "focused": true,
+      "minHeight": "52px",
+      "outline": "solid",
+      "outlineWidth": "2px"
+    },
+    "hover": {
+      "border": "rgb(217, 119, 87)",
+      "transform": "none"
+    }
+  },
+  {
+    "actions": [
+      {
+        "href": "https://www.jotform.com/253555944387168",
+        "text": "Join the club"
+      },
+      {
+        "href": "/events/",
+        "text": "See what we do"
+      }
+    ],
+    "alignsWithCopy": true,
+    "background": "rgb(232, 230, 220)",
+    "belowActions": true,
+    "count": 1,
+    "fitsCopy": true,
+    "font": "Arial, Helvetica, sans-serif",
+    "fontSize": "13px",
+    "href": "https://claude.com/",
+    "insideHeroCopy": true,
+    "label": "In collaboration with",
+    "labelColor": "rgb(20, 20, 19)",
+    "linkHasNoNestedControls": true,
+    "linkHeight": 52,
+    "linkWidth": 274.90625,
+    "logoHeight": 27.046875,
+    "logoLoaded": true,
+    "logoWidth": 124,
+    "noBand": true,
+    "noSupportingCopy": true,
+    "overflow": false,
+    "prerequisites": false,
+    "rel": "noopener noreferrer",
+    "removedLabels": 0,
+    "route": "/",
+    "sameRow": true,
+    "stripHeight": 52,
+    "target": "_blank",
+    "theme": "paper",
+    "width": 320,
+    "focus": {
+      "focused": true,
+      "minHeight": "52px",
+      "outline": "solid",
+      "outlineWidth": "2px"
+    },
+    "hover": {
+      "border": "rgb(217, 119, 87)",
+      "transform": "none"
+    }
+  },
+  {
+    "actions": [
+      {
+        "href": "https://www.jotform.com/253555944387168",
+        "text": "Join the club"
+      },
+      {
+        "href": null,
+        "text": "See what we do"
+      }
+    ],
+    "alignsWithCopy": true,
+    "background": "rgb(232, 230, 220)",
+    "belowActions": true,
+    "count": 1,
+    "fitsCopy": true,
+    "font": "Arial, Helvetica, sans-serif",
+    "fontSize": "13px",
+    "href": "https://claude.com/",
+    "insideHeroCopy": true,
+    "label": "In collaboration with",
+    "labelColor": "rgb(20, 20, 19)",
+    "linkHasNoNestedControls": true,
+    "linkHeight": 52,
+    "linkWidth": 274.90625,
+    "logoHeight": 27.046875,
+    "logoLoaded": true,
+    "logoWidth": 124,
+    "noBand": true,
+    "noSupportingCopy": true,
+    "overflow": false,
+    "prerequisites": false,
+    "rel": "noopener noreferrer",
+    "removedLabels": 0,
+    "route": "/playground/",
+    "sameRow": true,
+    "stripHeight": 52,
+    "target": "_blank",
+    "theme": "paper",
+    "width": 320,
+    "focus": {
+      "focused": true,
+      "minHeight": "52px",
+      "outline": "solid",
+      "outlineWidth": "2px"
+    },
+    "hover": {
+      "border": "rgb(217, 119, 87)",
+      "transform": "none"
+    }
+  },
+  {
+    "actions": [
+      {
+        "href": "https://www.jotform.com/253555944387168",
+        "text": "Join the club"
+      },
+      {
+        "href": "/events/",
+        "text": "See what we do"
+      }
+    ],
+    "alignsWithCopy": true,
+    "background": "rgb(232, 230, 220)",
+    "belowActions": true,
+    "count": 1,
+    "fitsCopy": true,
+    "font": "Arial, Helvetica, sans-serif",
+    "fontSize": "13px",
+    "href": "https://claude.com/",
+    "insideHeroCopy": true,
+    "label": "In collaboration with",
+    "labelColor": "rgb(20, 20, 19)",
+    "linkHasNoNestedControls": true,
+    "linkHeight": 52,
+    "linkWidth": 274.90625,
+    "logoHeight": 27.046875,
+    "logoLoaded": true,
+    "logoWidth": 124,
+    "noBand": true,
+    "noSupportingCopy": true,
+    "overflow": false,
+    "prerequisites": false,
+    "rel": "noopener noreferrer",
+    "removedLabels": 0,
+    "route": "/",
+    "sameRow": true,
+    "stripHeight": 52,
+    "target": "_blank",
+    "theme": "charcoal",
+    "width": 320,
+    "focus": {
+      "focused": true,
+      "minHeight": "52px",
+      "outline": "solid",
+      "outlineWidth": "2px"
+    },
+    "hover": {
+      "border": "rgb(217, 119, 87)",
+      "transform": "none"
+    }
+  },
+  {
+    "actions": [
+      {
+        "href": "https://www.jotform.com/253555944387168",
+        "text": "Join the club"
+      },
+      {
+        "href": null,
+        "text": "See what we do"
+      }
+    ],
+    "alignsWithCopy": true,
+    "background": "rgb(232, 230, 220)",
+    "belowActions": true,
+    "count": 1,
+    "fitsCopy": true,
+    "font": "Arial, Helvetica, sans-serif",
+    "fontSize": "13px",
+    "href": "https://claude.com/",
+    "insideHeroCopy": true,
+    "label": "In collaboration with",
+    "labelColor": "rgb(20, 20, 19)",
+    "linkHasNoNestedControls": true,
+    "linkHeight": 52,
+    "linkWidth": 274.90625,
+    "logoHeight": 27.046875,
+    "logoLoaded": true,
+    "logoWidth": 124,
+    "noBand": true,
+    "noSupportingCopy": true,
+    "overflow": false,
+    "prerequisites": false,
+    "rel": "noopener noreferrer",
+    "removedLabels": 0,
+    "route": "/playground/",
+    "sameRow": true,
+    "stripHeight": 52,
+    "target": "_blank",
+    "theme": "charcoal",
+    "width": 320,
+    "focus": {
+      "focused": true,
+      "minHeight": "52px",
+      "outline": "solid",
+      "outlineWidth": "2px"
+    },
+    "hover": {
+      "border": "rgb(217, 119, 87)",
+      "transform": "none"
+    }
+  }
+]

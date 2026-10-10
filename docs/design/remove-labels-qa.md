@@ -1,6 +1,6 @@
 # Decorative label removal — 10 October 2026
 
-The owner approved removal of the decorative monospaced captions and section/page labels after reviewing the complete scope. The hero prerequisite sentence, artwork captions, collaboration-strip slogan, section/page eyebrows, activity/project labels and recruitment/calendar labels are deleted from production and the matching playground. Following the owner's clarification, the useful In collaboration with attribution stays beside the official Claude logo in a compact row after the hero. Journal publication dates use regular Arial/Helvetica typography.
+The owner approved removal of the decorative monospaced captions and section/page labels after reviewing the complete scope. The hero prerequisite sentence, artwork captions, collaboration-strip slogan, section/page eyebrows, activity/project labels and recruitment/calendar labels are deleted from production and the matching playground. Following the owner's final clarification, only In collaboration with and the official Claude logo remain in a compact linked lockup inside the hero, beneath its actions. The full-width band and supporting programme paragraph are removed. Journal publication dates use regular Arial/Helvetica typography.
 
 ## Verification
 
@@ -14,7 +14,7 @@ The owner approved removal of the decorative monospaced captions and section/pag
 
 ## Screenshots
 
-The original removal screenshots and structured checks are in [the evidence folder](remove-labels-2026-10-10/). The latest Home/playground screenshots are in the collaboration copy revision below; the earlier attribution screenshots remain as historical evidence.
+The original removal screenshots and structured checks are in [the evidence folder](remove-labels-2026-10-10/). The latest Home/playground screenshots are in the hero collaboration lockup revision below. Earlier strip and supporting-copy screenshots remain as historical evidence; those layouts have been superseded.
 
 | Surface | Desktop, Warm Paper | Mobile, Warm Paper | Desktop, Charcoal | Mobile, Charcoal |
 | --- | --- | --- | --- | --- |
@@ -55,6 +55,22 @@ The existing attribution/logo row remains, with one centered regular-font paragr
 | --- | --- | --- | --- | --- |
 | Home | [Image](remove-labels-2026-10-10/collaboration-copy/home-1440-paper.jpg) | [Image](remove-labels-2026-10-10/collaboration-copy/home-375-paper.jpg) | [Image](remove-labels-2026-10-10/collaboration-copy/home-1440-charcoal.jpg) | [Image](remove-labels-2026-10-10/collaboration-copy/home-375-charcoal.jpg) |
 | Playground | [Image](remove-labels-2026-10-10/collaboration-copy/playground-1440-paper.jpg) | [Image](remove-labels-2026-10-10/collaboration-copy/playground-375-paper.jpg) | [Image](remove-labels-2026-10-10/collaboration-copy/playground-1440-charcoal.jpg) | [Image](remove-labels-2026-10-10/collaboration-copy/playground-375-charcoal.jpg) |
+
+## Hero collaboration lockup revision
+
+The owner requested retaining only In collaboration with Claude and improving its presentation. The final UI integrates a compact warm lockup beneath the hero actions, aligned with the heading and prose. The whole label/logo unit is a single existing Claude link with a 52px target; its border changes on hover without movement. The official asset remains unchanged and renders at its natural 573:125 proportions. Production and playground share the component.
+
+The full-width band, supporting sentence, root supporting-copy field, loader property, prop and unused band styles are removed. The primary and secondary hero actions remain.
+
+- Design guard and static build passed (25 exported routes, 21 legacy redirects); `git diff --check` passed.
+- Sixteen focused Home/playground checks at 1440px, 903px, 375px and 320px in both themes passed: one link inside the hero copy, left alignment, placement below actions, fitting within the copy column, correct label/logo/destination, regular 13px font, 52px target, visible keyboard focus and border hover feedback without movement.
+- Eight fresh desktop/mobile screenshots were inspected. Supporting copy and obsolete band stay absent; no document overflow, missing logo or browser errors/messages. A full accessibility audit and external signup submission were not repeated for this narrow revision.
+- [Structured checks](remove-labels-2026-10-10/hero-collaboration/checks.json), [browser errors](remove-labels-2026-10-10/hero-collaboration/errors.json) and [console log](remove-labels-2026-10-10/hero-collaboration/console.json).
+
+| Surface | Desktop, Warm Paper | Mobile, Warm Paper | Desktop, Charcoal | Mobile, Charcoal |
+| --- | --- | --- | --- | --- |
+| Home | [Image](remove-labels-2026-10-10/hero-collaboration/home-1440-paper.jpg) | [Image](remove-labels-2026-10-10/hero-collaboration/home-375-paper.jpg) | [Image](remove-labels-2026-10-10/hero-collaboration/home-1440-charcoal.jpg) | [Image](remove-labels-2026-10-10/hero-collaboration/home-375-charcoal.jpg) |
+| Playground | [Image](remove-labels-2026-10-10/hero-collaboration/playground-1440-paper.jpg) | [Image](remove-labels-2026-10-10/hero-collaboration/playground-375-paper.jpg) | [Image](remove-labels-2026-10-10/hero-collaboration/playground-1440-charcoal.jpg) | [Image](remove-labels-2026-10-10/hero-collaboration/playground-375-charcoal.jpg) |
 
 ## Review boundary
 
