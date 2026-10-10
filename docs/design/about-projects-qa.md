@@ -2,7 +2,15 @@
 
 Verified locally on 10 October 2026. Branch: `feature/about-projects`. Local preview: http://localhost:4102/. Awaiting the owner's preview review; not deployed.
 
-The shared header now includes About and Projects, with the menu at widths of 1100px and below. About introduces CBC World; Projects features its captured live screenshot, description, capabilities and live/source links. Both previews read one project record from `_data/projects.yml`. The original body of `about.md` is unchanged.
+The shared header now includes About and Projects, with the menu at widths of 1100px and below. About introduces CBC World; Projects features its captured live screenshot, description, capabilities and live/source links. Both previews read one project record from `_data/projects.yml`. The original About introduction is retained, followed by researched context about the wider builder community and the role of Claude Campus Ambassadors. A transition explains why we built CBC World before its preview. Projects has a matching introduction.
+
+## Campus background and transition revision
+
+Research preceded the copy plan and implementation. [Anthropic's official campus programme](https://claude.com/programs/campus) explains the Claude Builder Club and Claude Campus Ambassador roles. The club's [launch article](../../_blogs/claude-builder-program.md) documents its programme collaboration. The new About section links directly to the official programme. Historical event forecasts, recruitment terms and programme benefits are omitted.
+
+The static build and design policy passed again after this copy revision. The eight About/Projects screenshots below were refreshed at 1440px/375px in both themes; eight fresh axe scans found zero violations or incomplete findings. The transition, heading order, official programme link, About-to-Projects action, project action labels and theme persistence were checked. No document overflow, broken images or browser errors/warnings were found. The nineteen-route export checks also verify the new copy and retained original About introduction. Navigation, calendar and reduced-motion checks below were performed in the initial implementation and remain applicable to the unchanged components.
+
+[Transition review screenshot](about-projects-2026-10-10/about-transition-review.jpg) and [copy revision browser/accessibility evidence](about-projects-2026-10-10/campus-copy-checks.json).
 
 ## Checks performed
 

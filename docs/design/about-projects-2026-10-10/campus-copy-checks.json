@@ -1,0 +1,328 @@
+{
+  "date": "2026-10-10",
+  "sources": [
+    "https://claude.com/programs/campus",
+    "_blogs/claude-builder-program.md"
+  ],
+  "views": [
+    {
+      "label": "about-desktop-paper",
+      "actions": [
+        {
+          "href": "https://cambridge-ai-build-club.github.io/CBC-World/",
+          "rel": "noopener noreferrer",
+          "target": "_blank",
+          "text": "Explore CBC World"
+        },
+        {
+          "href": "http://localhost:4102/projects/",
+          "rel": "",
+          "target": "",
+          "text": "See our projects"
+        }
+      ],
+      "brokenImages": [],
+      "canonical": "https://cambridge-ai-build-club.github.io/about/",
+      "h1": 1,
+      "overflow": false,
+      "screenshot": {
+        "height": 417.125,
+        "natural": [
+          1280,
+          720
+        ],
+        "width": 738
+      },
+      "surface": "paper",
+      "width": 1440
+    },
+    {
+      "label": "about-desktop-charcoal",
+      "actions": [
+        {
+          "href": "https://cambridge-ai-build-club.github.io/CBC-World/",
+          "rel": "noopener noreferrer",
+          "target": "_blank",
+          "text": "Explore CBC World"
+        },
+        {
+          "href": "http://localhost:4102/projects/",
+          "rel": "",
+          "target": "",
+          "text": "See our projects"
+        }
+      ],
+      "brokenImages": [],
+      "canonical": "https://cambridge-ai-build-club.github.io/about/",
+      "h1": 1,
+      "overflow": false,
+      "screenshot": {
+        "height": 417.125,
+        "natural": [
+          1280,
+          720
+        ],
+        "width": 738
+      },
+      "surface": "charcoal",
+      "width": 1440
+    },
+    {
+      "label": "about-mobile-charcoal",
+      "actions": [
+        {
+          "href": "https://cambridge-ai-build-club.github.io/CBC-World/",
+          "rel": "noopener noreferrer",
+          "target": "_blank",
+          "text": "Explore CBC World"
+        },
+        {
+          "href": "http://localhost:4102/projects/",
+          "rel": "",
+          "target": "",
+          "text": "See our projects"
+        }
+      ],
+      "brokenImages": [],
+      "canonical": "https://cambridge-ai-build-club.github.io/about/",
+      "h1": 1,
+      "overflow": false,
+      "screenshot": {
+        "height": 180.875,
+        "natural": [
+          1280,
+          720
+        ],
+        "width": 318
+      },
+      "surface": "charcoal",
+      "width": 375
+    },
+    {
+      "label": "about-mobile-paper",
+      "actions": [
+        {
+          "href": "https://cambridge-ai-build-club.github.io/CBC-World/",
+          "rel": "noopener noreferrer",
+          "target": "_blank",
+          "text": "Explore CBC World"
+        },
+        {
+          "href": "http://localhost:4102/projects/",
+          "rel": "",
+          "target": "",
+          "text": "See our projects"
+        }
+      ],
+      "brokenImages": [],
+      "canonical": "https://cambridge-ai-build-club.github.io/about/",
+      "h1": 1,
+      "overflow": false,
+      "screenshot": {
+        "height": 180.875,
+        "natural": [
+          1280,
+          720
+        ],
+        "width": 318
+      },
+      "surface": "paper",
+      "width": 375
+    },
+    {
+      "label": "projects-mobile-paper",
+      "actions": [
+        {
+          "href": "https://cambridge-ai-build-club.github.io/CBC-World/",
+          "rel": "noopener noreferrer",
+          "target": "_blank",
+          "text": "Explore CBC World"
+        },
+        {
+          "href": "https://github.com/Cambridge-AI-Build-Club/CBC-World",
+          "rel": "noopener noreferrer",
+          "target": "_blank",
+          "text": "View source"
+        }
+      ],
+      "brokenImages": [],
+      "canonical": "https://cambridge-ai-build-club.github.io/projects/",
+      "h1": 1,
+      "overflow": false,
+      "screenshot": {
+        "height": 180.875,
+        "natural": [
+          1280,
+          720
+        ],
+        "width": 318
+      },
+      "surface": "paper",
+      "width": 375
+    },
+    {
+      "label": "projects-mobile-charcoal",
+      "actions": [
+        {
+          "href": "https://cambridge-ai-build-club.github.io/CBC-World/",
+          "rel": "noopener noreferrer",
+          "target": "_blank",
+          "text": "Explore CBC World"
+        },
+        {
+          "href": "https://github.com/Cambridge-AI-Build-Club/CBC-World",
+          "rel": "noopener noreferrer",
+          "target": "_blank",
+          "text": "View source"
+        }
+      ],
+      "brokenImages": [],
+      "canonical": "https://cambridge-ai-build-club.github.io/projects/",
+      "h1": 1,
+      "overflow": false,
+      "screenshot": {
+        "height": 180.875,
+        "natural": [
+          1280,
+          720
+        ],
+        "width": 318
+      },
+      "surface": "charcoal",
+      "width": 375
+    },
+    {
+      "label": "projects-desktop-charcoal",
+      "actions": [
+        {
+          "href": "https://cambridge-ai-build-club.github.io/CBC-World/",
+          "rel": "noopener noreferrer",
+          "target": "_blank",
+          "text": "Explore CBC World"
+        },
+        {
+          "href": "https://github.com/Cambridge-AI-Build-Club/CBC-World",
+          "rel": "noopener noreferrer",
+          "target": "_blank",
+          "text": "View source"
+        }
+      ],
+      "brokenImages": [],
+      "canonical": "https://cambridge-ai-build-club.github.io/projects/",
+      "h1": 1,
+      "overflow": false,
+      "screenshot": {
+        "height": 666.875,
+        "natural": [
+          1280,
+          720
+        ],
+        "width": 1182
+      },
+      "surface": "charcoal",
+      "width": 1440
+    },
+    {
+      "label": "projects-desktop-paper",
+      "actions": [
+        {
+          "href": "https://cambridge-ai-build-club.github.io/CBC-World/",
+          "rel": "noopener noreferrer",
+          "target": "_blank",
+          "text": "Explore CBC World"
+        },
+        {
+          "href": "https://github.com/Cambridge-AI-Build-Club/CBC-World",
+          "rel": "noopener noreferrer",
+          "target": "_blank",
+          "text": "View source"
+        }
+      ],
+      "brokenImages": [],
+      "canonical": "https://cambridge-ai-build-club.github.io/projects/",
+      "h1": 1,
+      "overflow": false,
+      "screenshot": {
+        "height": 666.875,
+        "natural": [
+          1280,
+          720
+        ],
+        "width": 1182
+      },
+      "surface": "paper",
+      "width": 1440
+    }
+  ],
+  "accessibility": [
+    {
+      "label": "about-desktop-paper",
+      "incomplete": [],
+      "passes": 22,
+      "violations": []
+    },
+    {
+      "label": "about-desktop-charcoal",
+      "incomplete": [],
+      "passes": 22,
+      "violations": []
+    },
+    {
+      "label": "about-mobile-charcoal",
+      "incomplete": [],
+      "passes": 22,
+      "violations": []
+    },
+    {
+      "label": "about-mobile-paper",
+      "incomplete": [],
+      "passes": 22,
+      "violations": []
+    },
+    {
+      "label": "projects-mobile-paper",
+      "incomplete": [],
+      "passes": 23,
+      "violations": []
+    },
+    {
+      "label": "projects-mobile-charcoal",
+      "incomplete": [],
+      "passes": 23,
+      "violations": []
+    },
+    {
+      "label": "projects-desktop-charcoal",
+      "incomplete": [],
+      "passes": 23,
+      "violations": []
+    },
+    {
+      "label": "projects-desktop-paper",
+      "incomplete": [],
+      "passes": 23,
+      "violations": []
+    }
+  ],
+  "transition": {
+    "bridge": "We wanted to make those connections easier to find. That’s why we built CBC World: a way to discover campus ambassadors, find people at other universities and start a conversation beyond your own club.",
+    "headings": [
+      {
+        "id": "part-of-a-wider-builder-community",
+        "text": "Part of a wider builder community"
+      },
+      {
+        "id": "project-cbc-world",
+        "text": "CBC World: connecting builders"
+      }
+    ],
+    "programme": [
+      {
+        "href": "https://claude.com/programs/campus",
+        "text": "Claude campus programme"
+      }
+    ],
+    "scrollY": 942
+  },
+  "logs": []
+}
