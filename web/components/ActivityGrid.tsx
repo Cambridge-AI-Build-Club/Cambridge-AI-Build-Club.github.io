@@ -17,10 +17,8 @@ export function ActivityGrid({ activities, filterable = false }: { activities: A
         {visible.map((item) => <a className="lab-activity" key={item.href} href={item.href}>
           <div className="lab-activity-art" aria-hidden="true">
             {item.image && <img src={item.image} alt="" width={240} height={160} loading="lazy" />}
-            <span>BUILD / {item.title.toUpperCase()}</span>
           </div>
           <div className="lab-activity-copy">
-            <span className="lab-kicker">{String(activities.indexOf(item) + 1).padStart(2, '0')} / {item.title === 'Workshop' ? 'GET HANDS-ON' : item.title === 'Demo' ? 'SHOW WHAT’S POSSIBLE' : 'BUILD TOGETHER'}</span>
             <h3>{item.title}<Arrow /></h3><p>{item.description}</p>
             <span className="lab-card-link">Discover {item.title.toLowerCase()}s <Arrow /></span>
           </div>

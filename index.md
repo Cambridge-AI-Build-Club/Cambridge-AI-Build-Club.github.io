@@ -9,7 +9,6 @@ sign_up: true
 headline:
   - "Stay curious."
   - "Build with Claude."
-eyebrow: "Cambridge AI Builder Club"
 welcome_title: "Bring your curiosity."
 welcome_copy: "New to AI or already building? Bring a question or an idea. Learn by making, with students from across Cambridge."
 join_title: "Your next idea starts here."

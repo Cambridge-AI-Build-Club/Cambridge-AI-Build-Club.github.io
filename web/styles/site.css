@@ -11,9 +11,10 @@
 .site-journal-grid { display: grid; grid-template-columns: repeat(2, minmax(0, 1fr)); gap: 24px; }
 .site-journal-card { background: var(--surface); border: 1px solid var(--line); padding: 30px; display: flex; flex-direction: column; gap: 18px; }
 .site-journal-card:hover { border-color: var(--accent); }
-.site-journal-card > .lab-kicker { color: var(--muted); }
+.site-publication-date { color: var(--muted); font-size: 12px; line-height: 1.5; }
+.lab-page-intro .site-publication-date { margin-top: 24px; }
 .site-journal-card h2, .site-journal-card h3 { display: flex; gap: 24px; justify-content: space-between; }
-.site-journal-card > p:not(.lab-kicker) { color: var(--muted); line-height: 1.8; font-size: 14px; }
+.site-journal-card > p:not(.site-publication-date) { color: var(--muted); line-height: 1.8; font-size: 14px; }
 .site-journal-card .lab-card-link { margin-top: auto; }
 .site-recruitment { background: var(--surface); border: 1px solid var(--line); }
 .site-recruitment .lab-button { flex-shrink: 0; }
@@ -53,8 +54,8 @@
 .site-member-small > img { height: 220px; }
 .site-recruitment-body { display: grid; grid-template-columns: minmax(0, 740px) minmax(240px, 1fr); gap: 70px; align-items: start; }
 .site-application-note { background: var(--surface); border: 1px solid var(--line); padding: 24px; position: sticky; top: 24px; }
-.site-application-note h2 { font-size: 30px; margin-top: 14px; }
-.site-application-note > p:not(.lab-kicker) { font-size: 13px; color: var(--muted); line-height: 1.8; margin-top: 20px; }
+.site-application-note h2 { font-size: 30px; }
+.site-application-note > p { font-size: 13px; color: var(--muted); line-height: 1.8; margin-top: 20px; }
 .site-application-note .lab-button { margin-top: 24px; width: 100%; font-size: 12px; }
 .site-calendar-section { padding-top: 40px; }
 .site-status { display: inline-flex; align-items: center; border: 1px solid var(--line); padding: 6px 10px; font-size: 11px; text-transform: capitalize; white-space: nowrap; color: var(--text); }
@@ -77,8 +78,7 @@
 .site-day-number { display: block; padding-top: 11px; text-align: center; font-size: 15px; color: var(--muted); }
 .site-calendar-hint { margin-top: 20px !important; font-size: 12px; color: var(--muted); line-height: 1.7; }
 .site-event-detail { padding: 30px; border: 1px solid var(--line); background: var(--surface); }
-.site-event-detail > .lab-kicker { color: var(--muted); }
-.site-event-detail h3 { margin-top: 22px; font-size: 28px; line-height: 1.3; }
+.site-event-detail h3 { font-size: 28px; line-height: 1.3; }
 .site-event-detail > .site-status { margin-top: 18px; }
 .site-event-detail dl { font-size: 14px; line-height: 1.6; }
 .site-event-detail dt { font-size: 11px; color: var(--muted); margin-top: 24px; }
@@ -139,8 +139,7 @@
 .site-project { border: 1px solid var(--line); background: var(--panel); }
 .site-project + .site-project { margin-top: 44px; }
 .site-project-heading { padding: 30px 32px; }
-.site-project-heading > .lab-kicker { color: var(--muted); }
-.site-project-heading h2 { font-size: 38px; line-height: 1.2; margin-top: 16px; max-width: 800px; }
+.site-project-heading h2 { font-size: 38px; line-height: 1.2; max-width: 800px; }
 .site-project-image { display: block; width: 100%; height: auto; border-top: 1px solid var(--line); border-bottom: 1px solid var(--line); }
 .site-project-body { padding: 32px; }
 .site-project-description { max-width: 740px; font-size: 17px; line-height: 1.85; color: var(--muted); }

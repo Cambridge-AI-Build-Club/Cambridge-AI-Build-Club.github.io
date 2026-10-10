@@ -1,0 +1,122 @@
+[
+  {
+    "file": "index.html",
+    "h1": 1,
+    "obsoleteLabels": false,
+    "joinHeading": true
+  },
+  {
+    "file": "about/index.html",
+    "h1": 1,
+    "obsoleteLabels": false,
+    "joinHeading": true
+  },
+  {
+    "file": "blogs/index.html",
+    "h1": 1,
+    "obsoleteLabels": false,
+    "joinHeading": true
+  },
+  {
+    "file": "calendar/index.html",
+    "h1": 1,
+    "obsoleteLabels": false,
+    "joinHeading": true
+  },
+  {
+    "file": "committees/index.html",
+    "h1": 1,
+    "obsoleteLabels": false,
+    "joinHeading": true
+  },
+  {
+    "file": "contact/index.html",
+    "h1": 1,
+    "obsoleteLabels": false,
+    "joinHeading": true
+  },
+  {
+    "file": "events/index.html",
+    "h1": 1,
+    "obsoleteLabels": false,
+    "joinHeading": true
+  },
+  {
+    "file": "playground/index.html",
+    "h1": 1,
+    "obsoleteLabels": false,
+    "joinHeading": true
+  },
+  {
+    "file": "projects/index.html",
+    "h1": 1,
+    "obsoleteLabels": false,
+    "joinHeading": true
+  },
+  {
+    "file": "team/index.html",
+    "h1": 1,
+    "obsoleteLabels": false,
+    "joinHeading": true
+  },
+  {
+    "file": "team/aditya_kalra/index.html",
+    "h1": 1,
+    "obsoleteLabels": false,
+    "joinHeading": true
+  },
+  {
+    "file": "team/andrew_choi/index.html",
+    "h1": 1,
+    "obsoleteLabels": false,
+    "joinHeading": true
+  },
+  {
+    "file": "team/hanzhang_shen/index.html",
+    "h1": 1,
+    "obsoleteLabels": false,
+    "joinHeading": true
+  },
+  {
+    "file": "team/lauren_kwon/index.html",
+    "h1": 1,
+    "obsoleteLabels": false,
+    "joinHeading": true
+  },
+  {
+    "file": "team/saakshi_bhat/index.html",
+    "h1": 1,
+    "obsoleteLabels": false,
+    "joinHeading": true
+  },
+  {
+    "file": "team/zihao_liu/index.html",
+    "h1": 1,
+    "obsoleteLabels": false,
+    "joinHeading": true
+  },
+  {
+    "file": "events/demo/index.html",
+    "h1": 1,
+    "obsoleteLabels": false,
+    "joinHeading": true
+  },
+  {
+    "file": "events/hackathon/index.html",
+    "h1": 1,
+    "obsoleteLabels": false,
+    "joinHeading": true
+  },
+  {
+    "file": "events/workshop/index.html",
+    "h1": 1,
+    "obsoleteLabels": false,
+    "joinHeading": true
+  },
+  {
+    "file": "blogs/claude-builder-program/index.html",
+    "h1": 1,
+    "obsoleteLabels": false,
+    "joinHeading": true
+  }
+]
