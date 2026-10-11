@@ -7,9 +7,9 @@ const staticPages = ['/', '/about/', '/projects/', '/contact/', '/events/', '/bl
 
 export default function sitemap(): MetadataRoute.Sitemap {
   const collectionPages = [
-    ...loadCollection('_events').map((e) => `/events/${e.slug}/`),
-    ...loadCollection('_blogs').map((b) => `/blogs/${b.slug}/`),
-    ...loadCollection('_team').map((m) => `/team/${m.slug}/`),
+    ...loadCollection('events').map((e) => `/events/${e.slug}/`),
+    ...loadCollection('blogs').map((b) => `/blogs/${b.slug}/`),
+    ...loadCollection('team').map((m) => `/team/${m.slug}/`),
   ]
   return [...staticPages, ...collectionPages].map((path) => ({
     url: absoluteUrl(path),

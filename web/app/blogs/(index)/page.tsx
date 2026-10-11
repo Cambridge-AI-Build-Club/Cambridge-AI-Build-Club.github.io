@@ -6,7 +6,7 @@ import { formatPublicationDate } from '@/lib/site'
 
 export default function BlogsPage() {
   const page = loadPage('blogs.md')
-  const blogs = loadCollection('_blogs', 'weight')
+  const blogs = loadCollection('blogs', 'weight')
   return <><PageMeta title="Journal | Cambridge AI Builder Club" description={page.description} path="/blogs/" /><Shell path="/blogs/">
     <PageIntro title="Ideas worth sharing." description={markdownifyStrip(page.body).trim()} />
     <section className="lab-section" aria-label="Club stories"><div className="site-journal-grid">{blogs.map((blog) => <a className="site-journal-card" href={url(`/blogs/${blog.slug}/`)} key={blog.slug}><p className="site-publication-date">{formatPublicationDate(blog.date)}</p><h2>{String(blog.title)} <Arrow /></h2><p>{markdownifyStrip(firstParagraph(blog.body))}</p><span className="lab-card-link">Read the story <Arrow /></span></a>)}</div></section><JoinSection />

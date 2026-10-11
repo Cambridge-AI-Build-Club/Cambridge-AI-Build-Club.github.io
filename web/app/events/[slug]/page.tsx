@@ -3,11 +3,11 @@ import { Arrow } from '@/components/SiteSections'
 import { loadCollection, url } from '@/lib/content'
 import { loadActivities } from '@/lib/site'
 
-export function generateStaticParams() { return loadCollection('_events').map((entry) => ({ slug: entry.slug })) }
+export function generateStaticParams() { return loadCollection('events').map((entry) => ({ slug: entry.slug })) }
 
 export default async function EventPage({ params }: { params: Promise<{ slug: string }> }) {
   const { slug } = await params
-  const entry = loadCollection('_events').find((item) => item.slug === slug)
+  const entry = loadCollection('events').find((item) => item.slug === slug)
   if (!entry) throw new Error(`Activity not found: ${slug}`)
   const title = String(entry.title)
   const activity = loadActivities().find((item) => item.title === title)

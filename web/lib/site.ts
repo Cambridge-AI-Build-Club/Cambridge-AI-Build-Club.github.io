@@ -38,7 +38,7 @@ export function loadSiteData() {
 export function loadActivities() {
   const features = loadFeatures()
   const normalize = (title: string) => title.toLowerCase().replace(/s$/, '')
-  return loadCollection('_events', 'weight').map((entry) => {
+  return loadCollection('events', 'weight').map((entry) => {
     const feature = features.find((item) => normalize(item.title) === normalize(String(entry.title)))
     return {
       title: String(entry.title),
@@ -50,7 +50,7 @@ export function loadActivities() {
 }
 
 export function loadVisibleMembers() {
-  return loadCollection('_team', 'weight').filter((entry) => entry.promoted !== false).map((entry) => ({
+  return loadCollection('team', 'weight').filter((entry) => entry.promoted !== false).map((entry) => ({
     name: String(entry.title), role: String(entry.jobtitle ?? ''),
     image: entry.image ? url(String(entry.image)) : undefined,
     href: url(`/team/${entry.slug}/`), promoted: entry.promoted === true,

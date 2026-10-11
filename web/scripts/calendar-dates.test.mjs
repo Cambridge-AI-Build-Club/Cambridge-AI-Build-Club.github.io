@@ -89,7 +89,7 @@ test('empty event data has no selected detail', () => {
 })
 
 test('Freshers Fair has both requested daily records with complete details', () => {
-  const data = JSON.parse(fs.readFileSync(new URL('../../_data/calendar.json', import.meta.url), 'utf8'))
+  const data = JSON.parse(fs.readFileSync(new URL('../content/data/calendar.json', import.meta.url), 'utf8'))
   const fair = data.filter((event) => event.id.startsWith('freshers-fair-2026-10-'))
   assert.deepEqual(fair.map((event) => event.date), ['2026-10-06', '2026-10-07'])
   for (const event of fair) {

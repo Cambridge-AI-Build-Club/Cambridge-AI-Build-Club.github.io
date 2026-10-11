@@ -1,0 +1,6 @@
+# Site identity read at build time by web/lib/content.ts.
+title: 'Cambridge AI Builder Club'
+
+logo:
+  mobile: "images/logo/cam-ai-builder-logo-mobile.png"
+  desktop: "images/logo/cam-ai-builder-logo.png"

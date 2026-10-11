@@ -21,16 +21,16 @@ Prebuild runs the design guard and calendar tests; the export validates TypeScri
 
 | Source | Use |
 | --- | --- |
-| Root page Markdown | Page titles, introductions, prose and Home front matter |
-| `_events/`, `_blogs/`, `_team/` | Activity formats, journal entries, member profiles and listing summaries |
-| `_data/menus.yml`, signup/contact/Discord/social/SEO files | Navigation, real action destinations and metadata |
-| `_data/features.json` | Activity title/image mapping; descriptions stay in `_events/` |
-| `_data/projects.yml` | One shared project record for About and Projects |
-| `_data/calendar.json` | Dated calendar records and explicit statuses |
-| `_config.yml` | Club name and logo configuration |
+| `content/pages/` | Page titles, introductions, prose and Home front matter |
+| `content/events/`, `content/blogs/`, `content/team/` | Activity formats, journal entries, member profiles and listing summaries |
+| `content/data/menus.yml`, signup/contact/Discord/social/SEO files | Navigation, real action destinations and metadata |
+| `content/data/features.json` | Activity title/image mapping; descriptions stay in `content/events/` |
+| `content/data/projects.yml` | One shared project record for About and Projects |
+| `content/data/calendar.json` | Dated calendar records and explicit statuses |
+| `content/site.yml` | Club name and logo configuration |
 | `public/images/` | Tracked static assets (logos, illustrations, portraits, screenshots) served and exported verbatim |
 
-Content loaders in `lib/content.ts` and `lib/site.ts` read these sources in place. `lib/markdown.tsx` renders prose with react-markdown and heading IDs; marked supplies build-time excerpts. No content copy belongs in `web/`.
+Content loaders in `lib/content.ts` and `lib/site.ts` read these sources in place. `lib/markdown.tsx` renders prose with react-markdown and heading IDs; marked supplies build-time excerpts. Content lives only under `content/`; do not copy it into components.
 
 Static assets live once, under `public/images/`, and the export ships that directory verbatim. Keep generated `out/` and `.next/` out of Git.
 
@@ -46,7 +46,7 @@ The Jekyll presentation layer retired from `main` on 11 October 2026 and is pres
 
 ## Calendar
 
-`lib/calendar.ts` loads `_data/calendar.json`; `components/CalendarApp.tsx` and `lib/calendar-dates.ts` supply interaction and date logic. The calendar computes today in Europe/London after hydration, refreshes it every minute and on visibility changes, and opens on the current month rather than the build month or first populated month.
+`lib/calendar.ts` loads `content/data/calendar.json`; `components/CalendarApp.tsx` and `lib/calendar-dates.ts` supply interaction and date logic. The calendar computes today in Europe/London after hydration, refreshes it every minute and on visibility changes, and opens on the current month rather than the build month or first populated month.
 
 Previous/next navigate consecutive months across years and empty schedules. Current month resets navigation. Weeks start on Monday. Explicit selection is retained within the displayed month; otherwise choose the nearest event today or later, falling back to the latest past event and preferring non-cancelled records. Empty months have no selection. Selected details appear before the chronological list; busy lists and the mobile grid have keyboard-reachable scrolling regions.
 

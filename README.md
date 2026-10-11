@@ -36,7 +36,7 @@ Contributions are welcome! If you’d like to improve the site or suggest new fe
 
 ## Development
 
-The site is a **Next.js 15 static export** in `web/`, deployed to GitHub Pages through reviewed pull requests. Root Markdown, collections and `_data/` remain its content sources; static assets live in `web/public/images/`.
+The site is a **Next.js 15 static export** in `web/`, deployed to GitHub Pages through reviewed pull requests. Content lives in `web/content/` (pages, collections and data); static assets live in `web/public/images/`.
 
 ```bash
 cd web
