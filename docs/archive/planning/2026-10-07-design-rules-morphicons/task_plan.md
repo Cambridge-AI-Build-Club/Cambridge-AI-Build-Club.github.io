@@ -1,5 +1,7 @@
 # Design contract and Morphicons
 
+> Archived task snapshot. Its local state and pending actions are historical. PR #17 is merged; see the [reconciled release ledger](../../../README.md#release-ledger) and [current contributor rules](../../../../AGENTS.md). Historical branch names predate the current Conventional Branch rule and must not be reused as examples.
+
 ## Goal
 Write DESIGN.md before implementation, enforce its maintenance through AGENTS.md, and replace UI pictograms across production/playground with locally bundled animated Morphicons.
 
@@ -10,10 +12,10 @@ Write DESIGN.md before implementation, enforce its maintenance through AGENTS.md
 - Replace all action/navigation/state icons and configure animations: complete.
 - Build, static/source audit, interaction/visual/accessibility review: complete.
 - Update DESIGN.md verification and deliver local preview: complete.
-- Publish the owner-approved PR, wait for checks, squash-merge and verify deployment: in progress.
+- Publish the owner-approved PR, wait for checks, squash-merge and verify deployment: complete (reconciled on 11 October 2026).
 
 ## Next Step
-Publish the approved branch through a PR and verify remote build/deployment results.
+No active next step. This task is complete and archived; publication is reconciled in the release ledger.
 
 ## Boundaries
 - Branch: codex/design-rules-morphicons, based on merged main.

@@ -1,60 +1,61 @@
 # Repository Guidelines
 
+## Start here
+
+Read the current request, these rules and the affected sources. Use [docs/README.md](docs/README.md) to find architecture, deployment and historical evidence. Current explicit owner instructions take precedence over earlier decisions. Reconcile history with the checkout; old plans and QA reports do not prove current state.
+
 ## Design contract
-Read `DESIGN.md` before any UI/UX, layout, icon, motion, navigation or visual-asset change. Update its affected rules and dated change record **first**, before editing the implementation. After verification, update the same record with actual checks and limitations. Include the contract with design changes. All UI icons must use the shared Morphicons component; `npm run check:design` rejects text/emoji pictograms, custom UI SVGs and competing icon imports.
 
-## Workflow
-**All changes go through a branch + pull request.** Never push directly to `main`: create a dedicated branch for every piece of work (code, content, or documentation), open a pull request into `main`, let the build check pass, and merge (squash). All recorded work — commit messages, PR titles and descriptions, documentation, and code comments — is written in **English**. Local design exploration is exempt from PR preparation when the user requests that workflow; publishing still follows the branch/review process.
+Read [DESIGN.md](DESIGN.md) before any UI/UX, layout, icon, motion, navigation or visual-asset change. Update its affected rules and [dated change record](docs/design/change-record.md) **before editing the implementation**. After verification, record actual checks and limitations. Include `DESIGN.md` itself with every design change, even when only the separate record needs a new entry: `npm run check:design` and PR CI require it.
 
-**Branch names follow the Conventional Branch convention** — the Conventional Commits type list applied to branches, as `<type>/<kebab-case-summary>` in lowercase, short, naming the *kind of change*: `feature/` (or `feat/`) new capability, `fix/` bug fix, `hotfix/` urgent production fix, `docs/` documentation only, `style/` formatting that does not change meaning, `refactor/` behavior-preserving restructuring, `perf/` performance, `test/` tests only, `build/` build system or dependencies, `ci/` workflow and deploy pipeline, `chore/` maintenance with no source effect, `revert/` undoing a merged change. Add the issue number when there is one (`fix/123-hero-cta-width`). Those types are the **only** permitted prefixes: never use an AI tool, agent, model, vendor or product name — the ban covers every such name, present or future, so `codex/`, `claude/`, `copilot/`, `gemini/` and any other assistant's name are equally wrong — and never a personal-name branch. A branch records what changed, not who or what produced it; check the prefix against the list above before creating it.
+All UI icons use `web/components/Icon.tsx`, the shared Morphicons entry point. The design check rejects text/emoji pictograms, custom UI SVGs and competing icon imports. Decorative illustrations and authentic brand assets follow the asset rules in the contract. Broad redesigns begin with a reviewable playground and an owner design checkpoint.
 
-**Preview before merge.** After finishing work on a branch, build it and start a local server so the site can be reviewed before merging:
+## Branch, review and publication
+
+All recorded changes, including documentation, go through a dedicated branch and pull request into `main`. Never push directly to `main`. Write documentation, code comments, commits, PR titles and descriptions in English.
+
+Use lowercase Conventional Branch names: `<type>/<kebab-case-summary>`. Permitted prefixes are `feature` (or `feat`), `fix`, `hotfix`, `docs`, `style`, `refactor`, `perf`, `test`, `build`, `ci`, `chore` and `revert`. Match the kind of change; include an issue number when one exists. Never use a personal name or any AI tool, agent, model, vendor or product name as the prefix. Check this before creating the branch.
+
+Before a site-affecting merge, build and serve the branch:
 
 ```bash
-cd web && npm run build
-node scripts/serve.mjs out 4102   # serves the build at http://localhost:4102/
+cd web
+npm run build
+node scripts/serve.mjs out 4102
 ```
 
-Send the local URL to the reviewer and keep the server running. Site-affecting pull requests are merged **only after the reviewer has tested locally and approved**; docs-only pull requests may be merged without a preview.
+Send `http://localhost:4102/` to the reviewer and keep the server running. Merge only after the owner has tested locally and approved this change, and the **Build Next.js site (no deploy)** check passes. Squash-merge. Approval of a plan or earlier PR does not approve a later implementation. Docs-only PRs may merge after the build check without a site preview. Owner-requested local design exploration is exempt from PR preparation; publication still follows this workflow.
 
-Merges deploy automatically via `nextjs.yml`. When several pull requests merge together only the newest queued deploy run executes — the intermediate queued runs are skipped automatically (expected and harmless; the last deployment contains everything). GitHub Pages caches pages for up to 10 minutes (`max-age=600`), so verify a deploy with a cache-busting query string before assuming it failed. If GitHub Actions runners are unavailable, `web/CUTOVER.md` documents an emergency branch-based Pages publish that bypasses Actions entirely. Metadata routes (`app/sitemap.ts`, `app/robots.ts`) must declare `export const dynamic = 'force-static'` — required by `output: 'export'`.
+Merges trigger `.github/workflows/nextjs.yml`. Queued intermediate Pages runs may be skipped; verify the final deployed commit. Check production with a fresh cache-busting query, as Pages may serve cached HTML for up to ten minutes. Use [web/CUTOVER.md](web/CUTOVER.md) for release recovery and emergency publishing; deployment settings are live state and must be checked before use.
 
-## Project Structure & Module Organization
-This repository hosts the Cambridge AI Builder Club website. The live site is the **Next.js 15 static export** in `web/` (App Router, TypeScript), deployed to GitHub Pages by `.github/workflows/nextjs.yml` on pushes to `main`. The repository is named `Cambridge-AI-Build-Club.github.io`, so the site serves at the org root `https://cambridge-ai-build-club.github.io/`.
+## Sources and implementation
 
-Content is **not duplicated**: the Next.js build reads the Jekyll-style sources at the repository root at build time — root `*.md` pages, the `_events/`, `_blogs/`, `_team/` collections (YAML front matter + Markdown), and `_data/` for navigation, contact, social, signup and SEO settings. Edit those files; never copy content into `web/`. Shared fragments live in `web/components/`, page routes in `web/app/`, and loaders in `web/lib/content.ts` and `web/lib/site.ts`. `SiteDocument`, `Shell`, `SiteFrame` and `SiteSections` share the approved Claude design across routes. The interactive calendar reads `_data/calendar.json` through `web/lib/calendar.ts`; it uses local CSS. Production styles are `web/styles/claude.css` and `web/styles/site.css`. Treat `_sass/bootstrap/` and `_sass/libraries/` as vendored legacy dependencies; the legacy `assets/css/style.scss` and `web/styles/globals.scss` mirrors must stay in sync if edited.
+The live site is the Next.js 15 App Router static export in `web/`, deployed at `https://cambridge-ai-build-club.github.io/`. Root Markdown pages, `_events/`, `_blogs/`, `_team/`, `_data/`, `_config.yml` and `images/` supply build-time content and assets. Edit these sources; do not copy content into components.
 
-Former project-page URLs (`/CUABC-Web/...`) redirect to the root pages through meta-refresh stubs generated by `web/scripts/gen-redirects.mjs` — they are part of every build output, so don't remove them. Collection front matter drives the listings: on `/team/`, `promoted: true` renders a member as a large card and a missing `promoted` field as a small card, while `promoted: false` hides the member from the listing (their detail page stays up but unlinked); `weight` only sorts, it never filters.
+- Routes: `web/app/`; shared templates: `web/components/`; loaders: `web/lib/content.ts`, `site.ts` and `calendar.ts`.
+- Production CSS: `web/styles/claude.css` and `site.css`, loaded by `SiteDocument`. The playground shares the design system.
+- Projects: `_data/projects.yml` supplies the shared About/Projects preview; `projects.md` owns the page introduction.
+- Calendar: `_data/calendar.json`, `CalendarApp.tsx` and `web/lib/calendar-dates.ts`. Current-month entry uses Europe/London at runtime; navigation includes empty months. Default selection is the nearest upcoming event, otherwise the latest past event, preferring non-cancelled records and retaining explicit selection. Preserve factual records unless requested otherwise.
+- Internal links use `url()`; canonical URLs use `absoluteUrl()`. Metadata routes `sitemap.ts` and `robots.ts` declare `export const dynamic = 'force-static'`.
+- Preserve `/CUABC-Web/...` redirect stubs generated by `web/scripts/gen-redirects.mjs`.
 
-The original Jekyll build is kept intact for rollback (see `web/CUTOVER.md`); `_layouts/` and `_includes/` are legacy references and no longer deploy.
+The original `_layouts/`, `_includes/` and Sass remain for Jekyll recovery. Keep `assets/css/style.scss` and `web/styles/globals.scss` synchronized when changing legacy styles; treat `_sass/bootstrap/` and `_sass/libraries/` as vendored. Legacy presentation, the hard-coded calendar and new project content are not automatically in parity with Next.js.
 
-## Build, Test, and Development Commands
-Node 20 and npm are required for the live site.
+## Content and style
 
-- `cd web && npm install`: install dependencies.
-- `cd web && npm run dev`: dev server at `http://localhost:3000`.
-- `cd web && npm run build`: static export into `web/out`.
-- `bundle install` + `bundle exec jekyll build`: legacy Jekyll fallback build into `_site/` (rollback path only; `_config.yml` sets `baseurl: '/'` for the root-domain deploy).
+- Use the exact name **Cambridge AI Builder Club**. Follow the approved palette, typography and interactions in DESIGN.md.
+- Listing summaries come from the first paragraph of event/blog entries; keep it at or below 100 characters. `_data/features.json` contains titles/images only, paired to normalized event titles (Demos → Demo, Workshops → Workshop).
+- On Community, `promoted: true` gives a large member card, an absent field a compact card, and `promoted: false` hides the listing entry while preserving its detail URL. `weight` sorts only. Resolve the contract's compact-portrait open item before using that variant.
+- Signup lives in `_data/signup.yml`; keep its README link aligned. Preserve front matter, factual roles, dates, recruitment terms and documentary assets. Verify changed event information and external community links before publishing.
+- Rendered Markdown uses marked/react-markdown. Avoid Liquid and kramdown attributes. `smartQuotes` handles prose punctuation; rehype-slug creates heading IDs.
+- Use two-space indentation for TS/TSX, SCSS and YAML, strict TypeScript and server components unless interaction needs client state. Avoid unrelated formatting. Check `git ls-files --eol` and preserve each file's endings.
 
-Keep generated `_site/`, `web/.next/`, `web/out/`, and `web/public/images/` (copied from `images/` by `web/scripts/sync-assets.mjs`) out of commits.
+## Validation and documentation upkeep
 
-## Content Editing
-Content lives at the repository root and feeds the Next.js build (and the Jekyll fallback) — there is a single copy of everything:
+Node 20 is the CI runtime. From `web/`, use `npm ci` for lockfile installs, `npm run dev` for development and `npm run build` for static export. Prebuild runs the design guard, focused calendar tests and asset sync; the build validates TypeScript and generates redirects. `npm run test:calendar` uses Node's built-in test runner. There is no broader application test suite or repository-wide lint command.
 
-- Card copy on listing pages comes from the **first paragraph** of a collection entry (`_events/*.md`, `_blogs/*.md`). Keep it at or under 100 characters — longer text is truncated with an ellipsis on the `/events/` and `/blogs/` listing cards.
-- The homepage **Our Events** cards pair `_data/features.json` logos with `_events/` entries by normalized title (`Demos` → `Demo`, `Workshops` → `Workshop`); keep those titles aligned so the pairing holds. One description per event, written once in the event file — `_data/features.json` holds only titles and logo images, not copy.
-- The signup form link lives in `_data/signup.yml` (also linked from the root `README.md`).
-- Markdown is rendered with `marked`/`react-markdown`, not kramdown. Plain prose only: no kramdown attribute lists (`{: .class }`) or Liquid tags in content. Straight apostrophes in prose are converted to curly ones automatically (`smartQuotes` in `web/lib/content.ts`), and headings get GitHub-style ids via rehype-slug — the output matches kramdown for the content styles used here.
+For affected UI, inspect fresh 1440px desktop and 375px mobile screenshots, both themes and relevant intermediate widths. Check links, images, keyboard focus, mobile menu/Escape, theme persistence and relevant calendar controls/details/dates. Use targeted accessibility scans with manual review; record incomplete findings honestly. Judge the approved design by screenshots, not legacy CSS parity.
 
-## Coding Style & Naming Conventions
-Use two-space indentation for TS/TSX, SCSS, and YAML; TypeScript strict mode. Server components by default — add `'use client'` only where interaction requires it (e.g. `web/components/Hamburger.tsx`). Follow the owner-approved Claude design system: orange `#D97757`, warm white `#FAF9F5`, charcoal `#141413`, restrained motion and readable neutral text. Reuse club assets and obtain partner logos from official sources; never generate partner logos. The legacy visual-parity requirement was superseded by the approved redesign. Lowercase hyphenated page and blog filenames, existing underscore-separated team filenames. Preserve front-matter fields such as `title`, `date`, `weight`, and `layout`. Internal links go through `url()` from `web/lib/content.ts` (the `relative_url` equivalent); canonical URLs through `absoluteUrl()`.
+Keep each maintained document's purpose clear: rules in AGENTS.md/DESIGN.md, architecture in web/README.md, release operations in web/CUTOVER.md, dated evidence under docs/. Record local verification, CI, approval, merge and live checks separately. Add release receipts only after verification; historical counts and screenshots are not current guarantees.
 
-VS Code recommends Prettier and Stylelint; no repository-wide lint command is configured. Avoid reformatting unrelated files. The repository mixes LF and CRLF files: check `git ls-files --eol` before scripted bulk edits (`sed -i` rewrites line endings and pollutes the diff), and keep each file's existing ending.
-
-## Testing Guidelines
-There is no project test framework. Before submitting, `npm run build` must pass, and the `Build Next.js site (no deploy)` check runs on every pull request (content-only PRs included — the root collections and `_sass/` are build inputs), validating a clean Linux build. Affected pages should also be visually inspected on desktop (1440px) and mobile (375px): `web/scripts/serve.mjs <dir> <port>` serves any build at the root for side-by-side comparison with the Jekyll `_site/`. Check navigation, image loading, mobile-menu toggling, and calendar month controls, event details, and dates where relevant.
-
-Judge the approved design with screenshots, not CSS byte diffs. Check readable content, complete images, keyboard focus, theme selection and the calendar. Legacy Sass sources remain synchronized for rollback; the Claude production CSS is intentionally a different design.
-
-## Commit & Pull Request Guidelines
-Every change lands via a pull request from a feature branch (see Workflow above). Site-affecting PRs stay open until the reviewer has previewed the local build and approved the merge. History uses short descriptive subjects such as `Update event titles and locations in calendar`; follow that style with focused commits, written in English. Pull requests should explain the change, link relevant issues, list validation performed, and include screenshots for visible changes. Verify event information and external community links before publishing.
+Keep temporary plans under ignored `.planning/` and tooling/logs under ignored `tmp/`; promote only useful decisions and evidence into docs/. Completed inherited plans are archived under `docs/archive/planning/`. Preserve unrelated local work, especially owner-owned `.zcode/`; stage files explicitly. Never commit `_site/`, `web/.next/`, `web/out/` or copied `web/public/images/`.

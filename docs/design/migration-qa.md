@@ -1,5 +1,7 @@
 # Claude design migration verification
 
+> Historical QA from 6–7 October for the redesign published in PR #15. Calendar month limits and local-only publication statements describe the reviewed version and are superseded. See the [release ledger](../README.md#release-ledger) and [current design contract](../../DESIGN.md). Checks and screenshots below apply to their recorded version; this cleanup did not repeat browser QA.
+
 Completed locally on 6 October 2026 after owner approval of the design direction.
 
 ## Delivered

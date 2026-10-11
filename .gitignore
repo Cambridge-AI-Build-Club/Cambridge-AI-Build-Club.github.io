@@ -25,3 +25,6 @@ Thumbs.db
 .Spotlight-V100
 .Trashes
 .idea
+
+# Local agent planning state; durable records live under docs/
+.planning/

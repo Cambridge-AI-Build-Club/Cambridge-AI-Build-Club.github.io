@@ -1,5 +1,7 @@
 # Morphicons verification
 
+> Historical QA from 7 October, published in PR #17. Remote CI and deployment later succeeded; the local-review statements below describe the pre-publication checkpoint. See the [release ledger](../README.md#release-ledger) and [current design contract](../../DESIGN.md). Checks and screenshots below apply to their recorded version; this cleanup did not repeat browser QA.
+
 Verified locally on 7 October 2026 on `codex/design-rules-morphicons`. Preview: http://localhost:4102/.
 
 ## Implementation

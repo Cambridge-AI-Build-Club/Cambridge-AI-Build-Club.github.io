@@ -1,120 +1,69 @@
-# CUABC-Web — Next.js rebuild (`web/`)
+# Website architecture and development
 
-This directory contains the club's Next.js static website. The Claude design migration
-uses shared templates and local styles, while root content and the original Jekyll
-templates remain available for the legacy rollback build.
+The Cambridge AI Builder Club website is a Next.js 15 App Router static export. Root content is loaded at build time; the production UI follows the [design contract](../DESIGN.md). See [contributor rules](../AGENTS.md), [documentation index](../docs/README.md) and [deployment runbook](CUTOVER.md).
 
-## Architecture
+## Commands
 
-- **Next.js 15, App Router, TypeScript, `output: 'export'`** — fully static, deployable
-  to GitHub Pages (or any static host).
-- **Content is not duplicated.** At build time, pages read the Jekyll sources in place:
-  `_config.yml`, `_data/*`, `_events/`, `_blogs/`, `_team/`, and the root `*.md` pages.
-  Editing content in the Jekyll files updates both builds.
-- **Design styles.** `styles/claude.css` contains the approved shared visual system;
-  `styles/site.css` covers production navigation, prose, profiles and calendar.
-  `components/SiteDocument.tsx` loads both. The playground imports the same base CSS.
-  The untouched `styles/globals.scss` and `assets/css/style.scss` mirrors support
-  the legacy Jekyll design; production templates no longer import them.
-- **Images** are copied from the repository-root `images/` into `web/public/images/` by
-  `scripts/sync-assets.mjs` (runs automatically before `dev`/`build`; the copy is
-  gitignored).
-- **Base path.** The repository is named `Cambridge-AI-Build-Club.github.io`, so the
-  org site serves at the root `https://cambridge-ai-build-club.github.io/` and the base
-  path is empty. `next.config.mjs` sets `basePath`/`assetPrefix` from
-  `NEXT_PUBLIC_BASE_PATH` (empty by default; CI passes the value reported by
-  `actions/configure-pages`, which would restore a `/repo-name` prefix on a
-  project-page deploy).
-- **Old-URL redirects.** The rename killed the old `/CUABC-Web/...` addresses; GitHub
-  Pages has no server-side redirects, so the build generates a 0-second meta-refresh
-  stub for every former URL under `out/CUABC-Web/` (`scripts/gen-redirects.mjs`, runs
-  automatically after `next build`; skipped in subpath mode).
-- **URLs** match Jekyll's pretty permalinks exactly (`trailingSlash: true`; collection
-  slugs keep their underscores, e.g. `/team/aditya_kalra/`).
+CI uses Node 20 and the committed npm lockfile. Run these from `web/`:
 
-## Commands (from this directory)
-
-```
-npm install        # once
-npm run dev        # local dev server
-npm run build      # static export into out/
+```bash
+npm ci
+npm run dev                            # http://localhost:3000/
+npm run check:design                   # icon and contract policy
+npm run test:calendar                  # focused Node date/data tests
+npm run build                          # static export into out/
+node scripts/serve.mjs out 4102         # http://localhost:4102/
 ```
 
-## Migration phases
+Prebuild runs the design guard, calendar tests and `sync-assets.mjs`; the export validates TypeScript and then generates legacy redirect stubs. `npm install` is appropriate when intentionally updating dependencies; review the lockfile diff. There is no repository-wide lint command or broad application test suite. Local QA previously used Node 24; that historical result does not replace Node 20 Linux CI.
 
-| Phase | Scope | Status |
-|---|---|---|
-| 0 | Skeleton: static export, basePath, SCSS pipeline, asset sync, CI build check | done |
-| 1 | Global shell (head/meta, header, menus, footer, sub-footer, menu JS) + Home | done |
-| 2 | About + Contact | done |
-| 3 | Events listing + details, Blogs listing + details | done |
-| 4 | Team listing + details | done |
-| 5 | Calendar (interactive, ported verbatim incl. Tailwind CDN) | done |
-| 6 | Full-site QA + cutover PR + rollback runbook | done (see CUTOVER.md) |
+## Content and assets
 
-Every page is visually compared against the Jekyll build (desktop + mobile screenshots,
-HTML/CSS diff) before it counts as done. Verification tooling: `scripts/serve.mjs`
-serves any static build at the root the way GitHub Pages does, so the
-Jekyll `_site/` and the Next.js `out/` can be browsed side by side.
+| Source | Use |
+| --- | --- |
+| Root page Markdown | Page titles, introductions, prose and Home front matter |
+| `_events/`, `_blogs/`, `_team/` | Activity formats, journal entries, member profiles and listing summaries |
+| `_data/menus.yml`, signup/contact/Discord/social/SEO files | Navigation, real action destinations and metadata |
+| `_data/features.json` | Activity title/image mapping; descriptions stay in `_events/` |
+| `_data/projects.yml` | One shared project record for About and Projects |
+| `_data/calendar.json` | Dated calendar records and explicit statuses |
+| `_config.yml` | Club name and logo configuration |
+| `images/` | Source assets copied into ignored `public/images/` before dev/build |
 
-## Quirks replicated during the migration, then fixed after cutover
+Content loaders in `lib/content.ts` and `lib/site.ts` read these sources in place. `lib/markdown.tsx` renders prose with react-markdown and heading IDs; marked supplies build-time excerpts. No content copy belongs in `web/`.
 
-These were Jekyll template bugs replicated 1:1 for exact parity during the migration,
-and cleaned up once the site was live:
+`scripts/sync-assets.mjs` replaces the public image copy on every run. A stale public file cannot establish that a source image reference is valid; verify from a clean sync. Keep generated `out/`, `.next/` and `public/images/` out of Git.
 
-- `og:url` now carries the real absolute page URL (the Jekyll template rendered it
-  empty — it read an undefined `url` variable).
-- The empty `twitter:site` / `twitter:creator` meta tags are gone (the template read
-  `site.seo.*` instead of `site.data.seo.*`, and the configured values were the theme
-  author's handle anyway).
-- The homepage hero image `src` is now a base-path-aware absolute URL (the Jekyll
-  template called the nonexistent `relURL` filter and emitted a fragile relative path).
-- The sub-footer copyright now reads `© 2026 Cambridge AI Builder Club`
-  (`_data/seo.yml`), replacing the theme attribution.
-- Added `sitemap.xml` and `robots.txt` (the Jekyll site had none).
+## Templates and styles
 
-## Claude design migration
+- Routes live in `app/`, with shared `SiteDocument`, `SiteFrame`, `Shell`, `SiteSections` and `ArticlePage` components.
+- `SiteDocument` loads `styles/claude.css` and `styles/site.css`. The playground uses the same design system and shared content; it is a review surface, excluded from the production sitemap and marked noindex.
+- `components/Icon.tsx` is the only UI-icon entry point: locally bundled Morphicons React binding with Lucide data, server-rendered SVGs and reduced-motion support.
+- Appearance defaults to Warm Paper and persists an optional `cbc-surface` browser preference. Every page title follows the same plain serif style, with natural wrapping.
+- Projects use the shared `ProjectPreview` component and a documentary screenshot. Member listing visibility is driven by `promoted`; see AGENTS.md for the exact rules.
 
-The original parity migration table above is historical. On 6 October 2026 the owner
-approved the Claude design direction and authorized migration of all production routes.
-See [migration plan](../docs/design/migration-plan.md) for route, content and asset scope.
+The retained `styles/globals.scss` / root `assets/css/style.scss` mirrors and `_sass/` serve the legacy design, not the production CSS. Root Jekyll templates remain recovery inputs; they do not establish current visual parity.
 
-- Production shell: `SiteFrame`, server content wrapper `Shell`, shared `SiteSections`
-  and `ArticlePage`; obsolete Next.js theme components were removed.
-- Root `index.md` owns approved homepage copy. Root menus, collection records and
-  committee front matter supply navigation, cards, roles and recruitment details.
-- `ActivityGrid` provides the activity filters. The three new decorative SVGs live
-  in `images/features/`; club logos, portraits and official Claude artwork are reused.
-- The warm/dark appearance switch stores an optional local browser preference.
-- Canonical URLs, sitemap, static metadata routes and legacy redirects remain available.
+## Calendar
 
-## Calendar page notes
+`lib/calendar.ts` loads `_data/calendar.json`; `components/CalendarApp.tsx` and `lib/calendar-dates.ts` supply interaction and date logic. The calendar computes today in Europe/London after hydration, refreshes it every minute and on visibility changes, and opens on the current month rather than the build month or first populated month.
 
-- Calendar is a primary navigation page for the ongoing club programme. Add future
-  sessions to `_data/calendar.json`; existing dates and month controls are unchanged.
+Previous/next navigate consecutive months across years and empty schedules. Current month resets navigation. Weeks start on Monday. Explicit selection is retained within the displayed month; otherwise choose the nearest event today or later, falling back to the latest past event and preferring non-cancelled records. Empty months have no selection. Selected details appear before the chronological list; busy lists and the mobile grid have keyboard-reachable scrolling regions.
 
-- `_data/calendar.json` is the build-time source for all 14 existing session records. Dates,
-  times, venues and types are preserved; cancellation is an explicit status.
-- The calendar renders February 2026 with a matching selected event, supports all
-  three currently populated months and uses UTC date formatting to avoid day shifts.
-- CSS is local, with no Tailwind Play CDN, remote logo or font dependency.
-- The original Jekyll calendar remains frozen in `_layouts/calendar.html` for rollback.
-  Editing the new JSON changes the Next.js calendar; it does not update that legacy script.
+Each day of a multi-day event gets its own record. Preserve `id`, ISO `date`, `time`, `title`, `location`, `type` and the `archived` / `completed` / `scheduled` / `cancelled` status. The current UI labels archived and completed records as Completed. Tests cover London date boundaries, month/year navigation, leap years, ordering, selection and data preservation. Test/event totals belong to dated QA, not permanent architecture rules.
 
-## Rollback / cutover
+The legacy `_layouts/calendar.html` contains a separate hard-coded schedule. Updating JSON does not update that script; legacy recovery requires a divergence review.
 
-While the migration was in flight, the live GitHub Pages site stayed deployed by
-`.github/workflows/jekyll.yml` from `main`. The full cutover procedure, the PR
-description and the rollback runbook live in [`CUTOVER.md`](./CUTOVER.md). Summary:
+## URLs and static hosting
 
-- **Cutover** = merge the `nextjs` branch PR: it enables `nextjs.yml` (build `web/`,
-  deploy to Pages) and disables the `jekyll.yml` trigger in one commit.
-- **Rollback 1 — instant:** Actions tab → "Deploy Jekyll site to Pages" → last green
-  run → Re-run all jobs (the old artifact is redeployed as-is).
-- **Rollback 2 — one commit:** revert the cutover commit; the same push redeploys the
-  Jekyll site.
-- **Rollback 3 — fallback:** `netlify.toml` still builds the Jekyll site, so Netlify
-  can serve the old site independently.
+The repository `Cambridge-AI-Build-Club.github.io` serves at the [organisation root](https://cambridge-ai-build-club.github.io/). `next.config.mjs` sets `output: 'export'`, `trailingSlash: true` and unoptimized images. There is no runtime Next.js server.
 
-Because content lives only in the Jekyll files and both builds read the same sources,
-there is no content divergence to worry about in any rollback path.
+`NEXT_PUBLIC_BASE_PATH` defaults to empty; CI uses the Pages-reported base path. `NEXT_PUBLIC_SITE_ORIGIN` overrides the default canonical origin. Internal URLs use `url()`; canonical URLs use `absoluteUrl()`. Collection slugs preserve underscores. Static sitemap/robots routes declare `dynamic = 'force-static'`.
+
+`scripts/gen-redirects.mjs` generates meta-refresh stubs under `out/CUABC-Web/` for old project-page URLs when exporting at the root. Keep these stubs. GitHub Pages supplies no application server for HTTP redirects.
+
+## Builds and release
+
+`.github/workflows/nextjs-ci.yml` runs the build-only check on every PR, including content and documentation changes. Its `DESIGN_BASE_SHA` enables the committed-diff design check. `.github/workflows/nextjs.yml` builds and deploys on main pushes and manual dispatch; publication follows the branch, preview, approval and squash-merge rules in AGENTS.md.
+
+`netlify.toml` also builds **Next.js** into `web/out`; it is not a Jekyll fallback configuration. The retained Jekyll workflow is manual-only. Use [CUTOVER.md](CUTOVER.md) for recovery, and [dated design evidence](../docs/README.md#design-evidence) for historical migration decisions and checks.
