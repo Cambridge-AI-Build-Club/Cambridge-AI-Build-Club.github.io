@@ -2,19 +2,9 @@
 node_modules
 npm-debug.log
 
-# Jekyll
-_site
-_site/
-.sass-cache/
-.jekyll-cache/
-.jekyll-metadata
-Gemfile.lock
-**/Gemfile.lock
-
 # Next.js (web/ rebuild — see web/README.md)
 web/.next
 web/out
-web/public/images
 
 # Temporary files
 tmp

@@ -27,7 +27,8 @@ For a fix that preserves the rules, add a change record explaining the regressio
 - Reuse the existing club marks, hero illustration and real member portraits. Source partner logos from official publishers and retain their geometry, proportions and colors. Never generate partner logos.
 - The three approved activity illustrations are decorative artwork. Brand marks and illustration assets retain their source files, and portraits keep their photographed composition (see the portrait delivery rule below); interactive UI pictograms follow the icon rules below.
 - Generate new imagery only for a concrete gap in the existing inventory. Record its purpose, source/prompt, intended size and accessible treatment before generation. Never fabricate team portraits or event photography.
-- Member portraits are delivered at display size: square, no larger than 1200px per side, progressive JPEG. Resizing and compressing for the web is allowed, and the owner may direct a framing crop so portraits on the same surface read at a similar scale. Never crop, retouch, recolor or regenerate a portrait on your own initiative. Keep the untouched camera original outside the repository, because `images/` is copied wholesale into `web/public/` and shipped.
+- Static assets live once, tracked under `web/public/images/` and served and exported verbatim; do not add a second copy or a sync step.
+- Member portraits are delivered at display size: square, no larger than 1200px per side, progressive JPEG. Resizing and compressing for the web is allowed, and the owner may direct a framing crop so portraits on the same surface read at a similar scale. Never crop, retouch, recolor or regenerate a portrait on your own initiative. Keep the untouched camera original outside the repository, because `web/public/images/` is served and shipped verbatim.
 
 ## Visual system
 
@@ -78,7 +79,7 @@ For a fix that preserves the rules, add a change record explaining the regressio
 - Project records live once in `_data/projects.yml`; root `projects.md` supplies the page introduction. About and Projects share the same project preview and build-time data. Show real built projects with a screenshot, useful description and explicit live/source actions; omit placeholder projects and filters until needed.
 - About introduces the club activities, then the wider Claude Builder Club community and the role of Claude Campus Ambassadors, before explaining why we built CBC World. Use Anthropic's official campus programme for role descriptions and the club's launch article for its programme connection. Explain the campus role in plain language; do not confuse it with city-based community ambassadors or imply all club members are ambassadors. Keep the transition in root Markdown and retain the shared project record.
 - CBC World is an international Claude ambassador map built by the club. Describe its globe, university search and ambassador connections; do not represent its global map totals as club membership. Use `https://cambridge-ai-build-club.github.io/CBC-World/` for permanent links: the approved research verified that `?v=2` serves the same app.
-- Project screenshots are documentary captures: retain their original proportions, content and branding in both themes. The approved CBC World overview was captured from the live app on 10 October 2026 and is delivered at `images/projects/cbc-world.jpg`; use a descriptive image alt and a separate labeled action to launch the interactive app. Do not load the WebGL app in an About or Projects iframe.
+- Project screenshots are documentary captures: retain their original proportions, content and branding in both themes. The approved CBC World overview was captured from the live app on 10 October 2026 and is delivered at `web/public/images/projects/cbc-world.jpg`; use a descriptive image alt and a separate labeled action to launch the interactive app. Do not load the WebGL app in an About or Projects iframe.
 - Andrew is Outreach Team Lead and Zihao is Technical Team Lead. Preserve the collection's visibility and sorting rules; do not invent titles or member records.
 - Committee recruitment remains visible from Home and Community. Preserve the configured application process and factual seat/track information; verify changes rather than inventing availability or deadlines.
 - Activity pages describe formats. Publication dates are not event dates. Avoid presenting past records as future sessions.
@@ -101,7 +102,7 @@ For a fix that preserves the rules, add a change record explaining the regressio
 
 ## Delivery and scope
 
-Read `AGENTS.md` for branch, build, preview and publication requirements. For site changes, keep the local preview running on port 4102. Local design iterations remain unpublished until the owner requests publication; approval of an earlier PR does not automatically authorize merging subsequent design changes. Exclude `.zcode/`, build output and copied public assets from commits.
+Read `AGENTS.md` for branch, build, preview and publication requirements. For site changes, keep the local preview running on port 4102. Local design iterations remain unpublished until the owner requests publication; approval of an earlier PR does not automatically authorize merging subsequent design changes. Exclude `.zcode/` and build output from commits.
 
 ## Change record
 
