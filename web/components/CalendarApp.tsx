@@ -4,6 +4,7 @@ import { useEffect, useState } from 'react'
 import type { CalendarEvent } from '@/lib/calendar'
 import { clubDate, eventsForMonth, monthLayout, selectedEvent, shiftMonth } from '@/lib/calendar-dates'
 import { Icon } from '@/components/Icon'
+import type { UiCopy } from '@/lib/content'
 
 const weekdays = ['Mon', 'Tue', 'Wed', 'Thu', 'Fri', 'Sat', 'Sun']
 
@@ -13,14 +14,14 @@ function dateLabel(date: string, short = false) {
     : { weekday: 'long', day: 'numeric', month: 'long', year: 'numeric', timeZone: 'UTC' })
 }
 
-function statusLabel(event: CalendarEvent) {
-  return { archived: 'Completed', completed: 'Completed', scheduled: 'Scheduled', cancelled: 'Cancelled' }[event.status]
-}
-
-export function CalendarApp({ events }: { events: CalendarEvent[] }) {
+export function CalendarApp({ events, ui }: { events: CalendarEvent[]; ui: UiCopy }) {
   const [today, setToday] = useState<string>()
   const [chosenMonth, setChosenMonth] = useState<string>()
   const [selectedId, setSelectedId] = useState<string>()
+
+  function statusLabel(event: CalendarEvent) {
+    return { archived: ui.calendar.status_completed, completed: ui.calendar.status_completed, scheduled: ui.calendar.status_scheduled, cancelled: ui.calendar.cancelled }[event.status]
+  }
 
   useEffect(() => {
     const updateDate = () => setToday(clubDate())
@@ -33,7 +34,7 @@ export function CalendarApp({ events }: { events: CalendarEvent[] }) {
     }
   }, [])
 
-  if (!today) return <p className="site-calendar-loading" role="status">Loading calendar…</p>
+  if (!today) return <p className="site-calendar-loading" role="status">{ui.calendar.loading}</p>
 
   const currentMonth = today.slice(0, 7)
   const monthKey = chosenMonth ?? currentMonth
@@ -57,7 +58,7 @@ export function CalendarApp({ events }: { events: CalendarEvent[] }) {
     <div className="site-month-controls">
       <h2 aria-live="polite" aria-atomic="true">{monthName}</h2>
       <div className="site-month-actions">
-        <button className="site-current-month" onClick={() => changeMonth()}>Current month</button>
+        <button className="site-current-month" onClick={() => changeMonth()}>{ui.calendar.current_month}</button>
         <button aria-label="Previous month" onClick={() => changeMonth(shiftMonth(monthKey, -1))}><Icon name="chevron-left" hoverName="arrow-left" size={20} /></button>
         <button aria-label="Next month" onClick={() => changeMonth(shiftMonth(monthKey, 1))}><Icon name="chevron-right" hoverName="arrow-right" size={20} /></button>
       </div>
@@ -75,28 +76,28 @@ export function CalendarApp({ events }: { events: CalendarEvent[] }) {
               return <div className="site-calendar-day" key={date} data-today={date === today || undefined}>
                 <time className="site-day-number" dateTime={date} aria-current={date === today ? 'date' : undefined} ><span aria-hidden="true">{day}</span><span className="site-calendar-date-label">{dateLabel(date)}{date === today && ", today"}</span></time>
                 {dayEvents.map((event) => <button key={event.id} aria-label={`${event.title}, ${dateLabel(date)}${event.status === 'cancelled' ? ', cancelled' : ''}`} aria-pressed={selected?.id === event.id} onClick={() => setSelectedId(event.id)}>
-                  {event.title}{event.status === 'cancelled' && <span className="site-calendar-cancelled">Cancelled</span>}
+                  {event.title}{event.status === 'cancelled' && <span className="site-calendar-cancelled">{ui.calendar.cancelled}</span>}
                 </button>)}
               </div>
             })}
           </div>
         </div>
-        <p className="site-calendar-scroll-hint">Scroll across to see every day.</p>
+        <p className="site-calendar-scroll-hint">{ui.calendar.scroll_days}</p>
       </div>
       <div className="site-calendar-sidebar">
         {selected && <section className="site-event-detail" aria-label="Selected event" aria-live="polite" aria-atomic="true">
           <div className="site-event-meta"><span>{selected.type}</span><span className="site-status">{statusLabel(selected)}</span></div>
           <h3>{selected.title}</h3>
-          <dl><dt>Date</dt><dd><time dateTime={selected.date}>{dateLabel(selected.date)}</time></dd><dt>Time</dt><dd>{selected.time}</dd><dt>Location</dt><dd>{selected.location}</dd></dl>
+          <dl><dt>{ui.calendar.date}</dt><dd><time dateTime={selected.date}>{dateLabel(selected.date)}</time></dd><dt>{ui.calendar.time}</dt><dd>{selected.time}</dd><dt>{ui.calendar.location}</dt><dd>{selected.location}</dd></dl>
         </section>}
         <section className="site-month-list" aria-labelledby="month-events-heading">
-          <h3 id="month-events-heading">Events this month</h3>
-          {monthEvents.length > 3 && <p className="site-event-list-hint">Scroll for more events.</p>}
+          <h3 id="month-events-heading">{ui.calendar.events_this_month}</h3>
+          {monthEvents.length > 3 && <p className="site-event-list-hint">{ui.calendar.scroll_more}</p>}
           {monthEvents.length ? <ul tabIndex={monthEvents.length > 3 ? 0 : undefined} aria-label={`Events in ${monthName}`}>{monthEvents.map((event) => <li key={event.id}><button aria-pressed={selected?.id === event.id} onClick={() => setSelectedId(event.id)}>
             <time dateTime={event.date}>{dateLabel(event.date, true)}</time>
             <strong>{event.title}</strong>
             <small>{event.time} · {statusLabel(event)}</small>
-          </button></li>)}</ul> : <p className="site-calendar-empty">No events scheduled for {monthName}. Check another month or come back for updates.</p>}
+          </button></li>)}</ul> : <p className="site-calendar-empty">{ui.calendar.empty_month.replace('{month}', monthName)}</p>}
         </section>
 
       </div>

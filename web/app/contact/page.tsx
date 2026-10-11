@@ -1,8 +1,9 @@
 import { ArticlePage } from '@/components/ArticlePage'
-import { loadContact, loadPage, url } from '@/lib/content'
+import { loadContact, loadPage, loadUi, url } from '@/lib/content'
 import { Arrow } from '@/components/SiteSections'
 
 export default function ContactPage() {
   const page = loadPage('contact.md')
-  return <ArticlePage title="Let's start a conversation." path="/contact/" body={page.body}><div className="site-contact-actions"><a className="lab-button" href={`mailto:${loadContact().email}`}>Email the club <Arrow /></a><a className="lab-text-link" href={url('/committees/')}>Committee applications <Arrow /></a></div></ArticlePage>
+  const ui = loadUi()
+  return <ArticlePage title={ui.sections.start_conversation} path="/contact/" body={page.body}><div className="site-contact-actions"><a className="lab-button" href={`mailto:${loadContact().email}`}>{ui.shared.email_club} <Arrow /></a><a className="lab-text-link" href={url('/committees/')}>{ui.shared.committee_applications} <Arrow /></a></div></ArticlePage>
 }

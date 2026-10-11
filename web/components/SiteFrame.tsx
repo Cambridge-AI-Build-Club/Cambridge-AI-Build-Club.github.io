@@ -2,6 +2,7 @@
 
 import { useEffect, useRef, useState, type ReactNode } from 'react'
 import { Arrow, Icon } from '@/components/Icon'
+import type { UiCopy } from '@/lib/content'
 
 interface SiteData {
   title: string
@@ -13,7 +14,7 @@ interface SiteData {
   links: { home: string; about: string; contact: string; committees: string; calendar: string }
 }
 
-export function SiteFrame({ data, path, children }: { data: SiteData; path: string; children: ReactNode }) {
+export function SiteFrame({ data, ui, path, children }: { data: SiteData; ui: UiCopy; path: string; children: ReactNode }) {
   const [surface, setSurface] = useState<'paper' | 'charcoal'>('paper')
   const [menuOpen, setMenuOpen] = useState(false)
   const menuButton = useRef<HTMLButtonElement>(null)
@@ -53,22 +54,22 @@ export function SiteFrame({ data, path, children }: { data: SiteData; path: stri
           <button className="site-theme" onClick={toggleSurface} aria-pressed={surface === 'charcoal'} aria-label="Dark appearance">
             <Icon name={surface === 'charcoal' ? 'moon' : 'sun'} size={20} />
           </button>
-          <button ref={menuButton} className="lab-menu-toggle" aria-expanded={menuOpen} aria-controls="site-navigation" onClick={() => setMenuOpen(!menuOpen)}>{menuOpen ? 'Close' : 'Menu'} <Icon name={menuOpen ? 'close' : 'menu'} size={20} /></button>
+          <button ref={menuButton} className="lab-menu-toggle" aria-expanded={menuOpen} aria-controls="site-navigation" onClick={() => setMenuOpen(!menuOpen)}>{menuOpen ? ui.nav.close : ui.nav.menu} <Icon name={menuOpen ? 'close' : 'menu'} size={20} /></button>
         </div>
         <nav id="site-navigation" className={menuOpen ? 'is-open' : ''} aria-label="Main navigation">
           {data.navigation.map((item) => (
             <a key={item.href} href={item.href} onClick={() => setMenuOpen(false)} aria-current={path.startsWith(item.href) ? 'page' : undefined}>{item.name}</a>
           ))}
-          <a className="lab-button lab-button-small" href={data.signup} target="_blank" rel="noopener noreferrer">Join the club <Arrow /></a>
+          <a className="lab-button lab-button-small" href={data.signup} target="_blank" rel="noopener noreferrer">{ui.shared.join_club} <Arrow /></a>
         </nav>
       </header>
       <main id="site-main" tabIndex={-1}>{children}</main>
       <footer className="lab-footer site-footer">
-        <div><strong>{data.copyright}</strong><p>Stay curious. Keep building.</p></div>
+        <div><strong>{data.copyright}</strong><p>{ui.shared.footer_motto}</p></div>
         <nav aria-label="Footer navigation">
-          <a href={data.links.committees}>Join the committee</a><a href={data.links.calendar}>Calendar</a>
-          <a href={data.links.about}>About</a><a href={data.links.contact}>Contact</a>
-          <a href={`mailto:${data.email}`}>Email us <Arrow /></a>
+          <a href={data.links.committees}>{ui.shared.join_committee}</a><a href={data.links.calendar}>{ui.shared.calendar}</a>
+          <a href={data.links.about}>{ui.shared.about}</a><a href={data.links.contact}>{ui.shared.contact}</a>
+          <a href={`mailto:${data.email}`}>{ui.shared.email_us} <Arrow /></a>
         </nav>
       </footer>
     </div>

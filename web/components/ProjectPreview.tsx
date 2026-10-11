@@ -1,9 +1,10 @@
 import { Arrow } from '@/components/Icon'
-import { type ProjectEntry, url } from '@/lib/content'
+import { loadUi, type ProjectEntry, url } from '@/lib/content'
 
 export function ProjectPreview({ project, compact = false, heading = project.title }: {
   project: ProjectEntry; compact?: boolean; heading?: string
 }) {
+  const ui = loadUi()
   return <section className={`site-project${compact ? ' site-project-compact' : ''}`} aria-labelledby={`project-${project.slug}`}>
     <div className="site-project-heading">
       <h2 id={`project-${project.slug}`}>{heading}</h2>
@@ -17,8 +18,8 @@ export function ProjectPreview({ project, compact = false, heading = project.tit
       <div className="site-project-actions">
         <a className="lab-button" href={project.live_url} target="_blank" rel="noopener noreferrer">{project.action_label}<Arrow /></a>
         {compact
-          ? <a className="lab-text-link" href={url('/projects/')}>See our projects <Arrow /></a>
-          : <a className="lab-text-link" href={project.source_url} target="_blank" rel="noopener noreferrer">View source <Arrow /></a>}
+          ? <a className="lab-text-link" href={url('/projects/')}>{ui.shared.see_our_projects} <Arrow /></a>
+          : <a className="lab-text-link" href={project.source_url} target="_blank" rel="noopener noreferrer">{ui.shared.view_source} <Arrow /></a>}
       </div>
     </div>
   </section>
