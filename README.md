@@ -36,7 +36,7 @@ Contributions are welcome! If you’d like to improve the site or suggest new fe
 
 ## Development
 
-The site is a **Next.js 15 static export** in `web/`, deployed to GitHub Pages through reviewed pull requests. Root Markdown, collections, `_data/` and `images/` remain its content and asset sources.
+The site is a **Next.js 15 static export** in `web/`, deployed to GitHub Pages through reviewed pull requests. Root Markdown, collections and `_data/` remain its content sources; static assets live in `web/public/images/`.
 
 ```bash
 cd web
@@ -51,7 +51,7 @@ npm run build    # static export into web/out/
 - [Deployment and recovery](web/CUTOVER.md): Pages releases, legacy recovery and emergency publishing.
 - [Documentation index and release evidence](docs/README.md): dated decisions, QA and archived plans.
 
-The original Jekyll sources are retained for recovery; their presentation and calendar require a divergence review before use. Netlify is configured to build the Next.js export.
+The retired Jekyll sources are preserved on the `archive/jekyll-legacy` branch; their presentation and calendar require a divergence review before use. Netlify is configured to build the Next.js export.
 
 ---
 

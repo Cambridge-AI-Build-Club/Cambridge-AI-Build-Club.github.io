@@ -15,7 +15,7 @@ npm run build                          # static export into out/
 node scripts/serve.mjs out 4102         # http://localhost:4102/
 ```
 
-Prebuild runs the design guard, calendar tests and `sync-assets.mjs`; the export validates TypeScript and then generates legacy redirect stubs. `npm install` is appropriate when intentionally updating dependencies; review the lockfile diff. There is no repository-wide lint command or broad application test suite. Local QA previously used Node 24; that historical result does not replace Node 20 Linux CI.
+Prebuild runs the design guard and calendar tests; the export validates TypeScript and then generates legacy redirect stubs. `npm install` is appropriate when intentionally updating dependencies; review the lockfile diff. There is no repository-wide lint command or broad application test suite. Local QA previously used Node 24; that historical result does not replace Node 20 Linux CI.
 
 ## Content and assets
 
@@ -28,11 +28,11 @@ Prebuild runs the design guard, calendar tests and `sync-assets.mjs`; the export
 | `_data/projects.yml` | One shared project record for About and Projects |
 | `_data/calendar.json` | Dated calendar records and explicit statuses |
 | `_config.yml` | Club name and logo configuration |
-| `images/` | Source assets copied into ignored `public/images/` before dev/build |
+| `public/images/` | Tracked static assets (logos, illustrations, portraits, screenshots) served and exported verbatim |
 
 Content loaders in `lib/content.ts` and `lib/site.ts` read these sources in place. `lib/markdown.tsx` renders prose with react-markdown and heading IDs; marked supplies build-time excerpts. No content copy belongs in `web/`.
 
-`scripts/sync-assets.mjs` replaces the public image copy on every run. A stale public file cannot establish that a source image reference is valid; verify from a clean sync. Keep generated `out/`, `.next/` and `public/images/` out of Git.
+Static assets live once, under `public/images/`, and the export ships that directory verbatim. Keep generated `out/` and `.next/` out of Git.
 
 ## Templates and styles
 
@@ -42,7 +42,7 @@ Content loaders in `lib/content.ts` and `lib/site.ts` read these sources in plac
 - Appearance defaults to Warm Paper and persists an optional `cbc-surface` browser preference. Every page title follows the same plain serif style, with natural wrapping.
 - Projects use the shared `ProjectPreview` component and a documentary screenshot. Member listing visibility is driven by `promoted`; see AGENTS.md for the exact rules.
 
-The retained `styles/globals.scss` / root `assets/css/style.scss` mirrors and `_sass/` serve the legacy design, not the production CSS. Root Jekyll templates remain recovery inputs; they do not establish current visual parity.
+The Jekyll presentation layer retired from `main` on 11 October 2026 and is preserved on the `archive/jekyll-legacy` branch; it does not establish current visual parity with the production CSS.
 
 ## Calendar
 
@@ -52,7 +52,7 @@ Previous/next navigate consecutive months across years and empty schedules. Curr
 
 Each day of a multi-day event gets its own record. Preserve `id`, ISO `date`, `time`, `title`, `location`, `type` and the `archived` / `completed` / `scheduled` / `cancelled` status. The current UI labels archived and completed records as Completed. Tests cover London date boundaries, month/year navigation, leap years, ordering, selection and data preservation. Test/event totals belong to dated QA, not permanent architecture rules.
 
-The legacy `_layouts/calendar.html` contains a separate hard-coded schedule. Updating JSON does not update that script; legacy recovery requires a divergence review.
+The archived legacy calendar (`_layouts/calendar.html` on `archive/jekyll-legacy`) contains a separate hard-coded schedule; a Jekyll recovery requires a divergence review.
 
 ## URLs and static hosting
 
@@ -66,4 +66,4 @@ The repository `Cambridge-AI-Build-Club.github.io` serves at the [organisation r
 
 `.github/workflows/nextjs-ci.yml` runs the build-only check on every PR, including content and documentation changes. Its `DESIGN_BASE_SHA` enables the committed-diff design check. `.github/workflows/nextjs.yml` builds and deploys on main pushes and manual dispatch; publication follows the branch, preview, approval and squash-merge rules in AGENTS.md.
 
-`netlify.toml` also builds **Next.js** into `web/out`; it is not a Jekyll fallback configuration. The retained Jekyll workflow is manual-only. Use [CUTOVER.md](CUTOVER.md) for recovery, and [dated design evidence](../docs/README.md#design-evidence) for historical migration decisions and checks.
+`netlify.toml` also builds **Next.js** into `web/out`; it is not a Jekyll fallback configuration. The Jekyll recovery workflow is manual-only and builds the `archive/jekyll-legacy` branch. Use [CUTOVER.md](CUTOVER.md) for recovery, and [dated design evidence](../docs/README.md#design-evidence) for historical migration decisions and checks.

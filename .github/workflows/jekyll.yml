@@ -1,7 +1,8 @@
-# Sample workflow for building and deploying a Jekyll site to GitHub Pages
-# DISABLED as part of the Jekyll -> Next.js cutover (the Next.js deploy workflow is
-# .github/workflows/nextjs.yml). This file is kept intact for rollback: to restore the
-# Jekyll deployment, revert the cutover commit or re-enable the `push` trigger below.
+# Jekyll legacy recovery workflow (manual dispatch only; the Next.js deploy workflow
+# is .github/workflows/nextjs.yml). The Jekyll sources retired from main on
+# 11 October 2026 and are preserved on the archive/jekyll-legacy branch: dispatch this
+# workflow against that ref to rebuild the legacy site, and see web/CUTOVER.md
+# ("Legacy Jekyll recovery") first. The `push` trigger stays disabled.
 name: Deploy Jekyll site to Pages
 
 on:

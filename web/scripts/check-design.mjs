@@ -34,7 +34,7 @@ if (base || existsSync(join(root, '.git'))) {
   const changed = base
     ? git(['diff', '--name-only', base, 'HEAD'])
     : [...git(['diff', '--name-only', 'HEAD']), ...git(['ls-files', '--others', '--exclude-standard'])]
-  const designPaths = /^(web\/(app|components|styles)\/|images\/(features|logo|brand|illustrations)\/|_data\/(menus\.yml|features\.json)$|_config\.yml$)/
+  const designPaths = /^(web\/(app|components|styles)\/|(?:web\/public\/)?images\/(features|logo|brand|illustrations)\/|_data\/(menus\.yml|features\.json)$|_config\.yml$)/
   if (changed.some((name) => designPaths.test(name)) && !changed.includes('DESIGN.md')) {
     failures.push('UI/design files changed without DESIGN.md. Update the contract and change record before implementation.')
   }

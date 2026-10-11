@@ -4,7 +4,7 @@ Last reconciled: 11 October 2026. The Jekyll-to-Next.js cutover is complete. Thi
 
 ## Normal release
 
-1. Inspect the checkout, remote, PR head, CI and Pages settings. The expected repository is `Cambridge-AI-Build-Club/Cambridge-AI-Build-Club.github.io`, served at the [organisation root](https://cambridge-ai-build-club.github.io/). The Pages API was verified as `build_type: workflow` on the reconciliation date; a retained `source.branch: gh-pages` field alone does not mean branch publishing is active.
+1. Inspect the checkout, remote, PR head, CI and Pages settings. The expected repository is `Cambridge-AI-Build-Club/Cambridge-AI-Build-Club.github.io`, served at the [organisation root](https://cambridge-ai-build-club.github.io/). The Pages API was verified as `build_type: workflow` on 11 October 2026; the stale `gh-pages` branch was deleted the same day, so publishing is workflow-only.
 2. Make changes on a dedicated Conventional Branch and open a PR into main. Follow [AGENTS.md](../AGENTS.md): site changes require a built local preview and owner approval of that implementation. Documentation-only PRs may merge without preview. All PRs must pass **Build Next.js site (no deploy)**.
 3. Squash-merge the reviewed PR. Never push a source change or rollback directly to main.
 4. Wait for **Deploy Next.js site to Pages** (`nextjs.yml`) and verify its `headSha` and conclusion. The workflow builds `web/out` with Node 20 and uploads the Pages artifact. Its concurrency permits the active deployment to finish; intermediate pending runs can be skipped when newer commits arrive.
@@ -21,22 +21,22 @@ For an explicitly requested temporary restoration, a recent successful `nextjs.y
 
 ## Legacy Jekyll recovery
 
-The retained `.github/workflows/jekyll.yml` has `workflow_dispatch` and no automatic main push trigger. Its Ruby 3.1 workflow builds the root sources into `_site`. The legacy presentation differs from the approved production design; the calendar remains hard-coded, and newer Projects content/templates are not automatically ported.
+The Jekyll presentation layer retired from `main` on 11 October 2026. The complete legacy site — Jekyll sources, its `images/` tree, `Gemfile` and layouts — is preserved on the `archive/jekyll-legacy` branch (cut from `main` at `a99f355`). `.github/workflows/jekyll.yml` on `main` stays `workflow_dispatch`-only and exists to rebuild that branch, so recovery needs no new files.
 
-1. Review the required recovery scope and source divergence, especially navigation, Projects, recruitment, portraits and calendar. Do not assume current content or design parity.
-2. Build locally with `bundle install` and `bundle exec jekyll build` at the repository root; inspect affected routes, assets and current schedule before requesting publication approval.
-3. For a temporary approved restore, manually dispatch the retained Jekyll workflow on the reviewed ref. Verify Pages is in workflow mode and inspect the resulting live site. Re-running an old Jekyll job rebuilds its original commit; it does not automatically select current content.
-4. For a sustained switch, create a dedicated branch/PR that coordinates both workflows: enable the intended Jekyll trigger and disable automatic Next.js deployment together. Follow preview, CI and approval requirements. Do not blindly revert the original cutover across later changes.
+1. Review the required recovery scope and source divergence, especially navigation, Projects, recruitment, portraits and calendar. Do not assume current content or design parity with Next.js or with later `main` content.
+2. Check out `archive/jekyll-legacy` and build locally with `bundle install` and `bundle exec jekyll build`; inspect affected routes, assets and the current schedule before requesting publication approval.
+3. For a temporary approved restore, dispatch `jekyll.yml` against the archive ref (Actions UI branch selector, or `gh workflow run jekyll.yml --ref archive/jekyll-legacy`). Verify Pages is in workflow mode and inspect the resulting live site. Re-running an old Jekyll job rebuilds its original commit; it does not automatically select current content.
+4. For a sustained switch, create a dedicated branch/PR that coordinates both workflows: enable the intended Jekyll trigger and disable automatic Next.js deployment together. Follow preview, CI and approval requirements. Do not restore the retired presentation into `main` without an explicit owner decision.
 5. Record the restored SHA, deployment method, known divergence and recovery plan. Restore Next.js through the reviewed workflow/configuration and verify it again.
 
-No Jekyll build or rollback was performed during the 11 October documentation cleanup.
+No Jekyll build or rollback has been performed since the retirement.
 
 ## Emergency branch publishing
 
-Use only for an owner-authorized outage response after a reviewed export exists. This was used historically during the 5 October runner incident; it is not the normal publication path. It bypasses the repository's custom build workflow, but availability of GitHub's Pages publishing infrastructure must still be checked.
+Use only for an owner-authorized outage response after a reviewed export exists. This was used historically during the 5 October 2026 runner incident; it is not the normal publication path. The stale `gh-pages` branch was deleted on 11 October 2026 — recreate a publisher branch deliberately when this procedure is needed. It bypasses the repository's custom build workflow, but availability of GitHub's Pages publishing infrastructure must still be checked.
 
 1. Build the approved source ref locally from `web/` with the intended base path and origin. Inspect the static export, assets and redirect stubs; record the source SHA and retain the export receipt.
-2. Check current Pages mode and the remote `gh-pages` tip before changing either. Copy `web/out/` into an isolated temporary publisher directory; commit the static files there, with `index.html`, `.nojekyll` and `_next/` at its root. Never stage generated output into the source branch.
+2. Check current Pages mode and whether a `gh-pages` branch exists; create it only as part of this procedure. Copy `web/out/` into an isolated temporary publisher directory; commit the static files there, with `index.html`, `.nojekyll` and `_next/` at its root. Never stage generated output into the source branch.
 3. Push the prepared export to `gh-pages`. Replacing an existing publisher history requires explicit authorization and a lease tied to its verified tip; do not prescribe an unconditional force-push.
 4. Set Settings → Pages → Deploy from a branch → `gh-pages / (root)`. API equivalent: update the repository Pages endpoint with `build_type: legacy` and source branch/path `gh-pages` / `/`. Preserve the previous configuration in the incident receipt.
 5. Wait for publication and verify cache-busted production routes. A `.nojekyll` export avoids Jekyll processing; it does not establish that every Pages service is healthy. See [GitHub's publishing-source guidance](https://docs.github.com/en/pages/getting-started-with-github-pages/configuring-a-publishing-source-for-your-github-pages-site) and [the no-Jekyll publishing path](https://github.blog/changelog/2024-07-08-pages-legacy-worker-sunset/).
