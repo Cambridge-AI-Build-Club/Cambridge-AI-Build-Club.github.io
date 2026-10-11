@@ -1,14 +1,14 @@
-// Build-time loaders for the Jekyll content sources. The repository root stays the
-// single source of truth: _config.yml, _data/*, root pages and _collections are read
-// from disk here (server components only - this module must never be imported from
-// client code).
+// Build-time loaders for the site content under web/content/. That directory is the
+// single source of truth: site.yml, data/*, pages/ and the collection folders are
+// read from disk here (server components only - this module must never be imported
+// from client code).
 import fs from 'node:fs'
 import path from 'node:path'
 import matter from 'gray-matter'
 import { parse as parseYaml } from 'yaml'
 import { marked } from 'marked'
 
-const repoRoot = path.join(process.cwd(), '..')
+const contentRoot = path.join(process.cwd(), 'content')
 
 // The GitHub Pages org site serves at the root domain. CI passes
 // NEXT_PUBLIC_BASE_PATH from actions/configure-pages (a /repo-name prefix on a
@@ -33,34 +33,29 @@ export function url(p: string): string {
   return encodeURI(`${basePath}/${stripped}`)
 }
 
-function readRepoFile(rel: string): string {
-  // Normalize CRLF: the Jekyll build treats \r\n\r\n as a paragraph break, so the
-  // excerpt split below must see the same content regardless of checkout settings.
-  return fs.readFileSync(path.join(repoRoot, rel), 'utf8').replace(/\r\n/g, '\n')
+function readContentFile(rel: string): string {
+  // Normalize CRLF so excerpt splitting sees the same content regardless of
+  // checkout settings.
+  return fs.readFileSync(path.join(contentRoot, rel), 'utf8').replace(/\r\n/g, '\n')
 }
 
-// --- site config (_config.yml) ---
+// --- site config (site.yml) ---
 
 export interface LogoConfig {
   mobile: string
-  mobile_height: string
-  mobile_width: string
   desktop: string
-  desktop_height: string
-  desktop_width: string
 }
 
 export interface SiteConfig {
   title: string
   logo: LogoConfig
-  home?: { limit_services?: number }
 }
 
 export function loadConfig(): SiteConfig {
-  return parseYaml(readRepoFile('_config.yml'))
+  return parseYaml(readContentFile('site.yml'))
 }
 
-// --- data files (_data/*) ---
+// --- data files (data/*) ---
 
 export interface MenuItem {
   name: string
@@ -69,7 +64,7 @@ export interface MenuItem {
 }
 
 export function loadMenus(): { main: MenuItem[]; footer: MenuItem[] } {
-  return parseYaml(readRepoFile('_data/menus.yml'))
+  return parseYaml(readContentFile('data/menus.yml'))
 }
 
 export interface ProjectEntry {
@@ -87,11 +82,11 @@ export interface ProjectEntry {
 }
 
 export function loadProjects(): ProjectEntry[] {
-  return parseYaml(readRepoFile('_data/projects.yml'))
+  return parseYaml(readContentFile('data/projects.yml'))
 }
 
 export function loadSignup(): { form: string } {
-  return parseYaml(readRepoFile('_data/signup.yml'))
+  return parseYaml(readContentFile('data/signup.yml'))
 }
 
 export function loadContact(): {
@@ -99,11 +94,11 @@ export function loadContact(): {
   phone?: string
   contact_button_link: string
 } {
-  return parseYaml(readRepoFile('_data/contact.yml'))
+  return parseYaml(readContentFile('data/contact.yml'))
 }
 
 export function loadDiscord(): { discord: string } {
-  return parseYaml(readRepoFile('_data/discord.yml'))
+  return parseYaml(readContentFile('data/discord.yml'))
 }
 
 export interface SocialItem {
@@ -113,7 +108,7 @@ export interface SocialItem {
 }
 
 export function loadSocial(): SocialItem[] {
-  return JSON.parse(readRepoFile('_data/social.json'))
+  return JSON.parse(readContentFile('data/social.json'))
 }
 
 export interface FeatureItem {
@@ -123,11 +118,11 @@ export interface FeatureItem {
 }
 
 export function loadFeatures(): FeatureItem[] {
-  return JSON.parse(readRepoFile('_data/features.json'))
+  return JSON.parse(readContentFile('data/features.json'))
 }
 
 export function loadSeo(): { copyright_text?: string } {
-  return parseYaml(readRepoFile('_data/seo.yml'))
+  return parseYaml(readContentFile('data/seo.yml'))
 }
 
 // --- markdown helpers (Liquid filter parity) ---
@@ -175,7 +170,7 @@ export function excerptHtmlTruncate(body: string, length: number): string {
   return truncate(html, length)
 }
 
-// --- pages (root *.md) and collections (_events, _blogs, _team) ---
+// --- pages (pages/) and collections (events/, blogs/, team/) ---
 
 export interface Page {
   title?: string
@@ -185,7 +180,7 @@ export interface Page {
 }
 
 export function loadPage(file: string): Page {
-  const { data, content } = matter(readRepoFile(file))
+  const { data, content } = matter(readContentFile(path.join('pages', file)))
   return { ...data, body: smartQuotes(content) }
 }
 
@@ -195,12 +190,12 @@ export interface CollectionEntry extends Record<string, unknown> {
 }
 
 export function loadCollection(dir: string, sortBy?: string): CollectionEntry[] {
-  const full = path.join(repoRoot, dir)
+  const full = path.join(contentRoot, dir)
   const entries: CollectionEntry[] = fs
     .readdirSync(full)
     .filter((f) => f.endsWith('.md'))
     .map((f) => {
-      const { data, content } = matter(readRepoFile(path.join(dir, f)))
+      const { data, content } = matter(readContentFile(path.join(dir, f)))
       return { slug: f.replace(/\.md$/, ''), ...data, body: smartQuotes(content) }
     })
   if (sortBy) {

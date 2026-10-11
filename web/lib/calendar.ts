@@ -12,5 +12,5 @@ export interface CalendarEvent {
 }
 
 export function loadCalendar(): CalendarEvent[] {
-  return JSON.parse(fs.readFileSync(path.join(process.cwd(), '..', '_data/calendar.json'), 'utf8'))
+  return JSON.parse(fs.readFileSync(path.join(process.cwd(), 'content', 'data', 'calendar.json'), 'utf8'))
 }

@@ -10,7 +10,7 @@ export default function HomePage() {
   const page = loadPage('index.md')
   const copy = loadHomeCopy()
   const site = loadSiteData()
-  const blogs = loadCollection('_blogs', 'weight').slice(0, 3)
+  const blogs = loadCollection('blogs', 'weight').slice(0, 3)
   return <>
     <PageMeta title={site.title} description={page.description} path="/" />
     <Shell path="/">

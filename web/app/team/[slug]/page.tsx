@@ -5,11 +5,11 @@ import { Arrow, JoinSection, PageIntro, Recruitment } from '@/components/SiteSec
 import { Markdown } from '@/lib/markdown'
 import { loadCollection, url } from '@/lib/content'
 
-export function generateStaticParams() { return loadCollection('_team').map((entry) => ({ slug: entry.slug })) }
+export function generateStaticParams() { return loadCollection('team').map((entry) => ({ slug: entry.slug })) }
 
 export default async function TeamMemberPage({ params }: { params: Promise<{ slug: string }> }) {
   const { slug } = await params
-  const entry = loadCollection('_team').find((item) => item.slug === slug)
+  const entry = loadCollection('team').find((item) => item.slug === slug)
   if (!entry) throw new Error(`Member not found: ${slug}`)
   const title = String(entry.title)
   return <><PageMeta title={`${title} | Cambridge AI Builder Club`} path={`/team/${slug}/`} /><Shell path={`/team/${slug}/`}>
