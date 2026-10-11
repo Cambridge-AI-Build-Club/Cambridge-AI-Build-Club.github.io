@@ -1,5 +1,7 @@
 # Decorative label removal — 10 October 2026
 
+> Historical QA from 10 October, published in PR #24 on 11 October (Europe/London). Intermediate collaboration layouts are superseded by the coordinated hero revision; titles were subsequently unified in PR #26. See the [release ledger](../README.md#release-ledger) and [current design contract](../../DESIGN.md). Checks and screenshots below apply to their recorded version; this cleanup did not repeat browser QA.
+
 The owner approved removal of the decorative monospaced captions and section/page labels after reviewing the complete scope. The hero prerequisite sentence, artwork captions, collaboration-strip slogan, section/page eyebrows, activity/project labels and recruitment/calendar labels are deleted from production and the matching playground. Following the owner's final clarification, only In collaboration with and the official Claude logo remain as a plain linked footer within the hero illustration frame. The headline and illustration are top-aligned on desktop. The full-width band and supporting programme paragraph are removed. Journal publication dates use regular Arial/Helvetica typography.
 
 ## Verification
@@ -24,6 +26,8 @@ The original removal screenshots and structured checks are in [the evidence fold
 
 ## Compact collaboration attribution revision
 
+Status: superseded by the coordinated hero revision below.
+
 The owner requested retaining In collaboration with Claude. A shared Home/playground component now places the regular-font label beside the existing official logo/link, directly after the hero. The existing warm strip keeps the black wordmark readable in both themes. Reduced padding and gap bring the strip to 70px high; no new decoration or animation was added.
 
 - Design guard and static build passed again (25 routes, 21 legacy redirects).
@@ -37,6 +41,8 @@ The owner requested retaining In collaboration with Claude. A shared Home/playgr
 | Playground | [Image](remove-labels-2026-10-10/collaboration/playground-1440-paper.jpg) | [Image](remove-labels-2026-10-10/collaboration/playground-375-paper.jpg) | [Image](remove-labels-2026-10-10/collaboration/playground-1440-charcoal.jpg) | [Image](remove-labels-2026-10-10/collaboration/playground-375-charcoal.jpg) |
 
 ## Collaboration copy revision
+
+Status: superseded; the owner subsequently removed this sentence.
 
 The owner requested a more appealing explanation of the collaboration. The sentence now stored once in `index.md` front matter is:
 
@@ -58,7 +64,9 @@ The existing attribution/logo row remains, with one centered regular-font paragr
 
 ## Hero collaboration lockup revision
 
-The owner requested retaining only In collaboration with Claude and improving its presentation. The final UI integrates a compact warm lockup beneath the hero actions, aligned with the heading and prose. The whole label/logo unit is a single existing Claude link with a 52px target; its border changes on hover without movement. The official asset remains unchanged and renders at its natural 573:125 proportions. Production and playground share the component.
+Status: superseded by the coordinated hero revision below.
+
+The owner requested retaining only In collaboration with Claude and improving its presentation. At this checkpoint, the UI integrated a compact warm lockup beneath the hero actions, aligned with the heading and prose. The whole label/logo unit is a single existing Claude link with a 52px target; its border changes on hover without movement. The official asset remains unchanged and renders at its natural 573:125 proportions. Production and playground share the component.
 
 The full-width band, supporting sentence, root supporting-copy field, loader property, prop and unused band styles are removed. The primary and secondary hero actions remain.
 

@@ -1,5 +1,7 @@
 # Approved Claude design migration
 
+> Historical implementation plan approved on 6 October and published in PR #15. It records that migration scope, not pending work. Later Projects, hero and calendar decisions are in the current contract. See the [release ledger](../README.md#release-ledger) and [current design contract](../../DESIGN.md). Checks and screenshots below apply to their recorded version; this cleanup did not repeat browser QA.
+
 Approved by the owner on 6 October 2026, with activity icon redesign, corrected team lead roles and visible committee recruitment.
 
 ## Implementation

@@ -1,5 +1,7 @@
 # Generated concept artwork
 
+> Unused concept provenance from 6 October. The image is retained for traceability and is not referenced by production or the current playground. See the [release ledger](../README.md#release-ledger) and [current design contract](../../DESIGN.md). Checks and screenshots below apply to their recorded version; this cleanup did not repeat browser QA.
+
 Status: historical first experiment, superseded by the owner's Claude-branding and asset-reuse correction. The playground no longer references this image. No new generation was performed for the Claude edition; see [current asset sources](claude-brand-sources.md).
 
 - Asset: `images/design/builder-engine.jpg` (1536 x 1024).
@@ -8,7 +10,7 @@ Status: historical first experiment, superseded by the owner's Claude-branding a
 - Export: optimized JPEG at quality 88 from the original generated PNG; no new scene elements or content edits.
 - Palette alternatives apply a CSS color tint; they are not separately generated images.
 - Subject: an imagined sculpture, not a real club project or event photograph.
-- The production image list, final prompts, crops and export formats remain subject to design approval.
+- This experiment was superseded by the approved asset-reuse direction. Its old palette treatment and prompt are retained only as provenance.
 
 ## Generation prompt
 

@@ -1,5 +1,7 @@
 # Claude design playground verification
 
+> Historical local QA from 6 October. The approved direction subsequently shipped in PR #15; this snapshot describes the earlier prototype boundary, not current routes or scheduling. See the [release ledger](../README.md#release-ledger) and [current design contract](../../DESIGN.md). Checks and screenshots below apply to their recorded version; this cleanup did not repeat browser QA.
+
 Reviewed locally on 6 October 2026, on `codex/design-playground`. This record and the screenshots supersede the initial acid-green concept review.
 
 ## Build and source integrity

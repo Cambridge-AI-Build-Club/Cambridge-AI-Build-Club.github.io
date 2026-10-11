@@ -1,5 +1,7 @@
 # Cambridge Claude Builder Club: website design proposal
 
+> Historical proposal from 6–7 October; its approved migration was published in PR #15. Early navigation, monospaced labels, collaboration-strip and archive-calendar proposals are superseded by the current contract. See the [release ledger](../README.md#release-ledger) and [current design contract](../../DESIGN.md). Checks and screenshots below apply to their recorded version; this cleanup did not repeat browser QA.
+
 Status: revised local concept for review, 6 October 2026. The initial acid-green direction is superseded. No production rollout is approved.
 
 ## The outcome

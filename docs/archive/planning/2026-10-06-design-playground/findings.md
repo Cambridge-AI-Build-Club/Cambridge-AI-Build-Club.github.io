@@ -1,5 +1,7 @@
 # Verified findings
 
+> Archived task snapshot. Its local state and pending actions are historical. PR #15 is merged; see the [reconciled release ledger](../../../README.md#release-ledger) and [current contributor rules](../../../../AGENTS.md). Historical branch names predate the current Conventional Branch rule and must not be reused as examples.
+
 - The checked-out main branch already has Next.js 15, React 19, TypeScript and static export in web/.
 - Each production route owns an HTML root layout. A separate playground layout can avoid importing legacy Sass.
 - Build-time loaders read root Markdown and _data; image sync copies root images to an ignored public folder.

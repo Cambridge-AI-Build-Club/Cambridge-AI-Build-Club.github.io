@@ -1,5 +1,7 @@
 # Page title design verification
 
+> Historical QA from 11 October, published in PR #26 after owner preview approval. Publication is complete; the preview-only statements below describe the earlier checkpoint. See the [release ledger](../README.md#release-ledger) and [current design contract](../../DESIGN.md). Checks and screenshots below apply to their recorded version; this cleanup did not repeat browser QA.
+
 11 October 2026. Preview: [Home](http://localhost:4102/) and [Calendar](http://localhost:4102/calendar/). Owner preview approval is required before merging under [AGENTS.md](../../AGENTS.md).
 
 All page titles use the existing shared Georgia/Times serif h1 style, regular weight, with natural wrapping. Removed forced line breaks, italic/underlined second lines and the smaller article-title override. PageIntro accepts plain title strings. Home still reads its headline from the root content; article/member wording, publication dates, descriptions and section headings are preserved. The playground follows the same title treatment.

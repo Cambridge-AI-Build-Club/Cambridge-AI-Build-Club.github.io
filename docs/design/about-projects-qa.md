@@ -1,5 +1,7 @@
 # About and Projects verification
 
+> Historical QA from 10 October, published in PR #23 after owner approval. The plan/local-review publication boundaries below describe earlier checkpoints. See the [release ledger](../README.md#release-ledger) and [current design contract](../../DESIGN.md). Checks and screenshots below apply to their recorded version; this cleanup did not repeat browser QA.
+
 Verified locally on 10 October 2026. Branch: `feature/about-projects`. Local preview: http://localhost:4102/. Awaiting the owner's preview review; not deployed.
 
 The shared header now includes About and Projects, with the menu at widths of 1100px and below. About introduces CBC World; Projects features its captured live screenshot, description, capabilities and live/source links. Both previews read one project record from `_data/projects.yml`. The original About introduction is retained, followed by researched context about the wider builder community and the role of Claude Campus Ambassadors. A transition explains why we built CBC World before its preview. Projects has a matching introduction.

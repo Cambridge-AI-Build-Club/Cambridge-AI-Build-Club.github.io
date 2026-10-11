@@ -1,5 +1,7 @@
 # Calendar design and date logic verification
 
+> Historical QA from 10–11 October, published in PR #25 after PR #24. The dependency and pending-approval statements below describe the pre-merge checkpoint. See the [release ledger](../README.md#release-ledger) and [current design contract](../../DESIGN.md). Checks and screenshots below apply to their recorded version; this cleanup did not repeat browser QA.
+
 Local preview: http://localhost:4102/calendar/. Publication requires the owner's local review under AGENTS.md.
 
 ## Changes

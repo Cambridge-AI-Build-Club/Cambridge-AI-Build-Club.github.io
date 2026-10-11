@@ -36,20 +36,23 @@ Contributions are welcome! If you’d like to improve the site or suggest new fe
 
 ## Development
 
-The site is a **Next.js 15 static export** (in `web/`) deployed to GitHub Pages by GitHub Actions on every push to `main`.
+The site is a **Next.js 15 static export** in `web/`, deployed to GitHub Pages through reviewed pull requests. Root Markdown, collections, `_data/` and `images/` remain its content and asset sources.
 
-- **Content** lives at the repo root in Jekyll-style sources — `index.md` / `about.md` / …, the `_events/`, `_blogs/`, `_team/` collections, and `_data/` for navigation, contact and social links. The Next.js build reads these files directly; there is no duplicated content. Edit them and the site updates.
-- **Local development:**
+```bash
+cd web
+npm ci
+npm run dev      # http://localhost:3000/
+npm run build    # static export into web/out/
+```
 
-  ```bash
-  cd web
-  npm install
-  npm run dev      # dev server
-  npm run build    # static export into web/out
-  ```
+- [Contributor and agent guidelines](AGENTS.md): branch naming, review, content editing and validation.
+- [Design contract](DESIGN.md): current approved UI/UX rules.
+- [Architecture and commands](web/README.md): templates, data loaders, calendar and static hosting.
+- [Deployment and recovery](web/CUTOVER.md): Pages releases, legacy recovery and emergency publishing.
+- [Documentation index and release evidence](docs/README.md): dated decisions, QA and archived plans.
 
-- **Legacy fallback:** the original Jekyll build is kept intact (`bundle exec jekyll build`) for rollback purposes; see `web/CUTOVER.md` for the deploy/rollback runbook.
+The original Jekyll sources are retained for recovery; their presentation and calendar require a divergence review before use. Netlify is configured to build the Next.js export.
 
 ---
 
-Together, let’s build the future with AI!  
+Together, let’s build the future with AI!

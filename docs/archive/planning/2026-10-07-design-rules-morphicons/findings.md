@@ -1,5 +1,7 @@
 # Findings
 
+> Archived task snapshot. Its local state and pending actions are historical. PR #17 is merged; see the [reconciled release ledger](../../../README.md#release-ledger) and [current contributor rules](../../../../AGENTS.md). Historical branch names predate the current Conventional Branch rule and must not be reused as examples.
+
 - The baseline is the approved PR #15 redesign. The previous design branch is merged; a fresh feature branch starts at origin/main.
 - UI icons currently mix Unicode arrows/plus/close symbols and custom SVG theme/month controls. These must be migrated together, including playground and return/anchor links.
 - Morphicons official documentation specifies morphicons/react, vanilla Lucide IconNode data, SSR SVG output, spring="snappy" and reducedMotion="user". The default animation policy does not honor reduced motion without opt-in.

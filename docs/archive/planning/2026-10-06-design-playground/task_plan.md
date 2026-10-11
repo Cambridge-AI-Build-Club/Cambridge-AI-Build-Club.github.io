@@ -1,5 +1,7 @@
 # Website redesign: direction and review playground
 
+> Archived task snapshot. Its local state and pending actions are historical. PR #15 is merged; see the [reconciled release ledger](../../../README.md#release-ledger) and [current contributor rules](../../../../AGENTS.md). Historical branch names predate the current Conventional Branch rule and must not be reused as examples.
+
 ## Goal
 Deliver the owner-approved Claude UI/UX migration across all Next.js pages, including redesigned activity icons, corrected team lead roles and committee recruitment.
 
@@ -16,10 +18,10 @@ Deliver the owner-approved Claude UI/UX migration across all Next.js pages, incl
 - All production templates and shared navigation migration: complete.
 - Build, route integrity, interaction and desktop/mobile QA: complete.
 - Promote Calendar to an ongoing primary page: complete (7 October 2026).
-- Update and reopen PR #15, pass CI, squash merge and verify deployment: in progress.
+- Update and reopen PR #15, pass CI, squash merge and verify deployment: complete (reconciled on 11 October 2026).
 
 ## Next Step
-The owner approved the reviewed site and explicitly requested updating and merging the PR on 7 October 2026. Update PR #15, wait for the build check, squash merge and verify the resulting Pages deployment.
+No active next step. This task is complete and archived; publication is reconciled in the release ledger.
 
 ## Decisions
 - Reuse the existing Next.js 15 static-export implementation; this is a design migration.

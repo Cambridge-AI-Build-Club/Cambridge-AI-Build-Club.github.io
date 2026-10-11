@@ -1,5 +1,7 @@
 # Copy and small UI verification — 9 October 2026
 
+> Historical QA from 9 October, published in PR #18. Its pending-preview/CI statements describe the original checkpoint; later calendar, label and page-title changes supersede those layouts. See the [release ledger](../README.md#release-ledger) and [current design contract](../../DESIGN.md). Checks and screenshots below apply to their recorded version; this cleanup did not repeat browser QA.
+
 The homepage now names the club formats and labels its signup action `Join the club`. Root Markdown supplies more concrete About and Contact prose, concise activity summaries and a second paragraph explaining each format. Explore and Journal metadata descriptions are descriptive rather than generic labels. Home and the playground use the same source copy.
 
 The shared Welcome section keeps `Meet the club` visible below the copy at 1100px and narrower. Selected filters add bold underlined text; filter borders and footer underlines respond to hover and keyboard focus. Existing palette, artwork, Morphicons, routes, signup/community links, recruitment facts and calendar records are preserved.

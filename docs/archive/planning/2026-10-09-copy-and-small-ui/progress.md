@@ -1,5 +1,7 @@
 # Progress
 
+> Archived task snapshot. Its local state and pending actions are historical. PR #18 is merged; see the [reconciled release ledger](../../../README.md#release-ledger) and [current contributor rules](../../../../AGENTS.md). Historical branch names predate the current Conventional Branch rule and must not be reused as examples.
+
 9 October 2026: inspected live rules and sources; selected a focused copy and usability pass. Build, screenshots, PR and owner review pending.
 
 Build passed (24 pages, 20 redirects), design guard passed, summary lengths 84/95/91. Fresh Home desktop/mobile screenshots reviewed: clear CTA, complete illustrations, visible mobile About link and intact hierarchy. Inline agent-browser eval was parsed by its Windows command wrapper; use stdin for browser JavaScript checks.

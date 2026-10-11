@@ -1,5 +1,7 @@
 # Progress
 
+> Archived task snapshot. Its local state and pending actions are historical. PR #17 is merged; see the [reconciled release ledger](../../../README.md#release-ledger) and [current contributor rules](../../../../AGENTS.md). Historical branch names predate the current Conventional Branch rule and must not be reused as examples.
+
 - Inspected main baseline, source pictograms and official Morphicons documentation.
 - Created dedicated branch without touching user-owned .zcode/.
 - Created DESIGN.md before UI edits, with a maintenance-first protocol, concrete approved rules and a pending verification record.

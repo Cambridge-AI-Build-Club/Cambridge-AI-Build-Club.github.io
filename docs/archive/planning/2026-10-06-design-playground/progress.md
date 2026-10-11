@@ -1,5 +1,7 @@
 # Progress
 
+> Archived task snapshot. Its local state and pending actions are historical. PR #15 is merged; see the [reconciled release ledger](../../../README.md#release-ledger) and [current contributor rules](../../../../AGENTS.md). Historical branch names predate the current Conventional Branch rule and must not be reused as examples.
+
 ## 2026-10-06
 - Read repository guidelines and relevant implementation/content.
 - Checked history guidance against live files; migration notes in memory are older than this implementation.

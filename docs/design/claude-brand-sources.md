@@ -1,5 +1,7 @@
 # Claude brand sources and reuse inventory
 
+> Source research and initial reuse inventory from 6–7 October, published with the redesign in PR #15. References were checked on those dates; this cleanup did not re-fetch logo or programme sources. Earlier review boundaries and asset mappings are historical. See the [release ledger](../README.md#release-ledger) and [current design contract](../../DESIGN.md). Checks and screenshots below apply to their recorded version; this cleanup did not repeat browser QA.
+
 Verified on 6 October 2026 for the local design playground.
 
 ## Official color source

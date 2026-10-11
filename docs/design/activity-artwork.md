@@ -1,5 +1,7 @@
 # Activity illustration redesign
 
+> Asset provenance recorded for the 6 October redesign, published in PR #15. Authorship and source files are historical evidence; current asset policy is in DESIGN.md. See the [release ledger](../README.md#release-ledger) and [current design contract](../../DESIGN.md). Checks and screenshots below apply to their recorded version; this cleanup did not repeat browser QA.
+
 Owner requested redesign of the Demo, Workshop and Hackathon artwork on 6 October 2026.
 
 The new files are original repo-native SVGs, authored as vector code rather than generated raster images:
