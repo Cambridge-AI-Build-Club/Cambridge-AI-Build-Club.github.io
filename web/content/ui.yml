@@ -1,0 +1,73 @@
+# User-visible interface copy shared by the production pages and the design
+# playground. Edit the text here; components read this file at build time.
+# One key per distinct string. Strings bound to runtime values (e.g. the
+# "{track} track" chips or "Discover …s" card links) stay in the components.
+
+nav:
+  menu: Menu
+  close: Close
+
+shared:
+  join_club: Join the club
+  meet_club: Meet the club
+  explore_club: Explore the club
+  see_what_we_do: See what we do
+  join_discord: Join our Discord
+  say_hello_discord: Or say hello on Discord
+  join_committee: Join the committee
+  explore_committee_roles: Explore committee roles
+  apply_committee: Apply to the committee
+  apply_now: Apply now
+  open_calendar: Open calendar
+  view_calendar: View the calendar
+  read_journal: Read the journal
+  read_story: Read the story
+  meet_team_leads: Meet the team leads
+  email_club: Email the club
+  email_us: Email us
+  committee_applications: Committee applications
+  calendar: Calendar
+  about: About
+  contact: Contact
+  community: Community
+  linkedin: LinkedIn
+  all_stories: All stories
+  see_our_projects: See our projects
+  view_source: View source
+  footer_motto: Stay curious. Keep building.
+  collaboration: In collaboration with
+
+sections:
+  find_starting_point: Find your starting point
+  ideas_worth_sharing: Ideas worth sharing
+  build_community_too: Build the community, too.
+  bring_your_ideas: Bring your ideas.
+  make_time_to_build: Make time to build together.
+  make_time_body: Explore demos, workshops and community events in the club calendar.
+  find_next_session: Find your next session.
+  find_next_body: Explore the club calendar and join the club to hear about new sessions.
+  start_conversation: Let's start a conversation.
+  good_community: Good ideas need good community.
+  club_calendar: The club calendar.
+  curious_minds: Curious minds. Real possibilities.
+  from_what_if: From “what if” to “look at this.”
+  committee_note: Cambridge account · Short CV · Up to two roles
+  rolling_applications: Rolling applications. Full requirements are listed on this page.
+
+calendar:
+  loading: Loading calendar…
+  current_month: Current month
+  cancelled: Cancelled
+  status_completed: Completed
+  status_scheduled: Scheduled
+  scroll_days: Scroll across to see every day.
+  events_this_month: Events this month
+  scroll_more: Scroll for more events.
+  date: Date
+  time: Time
+  location: Location
+  empty_month: No events scheduled for {month}. Check another month or come back for updates.
+
+activities:
+  all: All activities
+  no_match: No activities match this filter. Choose another category.

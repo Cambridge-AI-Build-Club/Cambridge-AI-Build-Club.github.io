@@ -10,12 +10,13 @@ CI uses Node 20 and the committed npm lockfile. Run these from `web/`:
 npm ci
 npm run dev                            # http://localhost:3000/
 npm run check:design                   # icon and contract policy
+npm run check:content                  # image reference check
 npm run test:calendar                  # focused Node date/data tests
 npm run build                          # static export into out/
 node scripts/serve.mjs out 4102         # http://localhost:4102/
 ```
 
-Prebuild runs the design guard and calendar tests; the export validates TypeScript and then generates legacy redirect stubs. `npm install` is appropriate when intentionally updating dependencies; review the lockfile diff. There is no repository-wide lint command or broad application test suite. Local QA previously used Node 24; that historical result does not replace Node 20 Linux CI.
+Prebuild runs the design guard, the image-reference check and calendar tests; the export validates TypeScript and then generates legacy redirect stubs. `npm install` is appropriate when intentionally updating dependencies; review the lockfile diff. There is no repository-wide lint command or broad application test suite. Local QA previously used Node 24; that historical result does not replace Node 20 Linux CI.
 
 ## Content and assets
 
@@ -28,6 +29,7 @@ Prebuild runs the design guard and calendar tests; the export validates TypeScri
 | `content/data/projects.yml` | One shared project record for About and Projects |
 | `content/data/calendar.json` | Dated calendar records and explicit statuses |
 | `content/site.yml` | Club name and logo configuration |
+| `content/ui.yml` | User-visible interface copy shared by the pages and the playground |
 | `public/images/` | Tracked static assets (logos, illustrations, portraits, screenshots) served and exported verbatim |
 
 Content loaders in `lib/content.ts` and `lib/site.ts` read these sources in place. `lib/markdown.tsx` renders prose with react-markdown and heading IDs; marked supplies build-time excerpts. Content lives only under `content/`; do not copy it into components.

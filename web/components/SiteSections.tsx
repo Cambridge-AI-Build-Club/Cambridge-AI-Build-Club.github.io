@@ -1,6 +1,6 @@
 import type { ReactNode } from 'react'
 import { loadHomeCopy, loadRecruitment, loadSiteData, loadVisibleMembers } from '@/lib/site'
-import { url } from '@/lib/content'
+import { loadUi, url } from '@/lib/content'
 
 import { Arrow } from '@/components/Icon'
 
@@ -13,31 +13,34 @@ export function PageIntro({ title, description, children }: { title: string; des
 export function Welcome() {
   const data = loadSiteData()
   const copy = loadHomeCopy()
+  const ui = loadUi()
   return <section className="lab-welcome" aria-labelledby="welcome-heading">
     <img className="lab-welcome-symbol" src={data.logo.mobile} alt="" width={80} height={80} loading="lazy" />
     <div><h2 id="welcome-heading">{copy.welcome_title}</h2><p>{copy.welcome_copy}</p></div>
-    <a className="lab-text-link" href={data.links.about}>Meet the club <Arrow /></a>
+    <a className="lab-text-link" href={data.links.about}>{ui.shared.meet_club} <Arrow /></a>
   </section>
 }
 
 export function JoinSection() {
   const data = loadSiteData()
   const copy = loadHomeCopy()
+  const ui = loadUi()
   return <section className="lab-join" aria-labelledby="join-heading">
     <h2 id="join-heading">{copy.join_title}</h2><p>{copy.join_copy}</p>
-    <a className="lab-button" href={data.signup} target="_blank" rel="noopener noreferrer">Join the club <Arrow /></a>
-    <a className="lab-text-link" href={data.discord} target="_blank" rel="noopener noreferrer">Or say hello on Discord <Arrow /></a>
+    <a className="lab-button" href={data.signup} target="_blank" rel="noopener noreferrer">{ui.shared.join_club} <Arrow /></a>
+    <a className="lab-text-link" href={data.discord} target="_blank" rel="noopener noreferrer">{ui.shared.say_hello_discord} <Arrow /></a>
     <span className="lab-join-art" aria-hidden="true" />
   </section>
 }
 
 export function Recruitment({ direct = false }: { direct?: boolean }) {
   const data = loadRecruitment()
+  const ui = loadUi()
   return <section className="lab-archive site-recruitment" aria-labelledby="recruitment-heading">
     <div><h2 id="recruitment-heading">{data.title}</h2><p>{data.summary}</p>
       <div className="site-chips"><span>{data.seats} open seats</span>{data.tracks.map((track) => <span key={track}>{track}</span>)}</div>
     </div>
-    <a className="lab-button" href={direct ? data.application : url('/committees/')} {...(direct ? { target: '_blank', rel: 'noopener noreferrer' } : {})}>{direct ? 'Apply to the committee' : 'Explore committee roles'}<Arrow /></a>
+    <a className="lab-button" href={direct ? data.application : url('/committees/')} {...(direct ? { target: '_blank', rel: 'noopener noreferrer' } : {})}>{direct ? ui.shared.apply_committee : ui.shared.explore_committee_roles}<Arrow /></a>
   </section>
 }
 
@@ -50,5 +53,6 @@ export function MemberCards() {
 }
 
 export function CalendarSection() {
-  return <section className="lab-archive"><div><h2>Make time to build together.</h2><p>Explore demos, workshops and community events in the club calendar.</p></div><a className="lab-button lab-button-outline" href={url('/calendar/')}>Open calendar <Arrow /></a></section>
+  const ui = loadUi()
+  return <section className="lab-archive"><div><h2>{ui.sections.make_time_to_build}</h2><p>{ui.sections.make_time_body}</p></div><a className="lab-button lab-button-outline" href={url('/calendar/')}>{ui.shared.open_calendar} <Arrow /></a></section>
 }

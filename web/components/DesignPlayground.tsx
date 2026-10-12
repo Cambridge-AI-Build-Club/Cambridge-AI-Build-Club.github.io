@@ -3,6 +3,7 @@
 import { useEffect, useRef, useState } from 'react'
 import { Arrow, Icon } from '@/components/Icon'
 import { ClaudeCollaboration } from '@/components/ClaudeCollaboration'
+import type { UiCopy } from '@/lib/content'
 
 export interface PlaygroundData {
   copy: {
@@ -22,7 +23,11 @@ export interface PlaygroundData {
   claudeLogo: string
   events: { title: string; description: string; href: string; image?: string }[]
   members: { name: string; role: string; image?: string; href: string }[]
+  recruitment: { title: string; summary: string }
   links: Record<'home' | 'journal' | 'calendar' | 'committees' | 'about' | 'contact', string>
+  ui: UiCopy
+  exploreIntro: string
+  communityIntro: string
 }
 
 type View = 'home' | 'explore' | 'community'
@@ -84,14 +89,14 @@ export function DesignPlayground({ data }: { data: PlaygroundData }) {
       <section className="lab-section" aria-labelledby="activities-heading">
         <div className="lab-section-head">
           <div>
-            <h2 id="activities-heading">Find your starting point<span className="accent">.</span></h2>
+            <h2 id="activities-heading">{data.ui.sections.find_starting_point}<span className="accent">.</span></h2>
           </div>
-          {!full && <button className="lab-text-link" onClick={() => showView('explore')}>Explore the club <Arrow /></button>}
+          {!full && <button className="lab-text-link" onClick={() => showView('explore')}>{data.ui.shared.explore_club} <Arrow /></button>}
         </div>
         {full && (
           <div className="lab-filters" role="group" aria-label="Filter activities">
             {['All', ...data.events.map((event) => event.title)].map((title) => (
-              <button key={title} aria-pressed={filter === title} onClick={() => setFilter(title)}>{title === 'All' ? 'All activities' : title}</button>
+              <button key={title} aria-pressed={filter === title} onClick={() => setFilter(title)}>{title === 'All' ? data.ui.activities.all : title}</button>
             ))}
           </div>
         )}
@@ -108,7 +113,7 @@ export function DesignPlayground({ data }: { data: PlaygroundData }) {
               </div>
             </a>
           ))}
-          {filteredEvents.length === 0 && <p>No activities match this filter. Choose another category.</p>}
+          {filteredEvents.length === 0 && <p>{data.ui.activities.no_match}</p>}
         </div>
       </section>
     )
@@ -119,7 +124,7 @@ export function DesignPlayground({ data }: { data: PlaygroundData }) {
       <section className="lab-welcome" aria-labelledby="welcome-heading">
         <img className="lab-welcome-symbol" src={data.logo.mobile} alt="" width={80} height={80} loading="lazy" />
         <div><h2 id="welcome-heading">{data.copy.welcome_title}</h2><p>{data.copy.welcome_copy}</p></div>
-        <a className="lab-text-link" href={data.links.about}>Meet the club <Arrow /></a>
+        <a className="lab-text-link" href={data.links.about}>{data.ui.shared.meet_club} <Arrow /></a>
       </section>
     )
   }
@@ -139,13 +144,13 @@ export function DesignPlayground({ data }: { data: PlaygroundData }) {
             <img src={data.logo.desktop} alt="Cambridge AI Builder Club" width={600} height={600} />
           </picture>
         </a>
-        <button className="lab-menu-toggle" ref={menuButton} aria-expanded={menuOpen} aria-controls="lab-navigation" onClick={() => setMenuOpen(!menuOpen)}>{menuOpen ? 'Close' : 'Menu'} <Icon name={menuOpen ? 'close' : 'menu'} size={20} /></button>
+        <button className="lab-menu-toggle" ref={menuButton} aria-expanded={menuOpen} aria-controls="lab-navigation" onClick={() => setMenuOpen(!menuOpen)}>{menuOpen ? data.ui.nav.close : data.ui.nav.menu} <Icon name={menuOpen ? 'close' : 'menu'} size={20} /></button>
         <nav id="lab-navigation" className={menuOpen ? 'is-open' : ''} aria-label="Concept navigation">
           <button aria-current={view === 'explore' ? 'page' : undefined} onClick={() => showView('explore')}>Explore</button>
-          <a href={data.links.calendar}>Calendar</a>
+          <a href={data.links.calendar}>{data.ui.shared.calendar}</a>
           <button aria-current={view === 'community' ? 'page' : undefined} onClick={() => showView('community')}>Community</button>
           <a href={data.links.journal}>Journal <Arrow /></a>
-          <a className="lab-button lab-button-small" href={data.signup} target="_blank" rel="noopener noreferrer">Join the club <Arrow /></a>
+          <a className="lab-button lab-button-small" href={data.signup} target="_blank" rel="noopener noreferrer">{data.ui.shared.join_club} <Arrow /></a>
         </nav>
       </header>
 
@@ -157,13 +162,13 @@ export function DesignPlayground({ data }: { data: PlaygroundData }) {
                 <h1 ref={mainHeading} tabIndex={-1}>{data.copy.headline.join(' ')}</h1>
                 <p className="lab-intro">{data.copy.intro}</p>
                 <div className="lab-hero-actions">
-                  <a className="lab-button" href={data.signup} target="_blank" rel="noopener noreferrer">Join the club <Arrow /></a>
-                  <button className="lab-text-link" onClick={() => showView('explore')}>See what we do <Arrow /></button>
+                  <a className="lab-button" href={data.signup} target="_blank" rel="noopener noreferrer">{data.ui.shared.join_club} <Arrow /></a>
+                  <button className="lab-text-link" onClick={() => showView('explore')}>{data.ui.shared.see_what_we_do} <Arrow /></button>
                 </div>
               </div>
               <div className="lab-hero-visual">
                 <img src={data.hero} alt="" width={1080} height={1080} fetchPriority="high" />
-                <ClaudeCollaboration logo={data.claudeLogo} />
+                <ClaudeCollaboration logo={data.claudeLogo} label={data.ui.shared.collaboration} />
               </div>
             </section>
             <Activities />
@@ -172,22 +177,22 @@ export function DesignPlayground({ data }: { data: PlaygroundData }) {
         ) : view === 'explore' ? (
           <>
             <section className="lab-page-intro">
-              <h1 ref={mainHeading} tabIndex={-1}>From “what if” to “look at this.”</h1>
-              <p className="lab-intro">Discover the ways our community learns, experiments and shares. Pick a starting point that interests you.</p>
+              <h1 ref={mainHeading} tabIndex={-1}>{data.ui.sections.from_what_if}</h1>
+              <p className="lab-intro">{data.exploreIntro}</p>
             </section>
             <Activities full />
-            <section className="lab-archive"><div><h2>Make time to build together.</h2><p>Explore demos, workshops and community events in the club calendar.</p></div><a className="lab-button lab-button-outline" href={data.links.calendar}>Open calendar <Arrow /></a></section>
+            <section className="lab-archive"><div><h2>{data.ui.sections.make_time_to_build}</h2><p>{data.ui.sections.make_time_body}</p></div><a className="lab-button lab-button-outline" href={data.links.calendar}>{data.ui.shared.open_calendar} <Arrow /></a></section>
           </>
         ) : (
           <>
             <section className="lab-page-intro">
-              <h1 ref={mainHeading} tabIndex={-1}>Good ideas need good community.</h1>
-              <p className="lab-intro">A student-led community for exploring AI’s creative and practical possibilities. Bring a question. Meet a collaborator.</p>
-              <a className="lab-button" href={data.discord} target="_blank" rel="noopener noreferrer">Join our Discord <Arrow /></a>
+              <h1 ref={mainHeading} tabIndex={-1}>{data.ui.sections.good_community}</h1>
+              <p className="lab-intro">{data.communityIntro}</p>
+              <a className="lab-button" href={data.discord} target="_blank" rel="noopener noreferrer">{data.ui.shared.join_discord} <Arrow /></a>
             </section>
             <Welcome />
             <section className="lab-section" aria-labelledby="members-heading">
-              <div className="lab-section-head"><div><h2 id="members-heading">Meet the team leads<span className="accent">.</span></h2></div></div>
+              <div className="lab-section-head"><div><h2 id="members-heading">{data.ui.shared.meet_team_leads}<span className="accent">.</span></h2></div></div>
               <div className="lab-members">{data.members.map((member) => (
                 <a className="lab-member" key={member.name} href={member.href}>
                   {member.image && <img src={member.image} alt={member.name} width={440} height={440} loading="lazy" />}
@@ -195,22 +200,22 @@ export function DesignPlayground({ data }: { data: PlaygroundData }) {
                 </a>
               ))}</div>
             </section>
-            <section className="lab-archive"><div><h2>Build the community, too.</h2><p>We’re recruiting for our outreach and technical committees. Explore the roles and help shape the year ahead.</p></div><a className="lab-button lab-button-outline" href={data.links.committees}>Explore committee roles <Arrow /></a></section>
+            <section className="lab-archive"><div><h2>{data.recruitment.title}</h2><p>{data.recruitment.summary}</p></div><a className="lab-button lab-button-outline" href={data.links.committees}>{data.ui.shared.explore_committee_roles} <Arrow /></a></section>
           </>
         )}
 
         <section className="lab-join" aria-labelledby="join-heading">
           <h2 id="join-heading">{data.copy.join_title}</h2>
           <p>{data.copy.join_copy}</p>
-          <a className="lab-button" href={data.signup} target="_blank" rel="noopener noreferrer">Join the club <Arrow /></a>
-          <a className="lab-text-link" href={data.discord} target="_blank" rel="noopener noreferrer">Or say hello on Discord <Arrow /></a>
+          <a className="lab-button" href={data.signup} target="_blank" rel="noopener noreferrer">{data.ui.shared.join_club} <Arrow /></a>
+          <a className="lab-text-link" href={data.discord} target="_blank" rel="noopener noreferrer">{data.ui.shared.say_hello_discord} <Arrow /></a>
           <span className="lab-join-art" aria-hidden="true" />
         </section>
       </main>
 
       <footer className="lab-footer">
-        <div><strong>{data.copyright}</strong><p>Stay curious. Keep building.</p></div>
-        <div><a href={data.links.about}>About</a><a href={data.links.contact}>Contact</a><a href={`mailto:${data.email}`}>Email us <Arrow /></a></div>
+        <div><strong>{data.copyright}</strong><p>{data.ui.shared.footer_motto}</p></div>
+        <div><a href={data.links.about}>{data.ui.shared.about}</a><a href={data.links.contact}>{data.ui.shared.contact}</a><a href={`mailto:${data.email}`}>{data.ui.shared.email_us} <Arrow /></a></div>
       </footer>
 
       {controlsOpen && (

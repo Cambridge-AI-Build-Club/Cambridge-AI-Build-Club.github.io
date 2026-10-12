@@ -125,6 +125,80 @@ export function loadSeo(): { copyright_text?: string } {
   return parseYaml(readContentFile('data/seo.yml'))
 }
 
+// --- interface copy (ui.yml) ---
+
+// User-visible interface copy shared by production pages and the playground.
+// One key per distinct string; runtime-bound fragments stay in the components.
+export interface UiCopy {
+  nav: { menu: string; close: string }
+  shared: {
+    join_club: string
+    meet_club: string
+    explore_club: string
+    see_what_we_do: string
+    join_discord: string
+    say_hello_discord: string
+    join_committee: string
+    explore_committee_roles: string
+    apply_committee: string
+    apply_now: string
+    open_calendar: string
+    view_calendar: string
+    read_journal: string
+    read_story: string
+    meet_team_leads: string
+    email_club: string
+    email_us: string
+    committee_applications: string
+    calendar: string
+    about: string
+    contact: string
+    community: string
+    linkedin: string
+    all_stories: string
+    see_our_projects: string
+    view_source: string
+    footer_motto: string
+    collaboration: string
+  }
+  sections: {
+    find_starting_point: string
+    ideas_worth_sharing: string
+    build_community_too: string
+    bring_your_ideas: string
+    make_time_to_build: string
+    make_time_body: string
+    find_next_session: string
+    find_next_body: string
+    start_conversation: string
+    good_community: string
+    club_calendar: string
+    curious_minds: string
+    from_what_if: string
+    committee_note: string
+    rolling_applications: string
+  }
+  calendar: {
+    loading: string
+    current_month: string
+    cancelled: string
+    status_completed: string
+    status_scheduled: string
+    scroll_days: string
+    events_this_month: string
+    scroll_more: string
+    date: string
+    time: string
+    location: string
+    empty_month: string
+  }
+  activities: { all: string; no_match: string }
+}
+
+export function loadUi(): UiCopy {
+  return parseYaml(readContentFile('ui.yml'))
+}
+
 // --- markdown helpers (Liquid filter parity) ---
 
 // kramdown converts straight quotes, dashes and ellipses in prose (smart_quotes is on
