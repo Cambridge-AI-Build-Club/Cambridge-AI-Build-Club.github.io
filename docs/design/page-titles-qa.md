@@ -18,6 +18,8 @@ All page titles use the existing shared Georgia/Times serif h1 style, regular we
 
 Twelve playground checks cover Home, Explore and Community at 1440px/375px in both actual theme states, with matching plain title typography and no overflow. See [layout and interaction results](page-titles/results.json). This is a reviewable branch preview; publication awaits owner approval.
 
+The structured production check output is retained in [checks/](page-titles/checks/); the live-check receipt and its eight production captures are retained in [production/](page-titles/production/).
+
 ## Screenshots
 
 | Page | Desktop paper | Desktop charcoal | Mobile paper | Mobile charcoal |

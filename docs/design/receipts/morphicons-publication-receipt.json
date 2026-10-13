@@ -1,0 +1,63 @@
+{
+  "pr": "https://github.com/Cambridge-AI-Build-Club/Cambridge-AI-Build-Club.github.io/pull/17",
+  "head": "a959709de5922ccc99e0b0ff2143b41595be49bb",
+  "merge": "096d21de55550888149e2a1cccee2c9fcdc1a833",
+  "buildRun": 37603629621,
+  "deploymentRun": 37603758812,
+  "checkedAtUtc": "2026-10-07T09:55:23.0446975Z",
+  "pages": [
+    {
+      "path": "/",
+      "status": 200,
+      "icons": 20
+    },
+    {
+      "path": "/calendar/",
+      "status": 200,
+      "icons": 8
+    },
+    {
+      "path": "/team/",
+      "status": 200,
+      "icons": 11
+    },
+    {
+      "path": "/events/",
+      "status": 200,
+      "icons": 13
+    }
+  ],
+  "scripts": [
+    {
+      "path": "/_next/static/chunks/4bd1b696-c023c6e3521b1417.js",
+      "status": 200
+    },
+    {
+      "path": "/_next/static/chunks/255-09fb0d129bb12f51.js",
+      "status": 200
+    },
+    {
+      "path": "/_next/static/chunks/main-app-18b5273e4348de49.js",
+      "status": 200
+    },
+    {
+      "path": "/_next/static/chunks/464-bbb20b05f8898c6c.js",
+      "status": 200
+    },
+    {
+      "path": "/_next/static/chunks/app/(home)/page-03ed314f1af90f9f.js",
+      "status": 200
+    },
+    {
+      "path": "/_next/static/chunks/polyfills-42372ed130431b0a.js",
+      "status": 200
+    },
+    {
+      "path": "/_next/static/chunks/webpack-cdcbac190f626c3b.js",
+      "status": 200
+    }
+  ],
+  "contentChecks": "Homepage caption, calendar summary removal and Community heading passed",
+  "excludedUserFiles": ".zcode/",
+  "passed": true
+}

@@ -1,0 +1,272 @@
+{
+  "console": {
+    "lifecycle": {
+      "effectiveLaunch": {
+        "browserLaunched": true,
+        "engine": "chrome",
+        "launchHash": 11677035664275010974
+      },
+      "launched": false,
+      "relaunchedBrowser": false,
+      "restartedBackground": false,
+      "restoreStatus": "not_configured",
+      "reused": true,
+      "saveStatus": "not_attempted"
+    },
+    "messages": []
+  },
+  "browser": [
+    {
+      "brokenImages": [],
+      "children": 0,
+      "decoration": "none",
+      "font": "Georgia, \"Times New Roman\", serif",
+      "overflow": false,
+      "path": "/",
+      "size": "79.92px",
+      "style": "normal",
+      "theme": "paper",
+      "title": "Stay curious. Build with Claude.",
+      "weight": "400",
+      "width": 1440
+    },
+    {
+      "brokenImages": [],
+      "children": 0,
+      "decoration": "none",
+      "font": "Georgia, \"Times New Roman\", serif",
+      "overflow": false,
+      "path": "/calendar/",
+      "size": "79.92px",
+      "style": "normal",
+      "theme": "paper",
+      "title": "The club calendar.",
+      "weight": "400",
+      "width": 1440
+    },
+    {
+      "brokenImages": [],
+      "children": 0,
+      "decoration": "none",
+      "font": "Georgia, \"Times New Roman\", serif",
+      "overflow": false,
+      "path": "/",
+      "size": "79.92px",
+      "style": "normal",
+      "theme": "charcoal",
+      "title": "Stay curious. Build with Claude.",
+      "weight": "400",
+      "width": 1440
+    },
+    {
+      "brokenImages": [],
+      "children": 0,
+      "decoration": "none",
+      "font": "Georgia, \"Times New Roman\", serif",
+      "overflow": false,
+      "path": "/calendar/",
+      "size": "79.92px",
+      "style": "normal",
+      "theme": "charcoal",
+      "title": "The club calendar.",
+      "weight": "400",
+      "width": 1440
+    },
+    {
+      "brokenImages": [],
+      "children": 0,
+      "decoration": "none",
+      "font": "Georgia, \"Times New Roman\", serif",
+      "overflow": false,
+      "path": "/",
+      "size": "43.875px",
+      "style": "normal",
+      "theme": "paper",
+      "title": "Stay curious. Build with Claude.",
+      "weight": "400",
+      "width": 375
+    },
+    {
+      "brokenImages": [],
+      "children": 0,
+      "decoration": "none",
+      "font": "Georgia, \"Times New Roman\", serif",
+      "overflow": false,
+      "path": "/calendar/",
+      "size": "43.875px",
+      "style": "normal",
+      "theme": "paper",
+      "title": "The club calendar.",
+      "weight": "400",
+      "width": 375
+    },
+    {
+      "brokenImages": [],
+      "children": 0,
+      "decoration": "none",
+      "font": "Georgia, \"Times New Roman\", serif",
+      "overflow": false,
+      "path": "/",
+      "size": "43.875px",
+      "style": "normal",
+      "theme": "charcoal",
+      "title": "Stay curious. Build with Claude.",
+      "weight": "400",
+      "width": 375
+    },
+    {
+      "brokenImages": [],
+      "children": 0,
+      "decoration": "none",
+      "font": "Georgia, \"Times New Roman\", serif",
+      "overflow": false,
+      "path": "/calendar/",
+      "size": "43.875px",
+      "style": "normal",
+      "theme": "charcoal",
+      "title": "The club calendar.",
+      "weight": "400",
+      "width": 375
+    }
+  ],
+  "deployment": 38095565070,
+  "static": [
+    {
+      "path": "/",
+      "plain": true,
+      "status": 200,
+      "unchanged": true
+    },
+    {
+      "path": "/about/",
+      "plain": true,
+      "status": 200,
+      "unchanged": true
+    },
+    {
+      "path": "/blogs/",
+      "plain": true,
+      "status": 200,
+      "unchanged": true
+    },
+    {
+      "path": "/calendar/",
+      "plain": true,
+      "status": 200,
+      "unchanged": true
+    },
+    {
+      "path": "/committees/",
+      "plain": true,
+      "status": 200,
+      "unchanged": true
+    },
+    {
+      "path": "/contact/",
+      "plain": true,
+      "status": 200,
+      "unchanged": true
+    },
+    {
+      "path": "/events/",
+      "plain": true,
+      "status": 200,
+      "unchanged": true
+    },
+    {
+      "path": "/playground/",
+      "plain": true,
+      "status": 200,
+      "unchanged": true
+    },
+    {
+      "path": "/projects/",
+      "plain": true,
+      "status": 200,
+      "unchanged": true
+    },
+    {
+      "path": "/team/",
+      "plain": true,
+      "status": 200,
+      "unchanged": true
+    },
+    {
+      "path": "/team/aditya_kalra/",
+      "plain": true,
+      "status": 200,
+      "unchanged": true
+    },
+    {
+      "path": "/team/andrew_choi/",
+      "plain": true,
+      "status": 200,
+      "unchanged": true
+    },
+    {
+      "path": "/team/hanzhang_shen/",
+      "plain": true,
+      "status": 200,
+      "unchanged": true
+    },
+    {
+      "path": "/team/lauren_kwon/",
+      "plain": true,
+      "status": 200,
+      "unchanged": true
+    },
+    {
+      "path": "/team/saakshi_bhat/",
+      "plain": true,
+      "status": 200,
+      "unchanged": true
+    },
+    {
+      "path": "/team/zihao_liu/",
+      "plain": true,
+      "status": 200,
+      "unchanged": true
+    },
+    {
+      "path": "/events/demo/",
+      "plain": true,
+      "status": 200,
+      "unchanged": true
+    },
+    {
+      "path": "/events/hackathon/",
+      "plain": true,
+      "status": 200,
+      "unchanged": true
+    },
+    {
+      "path": "/events/workshop/",
+      "plain": true,
+      "status": 200,
+      "unchanged": true
+    },
+    {
+      "path": "/blogs/claude-builder-program/",
+      "plain": true,
+      "status": 200,
+      "unchanged": true
+    }
+  ],
+  "errors": {
+    "errors": [],
+    "lifecycle": {
+      "effectiveLaunch": {
+        "browserLaunched": true,
+        "engine": "chrome",
+        "launchHash": 11677035664275010974
+      },
+      "launched": false,
+      "relaunchedBrowser": false,
+      "restartedBackground": false,
+      "restoreStatus": "not_configured",
+      "reused": true,
+      "saveStatus": "not_attempted"
+    }
+  },
+  "commit": "1b322d8d12a6af3fad2b0122c09254a2c6611d6e"
+}
