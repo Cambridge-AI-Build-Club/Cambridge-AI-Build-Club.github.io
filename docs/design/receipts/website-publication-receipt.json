@@ -1,0 +1,69 @@
+{
+  "pull_request": "https://github.com/Cambridge-AI-Build-Club/Cambridge-AI-Build-Club.github.io/pull/15",
+  "state": "MERGED",
+  "head_commit": "0866bf42c59ef844a769a73e3085008fceb8e92a",
+  "merge_commit": "ac271f9bf94db8604458443abe7421f187bab79e",
+  "merged_at": "2026-10-07T08:42:48Z",
+  "build_check": {
+    "run_id": 37595429108,
+    "conclusion": "success"
+  },
+  "main_tree_matches_approved_head": true,
+  "deployment": {
+    "run_id": 37595603899,
+    "status": "completed",
+    "conclusion": "success"
+  },
+  "user_files_excluded": [
+    ".zcode/"
+  ],
+  "preview": "http://localhost:4102/",
+  "live_verification": [
+    {
+      "route": "/",
+      "status": 200,
+      "approved_ui": true
+    },
+    {
+      "route": "/calendar/",
+      "status": 200,
+      "approved_ui": true
+    },
+    {
+      "route": "/events/",
+      "status": 200,
+      "approved_ui": true
+    },
+    {
+      "route": "/team/",
+      "status": 200,
+      "approved_ui": true
+    },
+    {
+      "route": "/committees/",
+      "status": 200,
+      "approved_ui": true
+    },
+    {
+      "route": "/blogs/",
+      "status": 200,
+      "approved_ui": true
+    },
+    {
+      "asset": "/images/brand/claude-official.svg",
+      "status": 200
+    },
+    {
+      "asset": "/images/features/demo.svg",
+      "status": 200
+    },
+    {
+      "asset": "/images/features/workshop.svg",
+      "status": 200
+    },
+    {
+      "asset": "/images/features/hackathon.svg",
+      "status": 200
+    }
+  ]
+}

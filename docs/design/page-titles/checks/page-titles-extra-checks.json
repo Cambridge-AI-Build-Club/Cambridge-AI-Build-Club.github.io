@@ -1,0 +1,302 @@
+[
+  {
+    "children": 0,
+    "font": "Georgia, \"Times New Roman\", serif",
+    "overflow": false,
+    "path": "/",
+    "size": "63px",
+    "theme": "paper",
+    "width": 903
+  },
+  {
+    "children": 0,
+    "font": "Georgia, \"Times New Roman\", serif",
+    "overflow": false,
+    "path": "/calendar/",
+    "size": "63px",
+    "theme": "paper",
+    "width": 903
+  },
+  {
+    "children": 0,
+    "font": "Georgia, \"Times New Roman\", serif",
+    "overflow": false,
+    "path": "/blogs/claude-builder-program/",
+    "size": "63px",
+    "theme": "paper",
+    "width": 903
+  },
+  {
+    "children": 0,
+    "font": "Georgia, \"Times New Roman\", serif",
+    "overflow": false,
+    "path": "/projects/",
+    "size": "63px",
+    "theme": "paper",
+    "width": 903
+  },
+  {
+    "children": 0,
+    "font": "Georgia, \"Times New Roman\", serif",
+    "overflow": false,
+    "path": "/team/",
+    "size": "63px",
+    "theme": "paper",
+    "width": 903
+  },
+  {
+    "children": 0,
+    "font": "Georgia, \"Times New Roman\", serif",
+    "overflow": false,
+    "path": "/",
+    "size": "63px",
+    "theme": "charcoal",
+    "width": 903
+  },
+  {
+    "children": 0,
+    "font": "Georgia, \"Times New Roman\", serif",
+    "overflow": false,
+    "path": "/calendar/",
+    "size": "63px",
+    "theme": "charcoal",
+    "width": 903
+  },
+  {
+    "children": 0,
+    "font": "Georgia, \"Times New Roman\", serif",
+    "overflow": false,
+    "path": "/blogs/claude-builder-program/",
+    "size": "63px",
+    "theme": "charcoal",
+    "width": 903
+  },
+  {
+    "children": 0,
+    "font": "Georgia, \"Times New Roman\", serif",
+    "overflow": false,
+    "path": "/projects/",
+    "size": "63px",
+    "theme": "charcoal",
+    "width": 903
+  },
+  {
+    "children": 0,
+    "font": "Georgia, \"Times New Roman\", serif",
+    "overflow": false,
+    "path": "/team/",
+    "size": "63px",
+    "theme": "charcoal",
+    "width": 903
+  },
+  {
+    "children": 0,
+    "font": "Georgia, \"Times New Roman\", serif",
+    "overflow": false,
+    "path": "/",
+    "size": "42px",
+    "theme": "paper",
+    "width": 320
+  },
+  {
+    "children": 0,
+    "font": "Georgia, \"Times New Roman\", serif",
+    "overflow": false,
+    "path": "/calendar/",
+    "size": "42px",
+    "theme": "paper",
+    "width": 320
+  },
+  {
+    "children": 0,
+    "font": "Georgia, \"Times New Roman\", serif",
+    "overflow": false,
+    "path": "/blogs/claude-builder-program/",
+    "size": "42px",
+    "theme": "paper",
+    "width": 320
+  },
+  {
+    "children": 0,
+    "font": "Georgia, \"Times New Roman\", serif",
+    "overflow": false,
+    "path": "/projects/",
+    "size": "42px",
+    "theme": "paper",
+    "width": 320
+  },
+  {
+    "children": 0,
+    "font": "Georgia, \"Times New Roman\", serif",
+    "overflow": false,
+    "path": "/team/",
+    "size": "42px",
+    "theme": "paper",
+    "width": 320
+  },
+  {
+    "children": 0,
+    "font": "Georgia, \"Times New Roman\", serif",
+    "overflow": false,
+    "path": "/",
+    "size": "42px",
+    "theme": "charcoal",
+    "width": 320
+  },
+  {
+    "children": 0,
+    "font": "Georgia, \"Times New Roman\", serif",
+    "overflow": false,
+    "path": "/calendar/",
+    "size": "42px",
+    "theme": "charcoal",
+    "width": 320
+  },
+  {
+    "children": 0,
+    "font": "Georgia, \"Times New Roman\", serif",
+    "overflow": false,
+    "path": "/blogs/claude-builder-program/",
+    "size": "42px",
+    "theme": "charcoal",
+    "width": 320
+  },
+  {
+    "children": 0,
+    "font": "Georgia, \"Times New Roman\", serif",
+    "overflow": false,
+    "path": "/projects/",
+    "size": "42px",
+    "theme": "charcoal",
+    "width": 320
+  },
+  {
+    "children": 0,
+    "font": "Georgia, \"Times New Roman\", serif",
+    "overflow": false,
+    "path": "/team/",
+    "size": "42px",
+    "theme": "charcoal",
+    "width": 320
+  },
+  {
+    "children": 0,
+    "font": "Georgia, \"Times New Roman\", serif",
+    "overflow": false,
+    "path": "/playground/#home",
+    "size": "79.92px",
+    "theme": "paper",
+    "title": "Stay curious. Build with Claude.",
+    "width": 1440
+  },
+  {
+    "children": 0,
+    "font": "Georgia, \"Times New Roman\", serif",
+    "overflow": false,
+    "path": "/playground/#home",
+    "size": "79.92px",
+    "theme": "charcoal",
+    "title": "Stay curious. Build with Claude.",
+    "width": 1440
+  },
+  {
+    "children": 0,
+    "font": "Georgia, \"Times New Roman\", serif",
+    "overflow": false,
+    "path": "/playground/#explore",
+    "size": "79.92px",
+    "theme": "paper",
+    "title": "From “what if” to “look at this.”",
+    "width": 1440
+  },
+  {
+    "children": 0,
+    "font": "Georgia, \"Times New Roman\", serif",
+    "overflow": false,
+    "path": "/playground/#explore",
+    "size": "79.92px",
+    "theme": "charcoal",
+    "title": "From “what if” to “look at this.”",
+    "width": 1440
+  },
+  {
+    "children": 0,
+    "font": "Georgia, \"Times New Roman\", serif",
+    "overflow": false,
+    "path": "/playground/#community",
+    "size": "79.92px",
+    "theme": "paper",
+    "title": "Good ideas need good community.",
+    "width": 1440
+  },
+  {
+    "children": 0,
+    "font": "Georgia, \"Times New Roman\", serif",
+    "overflow": false,
+    "path": "/playground/#community",
+    "size": "79.92px",
+    "theme": "charcoal",
+    "title": "Good ideas need good community.",
+    "width": 1440
+  },
+  {
+    "children": 0,
+    "font": "Georgia, \"Times New Roman\", serif",
+    "overflow": false,
+    "path": "/playground/#home",
+    "size": "43.875px",
+    "theme": "paper",
+    "title": "Stay curious. Build with Claude.",
+    "width": 375
+  },
+  {
+    "children": 0,
+    "font": "Georgia, \"Times New Roman\", serif",
+    "overflow": false,
+    "path": "/playground/#home",
+    "size": "43.875px",
+    "theme": "charcoal",
+    "title": "Stay curious. Build with Claude.",
+    "width": 375
+  },
+  {
+    "children": 0,
+    "font": "Georgia, \"Times New Roman\", serif",
+    "overflow": false,
+    "path": "/playground/#explore",
+    "size": "43.875px",
+    "theme": "paper",
+    "title": "From “what if” to “look at this.”",
+    "width": 375
+  },
+  {
+    "children": 0,
+    "font": "Georgia, \"Times New Roman\", serif",
+    "overflow": false,
+    "path": "/playground/#explore",
+    "size": "43.875px",
+    "theme": "charcoal",
+    "title": "From “what if” to “look at this.”",
+    "width": 375
+  },
+  {
+    "children": 0,
+    "font": "Georgia, \"Times New Roman\", serif",
+    "overflow": false,
+    "path": "/playground/#community",
+    "size": "43.875px",
+    "theme": "paper",
+    "title": "Good ideas need good community.",
+    "width": 375
+  },
+  {
+    "children": 0,
+    "font": "Georgia, \"Times New Roman\", serif",
+    "overflow": false,
+    "path": "/playground/#community",
+    "size": "43.875px",
+    "theme": "charcoal",
+    "title": "Good ideas need good community.",
+    "width": 375
+  }
+]

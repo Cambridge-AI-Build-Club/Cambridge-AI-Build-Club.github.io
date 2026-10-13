@@ -24,7 +24,7 @@ The shared Welcome section keeps `Meet the club` visible below the copy at 1100p
 - [Home mobile, Warm Paper](copy-ui-2026-10-09/home-mobile-paper.jpg) and [Charcoal](copy-ui-2026-10-09/home-mobile-charcoal.jpg)
 - [Explore desktop](copy-ui-2026-10-09/explore-desktop-paper.jpg), [mobile](copy-ui-2026-10-09/explore-mobile-paper.jpg), and selected Workshop in [desktop Charcoal](copy-ui-2026-10-09/explore-desktop-charcoal.jpg) / [mobile Charcoal](copy-ui-2026-10-09/explore-mobile-charcoal.jpg)
 - Welcome at [375px](copy-ui-2026-10-09/welcome-mobile-paper.jpg) and [903px](copy-ui-2026-10-09/welcome-tablet-paper.jpg)
-- Reading-page content comparison at 375px: [Warm Paper](copy-ui-2026-10-09/reading-mobile-paper.jpg) / [Charcoal](copy-ui-2026-10-09/reading-mobile-charcoal.jpg). These sheets crop the original screenshots for comparison; original full captures remain in ignored `tmp/`.
+- Reading-page content comparison at 375px: [Warm Paper](copy-ui-2026-10-09/reading-mobile-paper.jpg) / [Charcoal](copy-ui-2026-10-09/reading-mobile-charcoal.jpg). These sheets crop the original screenshots for comparison and are the retained visual record; the eight targeted axe scan outputs are kept in [a11y/](copy-ui-2026-10-09/a11y/).
 
 ## Review boundary
 
