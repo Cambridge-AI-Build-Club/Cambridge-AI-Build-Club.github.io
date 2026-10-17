@@ -38,7 +38,9 @@ function resolveFile(urlPath) {
   if (rel === '' || rel === '/') rel = '/index.html'
   const candidates = [rel, rel + '.html', join(rel, 'index.html')]
   for (const c of candidates) {
-    const full = resolve(root, '.' + normalize(c))
+    // Strip leading separators (normalize() turns "/x" into "\x" on Windows,
+    // which resolve() would treat as absolute), then confine to the root.
+    const full = resolve(root, normalize(c).replace(/^[/\\]+/, ''))
     // Path traversal guard: anything escaping the served root is a miss.
     if (full !== root && !full.startsWith(root + sep)) continue
     if (existsSync(full) && statSync(full).isFile()) return full
@@ -58,6 +60,13 @@ createServer((req, res) => {
   }
   const file = resolveFile(path)
   if (!file) {
+    // Mirror GitHub Pages: unknown URLs render the exported branded 404 page.
+    const fallback = resolveFile('/404.html')
+    if (fallback) {
+      res.writeHead(404, { 'Content-Type': MIME['.html'] })
+      res.end(readFileSync(fallback))
+      return
+    }
     res.writeHead(404, { 'Content-Type': 'text/plain' })
     res.end('Not found: ' + path)
     return
