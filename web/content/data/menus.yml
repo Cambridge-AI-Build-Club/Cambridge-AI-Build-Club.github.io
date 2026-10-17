@@ -20,14 +20,22 @@ main:
   - name: "Committees"
     url: "/committees/"
     weight: 7
+    header: false
   - name: "Contact"
     url: "/contact/"
     weight: 8
+    header: false
 
 footer:
-  - name: "Home"
-    url: "/"
+  - name: "Join the committee"
+    url: "/committees/"
     weight: 1
+  - name: "Calendar"
+    url: "/calendar/"
+    weight: 2
+  - name: "About"
+    url: "/about/"
+    weight: 3
   - name: "Contact"
     url: "/contact/"
-    weight: 2
+    weight: 4

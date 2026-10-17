@@ -6,7 +6,7 @@
 //   node scripts/serve.mjs out 4102
 import { createServer } from 'node:http'
 import { statSync, readFileSync, existsSync } from 'node:fs'
-import { dirname, join, normalize, extname, resolve } from 'node:path'
+import { dirname, join, normalize, extname, resolve, sep } from 'node:path'
 import { fileURLToPath } from 'node:url'
 
 const webDir = dirname(dirname(fileURLToPath(import.meta.url)))
@@ -36,10 +36,11 @@ function resolveFile(urlPath) {
   if (!urlPath.startsWith(prefix)) return null
   let rel = urlPath.slice(prefix.length)
   if (rel === '' || rel === '/') rel = '/index.html'
-  const base = normalize(rel).replace(/^(\.\.[/\\])+/, '')
-  const candidates = [base, base + '.html', join(base, 'index.html')]
+  const candidates = [rel, rel + '.html', join(rel, 'index.html')]
   for (const c of candidates) {
-    const full = join(root, c)
+    const full = resolve(root, '.' + normalize(c))
+    // Path traversal guard: anything escaping the served root is a miss.
+    if (full !== root && !full.startsWith(root + sep)) continue
     if (existsSync(full) && statSync(full).isFile()) return full
   }
   return null

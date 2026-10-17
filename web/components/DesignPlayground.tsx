@@ -4,6 +4,7 @@ import { useEffect, useRef, useState } from 'react'
 import { Arrow, Icon } from '@/components/Icon'
 import { ClaudeCollaboration } from '@/components/ClaudeCollaboration'
 import type { UiCopy } from '@/lib/content'
+import type { Activity } from '@/lib/site'
 
 export interface PlaygroundData {
   copy: {
@@ -21,7 +22,7 @@ export interface PlaygroundData {
   hero: string
   logo: { desktop: string; mobile: string }
   claudeLogo: string
-  events: { title: string; description: string; href: string; image?: string }[]
+  events: Activity[]
   members: { name: string; role: string; image?: string; href: string }[]
   recruitment: { title: string; summary: string }
   links: Record<'home' | 'journal' | 'calendar' | 'committees' | 'about' | 'contact', string>
@@ -32,6 +33,66 @@ export interface PlaygroundData {
 
 type View = 'home' | 'explore' | 'community'
 type Surface = 'paper' | 'charcoal'
+
+// Module-level sections: defining these inside the render body would create a
+// new component type per state change and remount the whole subtree (focus,
+// aria-live regions and image state would reset on every interaction).
+function Activities({ data, full = false, filter, onFilter, onExplore }: {
+  data: PlaygroundData
+  full?: boolean
+  filter: string
+  onFilter: (title: string) => void
+  onExplore: () => void
+}) {
+  const filteredEvents = data.events.filter((event) => filter === 'All' || event.title === filter)
+  return (
+    <section className="lab-section" aria-labelledby="activities-heading">
+      <div className="lab-section-head">
+        <div>
+          <h2 id="activities-heading">{data.ui.sections.find_starting_point}<span className="accent">.</span></h2>
+        </div>
+        {!full && <button className="lab-text-link" onClick={onExplore}>{data.ui.shared.explore_club} <Arrow /></button>}
+      </div>
+      {full && (
+        <div className="lab-filters" role="radiogroup" aria-label="Filter activities">
+          {['All', ...data.events.map((event) => event.title)].map((title) => (
+            <button key={title} role="radio" aria-checked={filter === title} onClick={() => onFilter(title)}>{title === 'All' ? data.ui.activities.all : title}</button>
+          ))}
+        </div>
+      )}
+      {full && (
+        <p className="site-visually-hidden" role="status">
+          {data.ui.activities.results.replace('{count}', String(filteredEvents.length))}
+        </p>
+      )}
+      <div className="lab-activities">
+        {(full ? filteredEvents : data.events).map((event) => (
+          <a className="lab-activity" href={event.href} key={event.title} aria-label={event.title}>
+            <div className="lab-activity-art" aria-hidden="true">
+              {event.image && <img src={event.image} alt="" width={80} height={80} loading="lazy" />}
+            </div>
+            <div className="lab-activity-copy">
+              <h3 aria-hidden="true">{event.title}<Arrow /></h3>
+              <p aria-hidden="true">{event.description}</p>
+              <span className="lab-card-link" aria-hidden="true">{event.linkLabel} <Arrow /></span>
+            </div>
+          </a>
+        ))}
+        {filteredEvents.length === 0 && <p>{data.ui.activities.no_match}</p>}
+      </div>
+    </section>
+  )
+}
+
+function Welcome({ data }: { data: PlaygroundData }) {
+  return (
+    <section className="lab-welcome" aria-labelledby="welcome-heading">
+      <img className="lab-welcome-symbol" src={data.logo.mobile} alt="" width={80} height={80} loading="lazy" />
+      <div><h2 id="welcome-heading">{data.copy.welcome_title}</h2><p>{data.copy.welcome_copy}</p></div>
+      <a className="lab-text-link" href={data.links.about}>{data.ui.shared.meet_club} <Arrow /></a>
+    </section>
+  )
+}
 
 export function DesignPlayground({ data }: { data: PlaygroundData }) {
   const [view, setView] = useState<View>('home')
@@ -82,53 +143,6 @@ export function DesignPlayground({ data }: { data: PlaygroundData }) {
     requestAnimationFrame(() => mainHeading.current?.focus({ preventScroll: true }))
   }
 
-  const filteredEvents = data.events.filter((event) => filter === 'All' || event.title === filter)
-
-  function Activities({ full = false }: { full?: boolean }) {
-    return (
-      <section className="lab-section" aria-labelledby="activities-heading">
-        <div className="lab-section-head">
-          <div>
-            <h2 id="activities-heading">{data.ui.sections.find_starting_point}<span className="accent">.</span></h2>
-          </div>
-          {!full && <button className="lab-text-link" onClick={() => showView('explore')}>{data.ui.shared.explore_club} <Arrow /></button>}
-        </div>
-        {full && (
-          <div className="lab-filters" role="group" aria-label="Filter activities">
-            {['All', ...data.events.map((event) => event.title)].map((title) => (
-              <button key={title} aria-pressed={filter === title} onClick={() => setFilter(title)}>{title === 'All' ? data.ui.activities.all : title}</button>
-            ))}
-          </div>
-        )}
-        <div className="lab-activities" aria-live="polite">
-          {(full ? filteredEvents : data.events).map((event) => (
-            <a className="lab-activity" href={event.href} key={event.title}>
-              <div className="lab-activity-art" aria-hidden="true">
-                {event.image && <img src={event.image} alt="" width={80} height={80} loading="lazy" />}
-              </div>
-              <div className="lab-activity-copy">
-                <h3>{event.title}<Arrow /></h3>
-                <p>{event.description}</p>
-                <span className="lab-card-link">Discover {event.title.toLowerCase()}s <Arrow /></span>
-              </div>
-            </a>
-          ))}
-          {filteredEvents.length === 0 && <p>{data.ui.activities.no_match}</p>}
-        </div>
-      </section>
-    )
-  }
-
-  function Welcome() {
-    return (
-      <section className="lab-welcome" aria-labelledby="welcome-heading">
-        <img className="lab-welcome-symbol" src={data.logo.mobile} alt="" width={80} height={80} loading="lazy" />
-        <div><h2 id="welcome-heading">{data.copy.welcome_title}</h2><p>{data.copy.welcome_copy}</p></div>
-        <a className="lab-text-link" href={data.links.about}>{data.ui.shared.meet_club} <Arrow /></a>
-      </section>
-    )
-  }
-
   return (
     <div className="lab" data-surface={surface} data-motion={motion ? 'on' : 'off'}>
       <a className="lab-skip" href="#lab-main">Skip to content</a>
@@ -171,8 +185,8 @@ export function DesignPlayground({ data }: { data: PlaygroundData }) {
                 <ClaudeCollaboration logo={data.claudeLogo} label={data.ui.shared.collaboration} />
               </div>
             </section>
-            <Activities />
-            <Welcome />
+            <Activities data={data} filter={filter} onFilter={setFilter} onExplore={() => showView('explore')} />
+            <Welcome data={data} />
           </>
         ) : view === 'explore' ? (
           <>
@@ -180,7 +194,7 @@ export function DesignPlayground({ data }: { data: PlaygroundData }) {
               <h1 ref={mainHeading} tabIndex={-1}>{data.ui.sections.from_what_if}</h1>
               <p className="lab-intro">{data.exploreIntro}</p>
             </section>
-            <Activities full />
+            <Activities data={data} full filter={filter} onFilter={setFilter} onExplore={() => showView('explore')} />
             <section className="lab-archive"><div><h2>{data.ui.sections.make_time_to_build}</h2><p>{data.ui.sections.make_time_body}</p></div><a className="lab-button lab-button-outline" href={data.links.calendar}>{data.ui.shared.open_calendar} <Arrow /></a></section>
           </>
         ) : (
@@ -190,13 +204,13 @@ export function DesignPlayground({ data }: { data: PlaygroundData }) {
               <p className="lab-intro">{data.communityIntro}</p>
               <a className="lab-button" href={data.discord} target="_blank" rel="noopener noreferrer">{data.ui.shared.join_discord} <Arrow /></a>
             </section>
-            <Welcome />
+            <Welcome data={data} />
             <section className="lab-section" aria-labelledby="members-heading">
               <div className="lab-section-head"><div><h2 id="members-heading">{data.ui.shared.meet_team_leads}<span className="accent">.</span></h2></div></div>
               <div className="lab-members">{data.members.map((member) => (
-                <a className="lab-member" key={member.name} href={member.href}>
-                  {member.image && <img src={member.image} alt={member.name} width={440} height={440} loading="lazy" />}
-                  <div><h3>{member.name}<Arrow /></h3><p>{member.role}</p></div>
+                <a className="lab-member" key={member.name} href={member.href} aria-label={member.name}>
+                  {member.image && <img src={member.image} alt="" width={440} height={440} loading="lazy" />}
+                  <div aria-hidden="true"><h3>{member.name}<Arrow /></h3><p>{member.role}</p></div>
                 </a>
               ))}</div>
             </section>

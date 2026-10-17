@@ -20,12 +20,12 @@ const files = new Set()
 })(imagesDir)
 
 const sources = []
-for (const dir of ['content', 'app', 'components', 'lib']) {
+for (const dir of ['content', 'app', 'components', 'lib', 'styles']) {
   ;(function walk(current) {
     for (const entry of readdirSync(current, { withFileTypes: true })) {
       const path = join(current, entry.name)
       if (entry.isDirectory()) walk(path)
-      else if (/\.(md|tsx|ts|yml|json)$/.test(entry.name)) sources.push(path)
+      else if (/\.(md|tsx|ts|yml|json|css)$/.test(entry.name)) sources.push(path)
     }
   })(join(web, dir))
 }
