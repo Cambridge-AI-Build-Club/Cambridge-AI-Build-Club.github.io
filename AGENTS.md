@@ -52,7 +52,7 @@ The Jekyll presentation layer (`_layouts/`, `_includes/`, `_sass/`, `assets/`) r
 
 ## Validation and documentation upkeep
 
-Node 20 is the CI runtime. From `web/`, use `npm ci` for lockfile installs, `npm run dev` for development and `npm run build` for static export. Prebuild runs the design guard, the image-reference check and focused calendar tests; the build validates TypeScript and generates redirects. `npm run test:calendar` uses Node's built-in test runner. There is no broader application test suite or repository-wide lint command.
+Node 20 is the CI runtime. From `web/`, use `npm ci` for lockfile installs, `npm run dev` for development and `npm run build` for static export. Prebuild runs the design guard, the image-reference check and focused calendar/content-loader tests; the build validates TypeScript, generates redirects and checks the exported 404 styles and Home social-image URL. `npm run test:calendar` uses Node's built-in test runner. There is no broader application test suite or repository-wide lint command.
 
 For affected UI, inspect fresh 1440px desktop and 375px mobile screenshots, both themes and relevant intermediate widths. Check links, images, keyboard focus, mobile menu/Escape, theme persistence and relevant calendar controls/details/dates. Use targeted accessibility scans with manual review; record incomplete findings honestly. Judge the approved design by screenshots, not legacy CSS parity.
 

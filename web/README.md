@@ -1,6 +1,6 @@
 # Website architecture and development
 
-The Cambridge AI Builder Club website is a Next.js 15 App Router static export. Root content is loaded at build time; the production UI follows the [design contract](../DESIGN.md). See [contributor rules](../AGENTS.md), [documentation index](../docs/README.md) and [deployment runbook](CUTOVER.md).
+The Cambridge AI Builder Club website is a Next.js 15 App Router static export. Content under `web/content/` is loaded at build time; the production UI follows the [design contract](../DESIGN.md). See [contributor rules](../AGENTS.md), [documentation index](../docs/README.md) and [deployment runbook](CUTOVER.md).
 
 ## Commands
 
@@ -12,11 +12,13 @@ npm run dev                            # http://localhost:3000/
 npm run check:design                   # icon and contract policy
 npm run check:content                  # image reference check
 npm run test:calendar                  # focused Node date/data tests
+npm run test:content                   # development refresh and build caches
+npm run test:export                    # branded 404 CSS and Home image (after build)
 npm run build                          # static export into out/
 node scripts/serve.mjs out 4102         # http://localhost:4102/
 ```
 
-Prebuild runs the design guard, the image-reference check and calendar tests; the export validates TypeScript and then generates legacy redirect stubs. `npm install` is appropriate when intentionally updating dependencies; review the lockfile diff. There is no repository-wide lint command or broad application test suite. Local QA previously used Node 24; that historical result does not replace Node 20 Linux CI.
+Prebuild runs the design guard, the image-reference check, calendar tests and content-loader regression tests; the export validates TypeScript, generates legacy redirect stubs, then verifies the branded 404 styles and Home social-image URL. `npm install` is appropriate when intentionally updating dependencies; review the lockfile diff. There is no repository-wide lint command or broad application test suite. Local QA previously used Node 24; that historical result does not replace Node 20 Linux CI.
 
 ## Content and assets
 
@@ -32,13 +34,13 @@ Prebuild runs the design guard, the image-reference check and calendar tests; th
 | `content/ui.yml` | User-visible interface copy shared by the pages and the playground |
 | `public/images/` | Tracked static assets (logos, illustrations, portraits, screenshots) served and exported verbatim |
 
-Content loaders in `lib/content.ts` and `lib/site.ts` read these sources in place. `lib/markdown.tsx` renders prose with react-markdown and heading IDs; marked supplies build-time excerpts. Content lives only under `content/`; do not copy it into components.
+Content loaders in `lib/content.ts` and `lib/site.ts` read these sources in place. `lib/markdown.tsx` renders prose with react-markdown and heading IDs; marked supplies build-time excerpts. Content lives only under `content/`; do not copy it into components. Production builds memoize file, parsed-data and collection reads. Development bypasses these caches so a page refresh picks up content edits.
 
 Static assets live once, under `public/images/`, and the export ships that directory verbatim. Keep generated `out/` and `.next/` out of Git.
 
 ## Templates and styles
 
-- Routes live in `app/`, with shared `SiteDocument`, `SiteFrame`, `Shell`, `SiteSections` and `ArticlePage` components.
+- `app/layout.tsx` supplies the common HTML document and styles, including the exported branded 404. Production routes are grouped under `(site)`; the playground layout supplies its metadata and local surface wrapper. Routes use shared `SiteDocument`, `SiteFrame`, `Shell`, `SiteSections` and `ArticlePage` components.
 - `SiteDocument` loads `styles/claude.css` and `styles/site.css`. The playground uses the same design system and shared content; it is a review surface, excluded from the production sitemap and marked noindex.
 - `components/Icon.tsx` is the only UI-icon entry point: locally bundled Morphicons React binding with Lucide data, server-rendered SVGs and reduced-motion support.
 - Appearance defaults to Warm Paper and persists an optional `cbc-surface` browser preference. Every page title follows the same plain serif style, with natural wrapping.

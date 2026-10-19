@@ -1,7 +1,7 @@
 # User-visible interface copy shared by the production pages and the design
 # playground. Edit the text here; components read this file at build time.
-# One key per distinct string. Strings bound to runtime values (e.g. the
-# "{track} track" chips or "Discover …s" card links) stay in the components.
+# One key per distinct string; runtime-bound fragments use {placeholder}
+# interpolation (e.g. "{seats} open seats", "Events in {month}").
 
 nav:
   menu: Menu
@@ -56,7 +56,10 @@ sections:
 
 calendar:
   loading: Loading calendar…
+  no_script: The interactive calendar needs JavaScript. Enable it to browse months and session details.
   current_month: Current month
+  previous_month: Previous month
+  next_month: Next month
   cancelled: Cancelled
   status_completed: Completed
   status_scheduled: Scheduled
@@ -67,7 +70,26 @@ calendar:
   time: Time
   location: Location
   empty_month: No events scheduled for {month}. Check another month or come back for updates.
+  today_mark: ", today"
+  cancelled_mark: ", cancelled"
+  dates_region: Calendar dates
+  selected_event: Selected event
+  events_in: "Events in {month}"
 
 activities:
   all: All activities
   no_match: No activities match this filter. Choose another category.
+  discover: "Discover {title}"
+  results: "{count} activities shown."
+
+appearance:
+  to_dark: Switch to dark appearance
+  to_light: Switch to light appearance
+
+recruitment:
+  open_seats: "{seats} open seats"
+
+not_found:
+  title: Page not found.
+  body: The page you are looking for does not exist or may have moved.
+  back_home: Back to the homepage

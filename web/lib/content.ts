@@ -33,10 +33,62 @@ export function url(p: string): string {
   return encodeURI(`${basePath}/${stripped}`)
 }
 
-function readContentFile(rel: string): string {
-  // Normalize CRLF so excerpt splitting sees the same content regardless of
-  // checkout settings.
-  return fs.readFileSync(path.join(contentRoot, rel), 'utf8').replace(/\r\n/g, '\n')
+// Content is immutable during a production build. Development bypasses every
+// cache so refreshing a page picks up Markdown, YAML and JSON edits.
+const cacheContent = process.env.NODE_ENV === 'production'
+const fileCache = new Map<string, string>()
+
+export function readContentFile(rel: string): string {
+  const cached = cacheContent ? fileCache.get(rel) : undefined
+  if (cached !== undefined) return cached
+  let text: string
+  try {
+    // Normalize CRLF so excerpt splitting sees the same content regardless of
+    // checkout settings.
+    text = fs.readFileSync(path.join(contentRoot, rel), 'utf8').replace(/\r\n/g, '\n')
+  } catch (cause) {
+    throw new Error(`Failed to read content file: content/${rel}`, { cause })
+  }
+  if (cacheContent) fileCache.set(rel, text)
+  return text
+}
+
+// Build-time shape checks. Loaders assert the keys the templates rely on so a
+// content edit that drops or renames a key fails here with the file and key
+// named, instead of rendering "undefined" or crashing deep in a component.
+export function assertKeys(value: unknown, keys: string[], source: string): asserts value is Record<string, unknown> {
+  if (typeof value !== 'object' || value === null || Array.isArray(value)) {
+    throw new Error(`content/${source}: expected a mapping at the top level`)
+  }
+  for (const key of keys) {
+    if ((value as Record<string, unknown>)[key] === undefined) {
+      throw new Error(`content/${source}: missing required key "${key}"`)
+    }
+  }
+}
+
+export function requireString(value: unknown, key: string, source: string): string {
+  if (typeof value !== 'string' || value === '') {
+    throw new Error(`content/${source}: "${key}" must be a non-empty string`)
+  }
+  return value
+}
+
+export function requireStringList(value: unknown, key: string, source: string): string[] {
+  if (!Array.isArray(value) || value.some((item) => typeof item !== 'string')) {
+    throw new Error(`content/${source}: "${key}" must be a list of strings`)
+  }
+  return value
+}
+
+// Memoize a nullary loader for the build process lifetime (see fileCache above).
+function memo<T>(load: () => T): () => T {
+  let value: T | undefined
+  return () => {
+    if (!cacheContent) return load()
+    if (value === undefined) value = load()
+    return value
+  }
 }
 
 // --- site config (site.yml) ---
@@ -51,9 +103,12 @@ export interface SiteConfig {
   logo: LogoConfig
 }
 
-export function loadConfig(): SiteConfig {
-  return parseYaml(readContentFile('site.yml'))
-}
+export const loadConfig = memo((): SiteConfig => {
+  const data = parseYaml(readContentFile('site.yml'))
+  assertKeys(data, ['title', 'logo'], 'site.yml')
+  assertKeys(data.logo, ['mobile', 'desktop'], 'site.yml#logo')
+  return data as unknown as SiteConfig
+})
 
 // --- data files (data/*) ---
 
@@ -61,11 +116,26 @@ export interface MenuItem {
   name: string
   url: string
   weight: number
+  // Header navigation opt-out: entries with `header: false` (Committees,
+  // Contact) are valid destinations but stay out of the header menu.
+  header?: boolean
 }
 
-export function loadMenus(): { main: MenuItem[]; footer: MenuItem[] } {
-  return parseYaml(readContentFile('data/menus.yml'))
+export interface Menus {
+  main: MenuItem[]
+  footer: MenuItem[]
 }
+
+export const loadMenus = memo((): Menus => {
+  const data = parseYaml(readContentFile('data/menus.yml'))
+  assertKeys(data, ['main', 'footer'], 'data/menus.yml')
+  for (const list of ['main', 'footer'] as const) {
+    if (!Array.isArray(data[list])) throw new Error(`content/data/menus.yml: "${list}" must be a list`)
+    ;(data[list] as unknown[]).forEach((item, index) =>
+      assertKeys(item, ['name', 'url', 'weight'], `data/menus.yml#${list}[${index}]`))
+  }
+  return data as unknown as Menus
+})
 
 export interface ProjectEntry {
   slug: string
@@ -81,25 +151,35 @@ export interface ProjectEntry {
   features: { title: string; description: string }[]
 }
 
-export function loadProjects(): ProjectEntry[] {
-  return parseYaml(readContentFile('data/projects.yml'))
-}
+export const loadProjects = memo((): ProjectEntry[] => {
+  const data = parseYaml(readContentFile('data/projects.yml'))
+  if (!Array.isArray(data)) throw new Error('content/data/projects.yml: expected a list')
+  data.forEach((entry, index) =>
+    assertKeys(entry, ['slug', 'title', 'description', 'image'], `data/projects.yml[${index}]`))
+  return data as ProjectEntry[]
+})
 
-export function loadSignup(): { form: string } {
-  return parseYaml(readContentFile('data/signup.yml'))
-}
+export const loadSignup = memo((): { form: string } => {
+  const data = parseYaml(readContentFile('data/signup.yml'))
+  assertKeys(data, ['form'], 'data/signup.yml')
+  return data as unknown as { form: string }
+})
 
-export function loadContact(): {
+export const loadContact = memo((): {
   email?: string
   phone?: string
   contact_button_link: string
-} {
-  return parseYaml(readContentFile('data/contact.yml'))
-}
+} => {
+  const data = parseYaml(readContentFile('data/contact.yml'))
+  assertKeys(data, ['contact_button_link'], 'data/contact.yml')
+  return data as unknown as { email?: string; phone?: string; contact_button_link: string }
+})
 
-export function loadDiscord(): { discord: string } {
-  return parseYaml(readContentFile('data/discord.yml'))
-}
+export const loadDiscord = memo((): { discord: string } => {
+  const data = parseYaml(readContentFile('data/discord.yml'))
+  assertKeys(data, ['discord'], 'data/discord.yml')
+  return data as unknown as { discord: string }
+})
 
 export interface SocialItem {
   name: string
@@ -107,23 +187,31 @@ export interface SocialItem {
   image: string
 }
 
-export function loadSocial(): SocialItem[] {
-  return JSON.parse(readContentFile('data/social.json'))
-}
+export const loadSocial = memo((): SocialItem[] => {
+  const data: unknown = JSON.parse(readContentFile('data/social.json'))
+  if (!Array.isArray(data)) throw new Error('content/data/social.json: expected a list')
+  data.forEach((item, index) => assertKeys(item, ['name', 'link', 'image'], `data/social.json[${index}]`))
+  return data as SocialItem[]
+})
 
 export interface FeatureItem {
+  // Plural display title ("Demos"), paired to the singular collection title
+  // ("Demo"); also supplies the card link label so components never pluralize.
   title: string
   description?: string
   image?: { url: string; width: number; height: number }
 }
 
-export function loadFeatures(): FeatureItem[] {
-  return JSON.parse(readContentFile('data/features.json'))
-}
+export const loadFeatures = memo((): FeatureItem[] => {
+  const data: unknown = JSON.parse(readContentFile('data/features.json'))
+  if (!Array.isArray(data)) throw new Error('content/data/features.json: expected a list')
+  data.forEach((item, index) => assertKeys(item, ['title'], `data/features.json[${index}]`))
+  return data as FeatureItem[]
+})
 
-export function loadSeo(): { copyright_text?: string } {
+export const loadSeo = memo((): { copyright_text?: string } => {
   return parseYaml(readContentFile('data/seo.yml'))
-}
+})
 
 // --- interface copy (ui.yml) ---
 
@@ -180,7 +268,10 @@ export interface UiCopy {
   }
   calendar: {
     loading: string
+    no_script: string
     current_month: string
+    previous_month: string
+    next_month: string
     cancelled: string
     status_completed: string
     status_scheduled: string
@@ -191,13 +282,54 @@ export interface UiCopy {
     time: string
     location: string
     empty_month: string
+    today_mark: string
+    cancelled_mark: string
+    dates_region: string
+    selected_event: string
+    events_in: string
   }
-  activities: { all: string; no_match: string }
+  activities: { all: string; no_match: string; discover: string; results: string }
+  appearance: { to_dark: string; to_light: string }
+  recruitment: { open_seats: string }
+  not_found: { title: string; body: string; back_home: string }
 }
 
-export function loadUi(): UiCopy {
-  return parseYaml(readContentFile('ui.yml'))
+const UI_SECTIONS: Record<string, string[]> = {
+  nav: ['menu', 'close'],
+  shared: [
+    'join_club', 'meet_club', 'explore_club', 'see_what_we_do', 'join_discord',
+    'say_hello_discord', 'join_committee', 'explore_committee_roles', 'apply_committee',
+    'apply_now', 'open_calendar', 'view_calendar', 'read_journal', 'read_story',
+    'meet_team_leads', 'email_club', 'email_us', 'committee_applications', 'calendar',
+    'about', 'contact', 'community', 'linkedin', 'all_stories', 'see_our_projects',
+    'view_source', 'footer_motto', 'collaboration',
+  ],
+  sections: [
+    'find_starting_point', 'ideas_worth_sharing', 'build_community_too',
+    'bring_your_ideas', 'make_time_to_build', 'make_time_body', 'find_next_session',
+    'find_next_body', 'start_conversation', 'good_community', 'club_calendar',
+    'curious_minds', 'from_what_if', 'committee_note', 'rolling_applications',
+  ],
+  calendar: [
+    'loading', 'no_script', 'current_month', 'previous_month', 'next_month',
+    'cancelled', 'status_completed', 'status_scheduled', 'scroll_days',
+    'events_this_month', 'scroll_more', 'date', 'time', 'location', 'empty_month',
+    'today_mark', 'cancelled_mark', 'dates_region', 'selected_event', 'events_in',
+  ],
+  activities: ['all', 'no_match', 'discover', 'results'],
+  appearance: ['to_dark', 'to_light'],
+  recruitment: ['open_seats'],
+  not_found: ['title', 'body', 'back_home'],
 }
+
+export const loadUi = memo((): UiCopy => {
+  const data = parseYaml(readContentFile('ui.yml'))
+  assertKeys(data, Object.keys(UI_SECTIONS), 'ui.yml')
+  for (const [section, keys] of Object.entries(UI_SECTIONS)) {
+    assertKeys(data[section], keys, `ui.yml#${section}`)
+  }
+  return data as unknown as UiCopy
+})
 
 // --- markdown helpers (Liquid filter parity) ---
 
@@ -219,29 +351,10 @@ export function firstParagraph(body: string): string {
   return body.split('\n\n')[0] ?? ''
 }
 
-// Liquid's truncate: the ellipsis counts towards the length.
-export function truncate(s: string, length: number): string {
-  if (s.length <= length) return s
-  return s.slice(0, length - 3) + '...'
-}
-
 // `| markdownify | strip_html` (no truncation - used where the copy is written to fit)
 export function markdownifyStrip(md: string): string {
   const html = marked.parse(md, { async: false })
   return html.replace(/<[^>]*>/g, '')
-}
-
-// `| markdownify | strip_html | truncate: N`
-export function markdownifyStripTruncate(md: string, length: number): string {
-  return truncate(markdownifyStrip(md), length)
-}
-
-// `{{ team.excerpt | truncate: N }}`: Jekyll's excerpt renders to the *HTML* of the
-// first paragraph, and the template truncates that HTML string directly - the closing
-// </p> gets cut off and browsers auto-close it. Replicated verbatim.
-export function excerptHtmlTruncate(body: string, length: number): string {
-  const html = marked.parse(firstParagraph(body), { async: false })
-  return truncate(html, length)
 }
 
 // --- pages (pages/) and collections (events/, blogs/, team/) ---
@@ -263,19 +376,31 @@ export interface CollectionEntry extends Record<string, unknown> {
   body: string
 }
 
+const collectionCache = new Map<string, CollectionEntry[]>()
+
 export function loadCollection(dir: string, sortBy?: string): CollectionEntry[] {
+  const cacheKey = sortBy ? `${dir}#${sortBy}` : dir
+  const cached = cacheContent ? collectionCache.get(cacheKey) : undefined
+  if (cached) return cached
   const full = path.join(contentRoot, dir)
-  const entries: CollectionEntry[] = fs
-    .readdirSync(full)
-    .filter((f) => f.endsWith('.md'))
-    .map((f) => {
-      const { data, content } = matter(readContentFile(path.join(dir, f)))
-      return { slug: f.replace(/\.md$/, ''), ...data, body: smartQuotes(content) }
-    })
-  if (sortBy) {
-    entries.sort(
-      (a, b) => Number(a[sortBy] ?? Infinity) - Number(b[sortBy] ?? Infinity),
-    )
+  let files: string[]
+  try {
+    files = fs.readdirSync(full).filter((f) => f.endsWith('.md'))
+  } catch (cause) {
+    throw new Error(`Failed to list collection: content/${dir}`, { cause })
   }
+  const entries: CollectionEntry[] = files.map((f) => {
+    const { data, content } = matter(readContentFile(path.join(dir, f)))
+    return { slug: f.replace(/\.md$/, ''), ...data, body: smartQuotes(content) }
+  })
+  if (sortBy) {
+    // Non-numeric weights sort last instead of producing NaN comparisons.
+    const weight = (entry: CollectionEntry) => {
+      const value = Number(entry[sortBy])
+      return Number.isFinite(value) ? value : Infinity
+    }
+    entries.sort((a, b) => weight(a) - weight(b))
+  }
+  if (cacheContent) collectionCache.set(cacheKey, entries)
   return entries
 }

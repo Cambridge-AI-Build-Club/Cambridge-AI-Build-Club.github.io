@@ -6,7 +6,7 @@
 //   node scripts/serve.mjs out 4102
 import { createServer } from 'node:http'
 import { statSync, readFileSync, existsSync } from 'node:fs'
-import { dirname, join, normalize, extname, resolve } from 'node:path'
+import { dirname, join, normalize, extname, resolve, sep } from 'node:path'
 import { fileURLToPath } from 'node:url'
 
 const webDir = dirname(dirname(fileURLToPath(import.meta.url)))
@@ -36,10 +36,13 @@ function resolveFile(urlPath) {
   if (!urlPath.startsWith(prefix)) return null
   let rel = urlPath.slice(prefix.length)
   if (rel === '' || rel === '/') rel = '/index.html'
-  const base = normalize(rel).replace(/^(\.\.[/\\])+/, '')
-  const candidates = [base, base + '.html', join(base, 'index.html')]
+  const candidates = [rel, rel + '.html', join(rel, 'index.html')]
   for (const c of candidates) {
-    const full = join(root, c)
+    // Strip leading separators (normalize() turns "/x" into "\x" on Windows,
+    // which resolve() would treat as absolute), then confine to the root.
+    const full = resolve(root, normalize(c).replace(/^[/\\]+/, ''))
+    // Path traversal guard: anything escaping the served root is a miss.
+    if (full !== root && !full.startsWith(root + sep)) continue
     if (existsSync(full) && statSync(full).isFile()) return full
   }
   return null
@@ -57,6 +60,13 @@ createServer((req, res) => {
   }
   const file = resolveFile(path)
   if (!file) {
+    // Mirror GitHub Pages: unknown URLs render the exported branded 404 page.
+    const fallback = resolveFile('/404.html')
+    if (fallback) {
+      res.writeHead(404, { 'Content-Type': MIME['.html'] })
+      res.end(readFileSync(fallback))
+      return
+    }
     res.writeHead(404, { 'Content-Type': 'text/plain' })
     res.end('Not found: ' + path)
     return
