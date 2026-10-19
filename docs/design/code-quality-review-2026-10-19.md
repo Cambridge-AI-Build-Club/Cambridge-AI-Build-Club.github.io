@@ -1,6 +1,6 @@
 # Code-quality and UX branch review
 
-Reviewed on 19 October 2026 against `main` at `ddf073b`. The inherited branch contained `f627812` and `47792a1`. This record describes the follow-up review and local verification; it is not a publication receipt.
+Reviewed on 19 October 2026 against `main` at `ddf073b`. The inherited branch contained `f627812` and `47792a1`. This record separates the follow-up review and local verification from the publication receipt at the end.
 
 The shared types, contextual content errors, data-driven navigation, common journal card and improved calendar breakpoint are useful changes. The review found the regressions below and corrected them while preserving the approved design and factual content.
 
@@ -40,4 +40,14 @@ The global root layout was recorded in DESIGN.md before implementation. Its save
 - A future owner-supplied wide-format club logo could improve the desktop header. The existing artwork decision remains open; this review does not crop or replace it.
 - Consider stronger value/type validation for the remaining presence-only content assertions when those schemas next change. Current source data builds successfully; no additional content framework is introduced here.
 - Real screen-reader testing would complement the keyboard, semantic-role and axe checks.
-- Local preview: `http://localhost:4102/`. Owner testing/approval, PR build CI, squash merge and final Pages/live verification remain separate gates. No merge or deployment is claimed by this local report.
+- Local preview: `http://localhost:4102/`. At local review, owner testing/approval, PR build CI, squash merge and final Pages/live verification were separate pending gates; their completion is recorded below.
+
+
+## Publication receipt — 19 October 2026
+
+- The owner tested the local implementation and explicitly approved the merge in this review conversation.
+- [PR #35](https://github.com/Cambridge-AI-Build-Club/Cambridge-AI-Build-Club.github.io/pull/35) passed **Build Next.js site (no deploy)** on head `451d3da29ce747be3e90032a7c60a2e8f54cfcfd` ([run 39331169761](https://github.com/Cambridge-AI-Build-Club/Cambridge-AI-Build-Club.github.io/actions/runs/39331169761)). It squash-merged at 22:56 Europe/London as `7df1210823c07590259ac411c3a259aa8508185f`.
+- Pages settings were read live as `build_type: workflow`. [Deployment 39331336892](https://github.com/Cambridge-AI-Build-Club/Cambridge-AI-Build-Club.github.io/actions/runs/39331336892) completed successfully with that exact merge SHA.
+- Production checks used fresh `?verify=7df1210-1792447067332` queries. Home, About, Explore, Calendar, Community, Journal, Projects, Contact, Committees and a hidden member detail URL returned 200 with descriptions and stylesheet links. An unknown URL returned the styled branded 404 with no mobile document overflow. Hero/portrait/project images and the `/CUABC-Web/calendar/` redirect stub returned 200. The sitemap excludes all four hidden member URLs while those detail routes remain exported.
+- Live interactions passed: pre-paint saved charcoal restoration across reload, correct Home social image, Explore radio arrows/results, mobile-menu inert state/Escape/desktop resize, and Calendar current/next-month/empty-state controls. No browser page errors were observed. Fresh live Home, mobile Calendar and mobile 404 screenshots were visually inspected: [Home](code-quality-review-2026-10-19/live-home-1440-charcoal.png), [Calendar](code-quality-review-2026-10-19/live-calendar-375-charcoal.png), [404](code-quality-review-2026-10-19/live-404-375-charcoal.png).
+- This receipt records the site release; the documentation-only receipt publication does not change the rendered site.
