@@ -33,14 +33,13 @@ export function url(p: string): string {
   return encodeURI(`${basePath}/${stripped}`)
 }
 
-// Content is immutable for the lifetime of a build process, so every loader is
-// memoized at module level: a page render that needs the same file twice (Shell,
-// sections, sitemap, generateStaticParams) reads disk once. In `next dev` a server
-// restart picks up edits, matching how the site is worked on.
+// Content is immutable during a production build. Development bypasses every
+// cache so refreshing a page picks up Markdown, YAML and JSON edits.
+const cacheContent = process.env.NODE_ENV === 'production'
 const fileCache = new Map<string, string>()
 
 export function readContentFile(rel: string): string {
-  const cached = fileCache.get(rel)
+  const cached = cacheContent ? fileCache.get(rel) : undefined
   if (cached !== undefined) return cached
   let text: string
   try {
@@ -50,7 +49,7 @@ export function readContentFile(rel: string): string {
   } catch (cause) {
     throw new Error(`Failed to read content file: content/${rel}`, { cause })
   }
-  fileCache.set(rel, text)
+  if (cacheContent) fileCache.set(rel, text)
   return text
 }
 
@@ -86,6 +85,7 @@ export function requireStringList(value: unknown, key: string, source: string): 
 function memo<T>(load: () => T): () => T {
   let value: T | undefined
   return () => {
+    if (!cacheContent) return load()
     if (value === undefined) value = load()
     return value
   }
@@ -380,7 +380,7 @@ const collectionCache = new Map<string, CollectionEntry[]>()
 
 export function loadCollection(dir: string, sortBy?: string): CollectionEntry[] {
   const cacheKey = sortBy ? `${dir}#${sortBy}` : dir
-  const cached = collectionCache.get(cacheKey)
+  const cached = cacheContent ? collectionCache.get(cacheKey) : undefined
   if (cached) return cached
   const full = path.join(contentRoot, dir)
   let files: string[]
@@ -401,6 +401,6 @@ export function loadCollection(dir: string, sortBy?: string): CollectionEntry[] 
     }
     entries.sort((a, b) => weight(a) - weight(b))
   }
-  collectionCache.set(cacheKey, entries)
+  if (cacheContent) collectionCache.set(cacheKey, entries)
   return entries
 }

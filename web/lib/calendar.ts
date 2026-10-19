@@ -15,7 +15,7 @@ export interface CalendarEvent {
 let cache: CalendarEvent[] | undefined
 
 export function loadCalendar(): CalendarEvent[] {
-  if (cache) return cache
+  if (process.env.NODE_ENV === 'production' && cache) return cache
   const data: unknown = JSON.parse(readContentFile('data/calendar.json'))
   if (!Array.isArray(data)) throw new Error('content/data/calendar.json: expected a list')
   data.forEach((event, index) => {
@@ -31,6 +31,6 @@ export function loadCalendar(): CalendarEvent[] {
       throw new Error(`${where}: status must be one of ${STATUSES.join(', ')} (got "${String(status)}")`)
     }
   })
-  cache = data as CalendarEvent[]
-  return cache
+  if (process.env.NODE_ENV === 'production') cache = data as CalendarEvent[]
+  return data as CalendarEvent[]
 }

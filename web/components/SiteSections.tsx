@@ -48,7 +48,7 @@ export function MemberCards() {
   const members = loadVisibleMembers()
   return <div className="lab-members">{members.map((member) => <a className={`lab-member${member.promoted ? '' : ' site-member-small'}`} href={member.href} key={member.href} aria-label={member.name}>
     {member.image && <img src={member.image} alt="" width={440} height={440} loading="lazy" />}
-    <div aria-hidden="true"><h3>{member.name}<Arrow /></h3><p>{member.role}</p></div>
+    <div><h3>{member.name}<Arrow /></h3><p>{member.role}</p></div>
   </a>)}</div>
 }
 
@@ -70,9 +70,9 @@ export function JournalCard({ entry, ui, heading, stripPrefix = false }: {
   const Heading = heading
   return (
     <a className="site-journal-card" href={url(`/blogs/${entry.slug}/`)} aria-label={title}>
-      <p className="site-publication-date" aria-hidden="true">{formatPublicationDate(entry.date)}</p>
-      <Heading aria-hidden="true">{title} <Arrow /></Heading>
-      <p aria-hidden="true">{summary}</p>
+      <p className="site-publication-date">{formatPublicationDate(entry.date)}</p>
+      <Heading>{title} <Arrow /></Heading>
+      <p>{summary}</p>
       <span className="lab-card-link" aria-hidden="true">{ui.shared.read_story} <Arrow /></span>
     </a>
   )

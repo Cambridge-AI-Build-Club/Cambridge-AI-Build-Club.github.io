@@ -1,8 +1,7 @@
 import type { ReactNode } from 'react'
 import { SiteDocument } from '@/components/SiteDocument'
 
-// Single root layout for every production route; the playground keeps its own
-// root layout in the (playground) group.
+// The shared document also supplies styles to the global not-found export.
 export default function Layout({ children }: Readonly<{ children: ReactNode }>) {
   return <SiteDocument>{children}</SiteDocument>
 }

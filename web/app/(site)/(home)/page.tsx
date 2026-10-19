@@ -12,9 +12,10 @@ export default function HomePage() {
   const site = loadSiteData()
   const blogs = loadCollection('blogs', 'weight').slice(0, 3)
   const ui = loadUi()
-  const hero = url(requireString(page.intro_image, 'intro_image', 'pages/index.md'))
+  const heroPath = requireString(page.intro_image, 'intro_image', 'pages/index.md')
+  const hero = url(heroPath)
   return <>
-    <PageMeta title={site.title} description={page.description} path="/" image={absoluteUrl(hero)} />
+    <PageMeta title={site.title} description={page.description} path="/" image={absoluteUrl(`/${heroPath.replace(/^\/+/, '')}`)} />
     <Shell path="/">
       <section className="lab-hero">
         <div className="lab-hero-copy">

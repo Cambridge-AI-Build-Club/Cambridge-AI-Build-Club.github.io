@@ -2,6 +2,7 @@
 
 import { useEffect, useRef, useState } from 'react'
 import { Arrow, Icon } from '@/components/Icon'
+import { ActivityFilters } from '@/components/ActivityFilters'
 import { ClaudeCollaboration } from '@/components/ClaudeCollaboration'
 import type { UiCopy } from '@/lib/content'
 import type { Activity } from '@/lib/site'
@@ -54,11 +55,7 @@ function Activities({ data, full = false, filter, onFilter, onExplore }: {
         {!full && <button className="lab-text-link" onClick={onExplore}>{data.ui.shared.explore_club} <Arrow /></button>}
       </div>
       {full && (
-        <div className="lab-filters" role="radiogroup" aria-label="Filter activities">
-          {['All', ...data.events.map((event) => event.title)].map((title) => (
-            <button key={title} role="radio" aria-checked={filter === title} onClick={() => onFilter(title)}>{title === 'All' ? data.ui.activities.all : title}</button>
-          ))}
-        </div>
+        <ActivityFilters titles={data.events.map((event) => event.title)} selected={filter} allLabel={data.ui.activities.all} onSelect={onFilter} />
       )}
       {full && (
         <p className="site-visually-hidden" role="status">
@@ -72,8 +69,8 @@ function Activities({ data, full = false, filter, onFilter, onExplore }: {
               {event.image && <img src={event.image} alt="" width={80} height={80} loading="lazy" />}
             </div>
             <div className="lab-activity-copy">
-              <h3 aria-hidden="true">{event.title}<Arrow /></h3>
-              <p aria-hidden="true">{event.description}</p>
+              <h3>{event.title}<Arrow /></h3>
+              <p>{event.description}</p>
               <span className="lab-card-link" aria-hidden="true">{event.linkLabel} <Arrow /></span>
             </div>
           </a>
@@ -210,7 +207,7 @@ export function DesignPlayground({ data }: { data: PlaygroundData }) {
               <div className="lab-members">{data.members.map((member) => (
                 <a className="lab-member" key={member.name} href={member.href} aria-label={member.name}>
                   {member.image && <img src={member.image} alt="" width={440} height={440} loading="lazy" />}
-                  <div aria-hidden="true"><h3>{member.name}<Arrow /></h3><p>{member.role}</p></div>
+                  <div><h3>{member.name}<Arrow /></h3><p>{member.role}</p></div>
                 </a>
               ))}</div>
             </section>

@@ -1,7 +1,7 @@
 import {
   firstParagraph, loadCollection, loadConfig, loadContact, loadDiscord,
   loadFeatures, loadMenus, loadPage, loadSeo, loadSignup, markdownifyStrip,
-  requireString, requireStringList, url,
+  loadUi, requireString, requireStringList, url,
 } from '@/lib/content'
 
 // Shared with SiteFrame; keep the shape defined once here.
@@ -62,6 +62,7 @@ export interface Activity {
 }
 
 export function loadActivities(): Activity[] {
+  const ui = loadUi()
   const byNormalizedTitle = new Map(
     loadFeatures().map((item) => [item.title.toLowerCase().replace(/s$/, ''), item]),
   )
@@ -73,7 +74,7 @@ export function loadActivities(): Activity[] {
       description: markdownifyStrip(firstParagraph(entry.body)).trim(),
       href: url(`/events/${entry.slug}/`),
       image: feature?.image ? url(feature.image.url) : undefined,
-      linkLabel: feature ? `Discover ${feature.title.toLowerCase()}` : title,
+      linkLabel: feature ? ui.activities.discover.replace('{title}', feature.title.toLowerCase()) : title,
     }
   })
 }

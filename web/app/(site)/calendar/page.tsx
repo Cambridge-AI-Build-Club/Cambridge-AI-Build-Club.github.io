@@ -13,7 +13,7 @@ export default function CalendarPage() {
     <Shell path="/calendar/">
       <PageIntro title={ui.sections.club_calendar} description={page.description} />
       <section className="lab-section site-calendar-section" aria-label="Club calendar">
-        <noscript><p className="site-calendar-loading">{ui.calendar.no_script}</p></noscript>
+        <noscript><style>{'.site-calendar-loading[role="status"] { display: none; }'}</style><p className="site-calendar-loading">{ui.calendar.no_script}</p></noscript>
         <CalendarApp events={loadCalendar()} ui={ui} />
       </section>
       <JoinSection />

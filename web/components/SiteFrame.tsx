@@ -24,6 +24,16 @@ export function SiteFrame({ data, ui, path, children }: { data: SiteData; ui: Ui
   }, [])
 
   useEffect(() => {
+    const desktop = window.matchMedia('(min-width: 1101px)')
+    const dismissOnDesktop = () => {
+      if (desktop.matches) setMenuOpen(false)
+    }
+    dismissOnDesktop()
+    desktop.addEventListener('change', dismissOnDesktop)
+    return () => desktop.removeEventListener('change', dismissOnDesktop)
+  }, [])
+
+  useEffect(() => {
     if (!menuOpen) return
     const dismiss = (event: KeyboardEvent) => {
       if (event.key === 'Escape') {

@@ -2,14 +2,16 @@
   "name": "cuabc-web-next",
   "version": "0.1.0",
   "private": true,
-  "description": "Next.js rebuild of the CUABC Jekyll site. Content is read from the repository-root sources at build time - do not duplicate content into this directory.",
+  "description": "Next.js static site for Cambridge AI Builder Club. Build-time content lives under web/content/.",
   "scripts": {
     "dev": "next dev",
-    "prebuild": "npm run check:design && npm run check:content && npm run test:calendar",
-    "build": "next build && node scripts/gen-redirects.mjs",
+    "prebuild": "npm run check:design && npm run check:content && npm run test:calendar && npm run test:content",
+    "build": "next build && node scripts/gen-redirects.mjs && npm run test:export",
     "check:design": "node scripts/check-design.mjs",
     "check:content": "node scripts/check-content.mjs",
-    "test:calendar": "node --test scripts/calendar-dates.test.mjs"
+    "test:calendar": "node --test scripts/calendar-dates.test.mjs",
+    "test:content": "node --test scripts/content.test.mjs",
+    "test:export": "node --test scripts/export.test.mjs"
   },
   "dependencies": {
     "gray-matter": "^4.0.3",

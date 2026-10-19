@@ -29,6 +29,7 @@ The reports below retain their original QA results, screenshots and limitations.
 | [Label/hero QA](design/remove-labels-qa.md) | Final coordinated hero and earlier superseded collaboration revisions |
 | [Calendar QA](design/calendar-qa.md) | Runtime London date, consecutive navigation, fair records, default selection and manual contrast review |
 | [Page-title QA](design/page-titles-qa.md) | Shared plain h1 typography, natural wrapping and route coverage |
+| [Code-quality and UX follow-up](design/code-quality-review-2026-10-19.md) | Review of the inherited branch, corrected regressions and dated local verification |
 
 Asset provenance: [official Claude sources](design/claude-brand-sources.md), [authored activity illustrations](design/activity-artwork.md), [unused generated concept](design/generated-artwork.md). Programme/asset-source checks retain their original dates; reverify factual claims before changing or republishing them. Team portrait framing, optimization and publication are recorded in the [design change record](design/change-record.md#9-october-2026--publication-receipt-for-the-team-portrait-change) with evidence in [the portrait folder](design/team-portraits-2026-10-09/). The inactive compact-card portrait variant still needs a design decision before use.
 

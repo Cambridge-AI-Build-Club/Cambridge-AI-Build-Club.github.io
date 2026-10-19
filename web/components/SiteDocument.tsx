@@ -11,7 +11,7 @@ const restoreSurface = `try{if(localStorage.getItem('cbc-surface')==='charcoal')
 
 export function SiteDocument({ children }: { children: ReactNode }) {
   return (
-    <html lang="en" data-surface="paper">
+    <html lang="en" data-surface="paper" suppressHydrationWarning>
       <head>
         <link rel="icon" type="image/png" href={url('/images/favicon-32x32.png')} />
         <script dangerouslySetInnerHTML={{ __html: restoreSurface }} />

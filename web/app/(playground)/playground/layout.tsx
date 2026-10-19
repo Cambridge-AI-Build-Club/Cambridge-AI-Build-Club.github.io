@@ -1,6 +1,5 @@
 import type { Metadata } from 'next'
 import type { ReactNode } from 'react'
-import './playground.css'
 
 export const metadata: Metadata = {
   title: 'Cambridge AI Builder Club | Design playground',
@@ -10,8 +9,6 @@ export const metadata: Metadata = {
 
 export default function PlaygroundLayout({ children }: Readonly<{ children: ReactNode }>) {
   return (
-    <html lang="en">
-      <body className="builder-playground">{children}</body>
-    </html>
+    <div className="builder-playground">{children}</div>
   )
 }
